@@ -35,10 +35,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const perPage = parseInt(req.query.perPage as string) || 10;
   
   // Input validation
-  if (page < 1 || perPage < 1 || perPage > 10000) {
+  if (page < 1 || perPage < 1 || perPage > 100) {
     return res.status(400).send(JSON.stringify({
       error: 'Bad Request',
-      message: 'Invalid pagination parameters. Page number must be at least 1, and quotes per page must be between 1 and 10000.'
+      message: 'Invalid pagination parameters. Page number must be at least 1, and quotes per page must be between 1 and 100.'
     }, null, 2));
   }
   

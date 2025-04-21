@@ -64,7 +64,7 @@
     "response": "Yanıt",
     "exampleUsage": "Örnek Kullanım",
     "pageParamDescription": "Sayfa numarası (varsayılan: 1)",
-    "perPageParamDescription": "Sayfa başına alıntı sayısı (varsayılan: 10, maksimum: 10000)",
+    "perPageParamDescription": "Sayfa başına alıntı sayısı (varsayılan: 10, maksimum: 100)",
     "fetchAllQuotesPaginated": "Tüm alıntıları getir (sayfalanmış)",
     "fetchQuotesWithPagination": "Sayfalama parametreleriyle alıntıları getir",
     "fetchRandomQuote": "Rastgele bir alıntı al",

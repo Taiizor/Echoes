@@ -64,7 +64,7 @@
     "response": "Odpowiedź",
     "exampleUsage": "Przykład użycia",
     "pageParamDescription": "Numer strony (domyślnie: 1)",
-    "perPageParamDescription": "Liczba cytatów na stronę (domyślnie: 10, maksymalnie: 10000)",
+    "perPageParamDescription": "Liczba cytatów na stronę (domyślnie: 10, maksymalnie: 100)",
     "fetchAllQuotesPaginated": "Pobierz wszystkie cytaty (paginowane)",
     "fetchQuotesWithPagination": "Pobierz cytaty z parametrami paginacji",
     "fetchRandomQuote": "Pobierz losowy cytat",

@@ -30,7 +30,7 @@ export default function useQuotes() {
   }, []);
   
   // Fetch paginated data from API
-  const fetchQuotesPaginated = async (page = 1, perPage = 10000) => {
+  const fetchQuotesPaginated = async (page = 1, perPage = 100) => {
     setLoading(true);
     setError(null);
     

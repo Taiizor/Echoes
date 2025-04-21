@@ -64,7 +64,7 @@
     "response": "Response",
     "exampleUsage": "Example Usage",
     "pageParamDescription": "Page number (default: 1)",
-    "perPageParamDescription": "Number of quotes per page (default: 10, maximum: 10000)",
+    "perPageParamDescription": "Number of quotes per page (default: 10, maximum: 100)",
     "fetchAllQuotesPaginated": "Fetch all quotes (paginated)",
     "fetchQuotesWithPagination": "Fetch quotes with pagination parameters",
     "fetchRandomQuote": "Fetch a random quote",

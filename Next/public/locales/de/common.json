@@ -64,7 +64,7 @@
     "response": "Antwort",
     "exampleUsage": "Beispielanwendung",
     "pageParamDescription": "Seitennummer (Standard: 1)",
-    "perPageParamDescription": "Anzahl der Zitate pro Seite (Standard: 10, Maximum: 10000)",
+    "perPageParamDescription": "Anzahl der Zitate pro Seite (Standard: 10, Maximum: 100)",
     "fetchAllQuotesPaginated": "Alle Zitate abrufen (paginiert)",
     "fetchQuotesWithPagination": "Zitate mit Paginierungsparametern abrufen",
     "fetchRandomQuote": "Ein zufälliges Zitat abrufen",

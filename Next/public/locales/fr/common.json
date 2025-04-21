@@ -64,7 +64,7 @@
     "response": "Réponse",
     "exampleUsage": "Exemple d'Utilisation",
     "pageParamDescription": "Numéro de page (par défaut: 1)",
-    "perPageParamDescription": "Nombre de citations par page (par défaut: 10, maximum: 10000)",
+    "perPageParamDescription": "Nombre de citations par page (par défaut: 10, maximum: 100)",
     "fetchAllQuotesPaginated": "Récupérer toutes les citations (paginées)",
     "fetchQuotesWithPagination": "Récupérer des citations avec paramètres de pagination",
     "fetchRandomQuote": "Récupérer une citation aléatoire",
