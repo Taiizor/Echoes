@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow:
-
-Sitemap: https://echoes.soferity.com/sitemap.xml
