@@ -8,12 +8,50 @@ export interface Quote {
   quote: string;
 }
 
+export interface PaginationData {
+  total: number;
+  page: number;
+  perPage: number;
+  totalPages: number;
+}
+
+export interface QuotesResponse {
+  data: Quote[];
+  pagination: PaginationData;
+}
+
 export default function useQuotes() {
   const [quotes, setQuotes] = useState<Quote[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
   
   useEffect(() => {
     setQuotes(quotesData);
   }, []);
+  
+  // Fetch paginated data from API
+  const fetchQuotesPaginated = async (page = 1, perPage = 10000) => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      const response = await fetch(`/api/quotes?page=${page}&perPage=${perPage}`);
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'An error occurred in the API request');
+      }
+      
+      const data: QuotesResponse = await response.json();
+      return data;
+    } catch (err) {
+      const error = err instanceof Error ? err : new Error('An unknown error occurred');
+      setError(error);
+      return null;
+    } finally {
+      setLoading(false);
+    }
+  };
   
   // Return all quotes
   const getAllQuotes = () => quotes;
@@ -80,12 +118,15 @@ export default function useQuotes() {
   };
 
   return {
+    error,
     quotes,
+    loading,
     getAllQuotes,
     getQuoteById,
     getRandomQuote,
-    getRandomQuoteByAuthor,
+    fetchQuotesPaginated,
     getRandomQuoteByLang,
+    getRandomQuoteByAuthor,
     getRandomQuoteByAuthorAndLang
   };
 } 
