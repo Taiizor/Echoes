@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "lang": "en",
+    "author": "Albert Einstein",
+    "quote": "Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world."
+  },
+  {
+    "id": 2,
+    "lang": "en",
+    "author": "Oscar Wilde",
+    "quote": "Be yourself; everyone else is already taken."
+  },
+  {
+    "id": 3,
+    "lang": "en",
+    "author": "Maya Angelou",
+    "quote": "I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel."
+  },
+  {
+    "id": 4,
+    "lang": "en",
+    "author": "Nelson Mandela",
+    "quote": "It always seems impossible until it's done."
+  },
+  {
+    "id": 5,
+    "lang": "en",
+    "author": "Jane Austen",
+    "quote": "The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid."
+  },
+  {
+    "id": 6,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Hayatta en hakiki mürşit ilimdir."
+  },
+  {
+    "id": 7,
+    "lang": "tr",
+    "author": "Nazım Hikmet",
+    "quote": "Yaşamak bir ağaç gibi tek ve hür ve bir orman gibi kardeşçesine."
+  },
+  {
+    "id": 8,
+    "lang": "tr",
+    "author": "Yunus Emre",
+    "quote": "İlim ilim bilmektir, ilim kendin bilmektir."
+  },
+  {
+    "id": 9,
+    "lang": "tr",
+    "author": "Mevlana",
+    "quote": "Ya olduğun gibi görün, ya göründüğün gibi ol."
+  },
+  {
+    "id": 10,
+    "lang": "tr",
+    "author": "Ahmet Hamdi Tanpınar",
+    "quote": "Her mevsim bir başka güzel, fakat hepsi geçiyor."
+  },
+  {
+    "id": 11,
+    "lang": "fr",
+    "author": "Antoine de Saint-Exupéry",
+    "quote": "On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux."
+  },
+  {
+    "id": 12,
+    "lang": "fr",
+    "author": "Victor Hugo",
+    "quote": "La musique exprime ce qui ne peut être dit et sur quoi il est impossible de rester silencieux."
+  },
+  {
+    "id": 13,
+    "lang": "es",
+    "author": "Miguel de Cervantes",
+    "quote": "La libertad, Sancho, es uno de los más preciosos dones que a los hombres dieron los cielos."
+  },
+  {
+    "id": 14,
+    "lang": "de",
+    "author": "Johann Wolfgang von Goethe",
+    "quote": "Was immer du tun kannst oder träumst es zu können, fang damit an."
+  },
+  {
+    "id": 15,
+    "lang": "ar",
+    "author": "جبران خليل جبران",
+    "quote": "الحياة بلا حب كشجرة بلا أزهار."
+  }
+] 

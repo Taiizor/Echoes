@@ -1,0 +1,66 @@
+{
+    "description": "Echoes is a modern platform that allows you to easily discover inspiring quotes from around the world. It is designed for anyone seeking wisdom and insight.",
+    "short_name": "Echoes - Quotes From Around The World",
+    "start_url": "/?utm_source=pwa_launch",
+    "id": "/?utm_source=pwa_launch",
+    "background_color": "#000000",
+    "orientation": "portrait",
+    "theme_color": "#2E1065",
+    "display": "standalone",
+    "manifest_version": 3,
+    "name": "Echoes",
+    "shortcuts": [],
+    "scope": "/",
+    "icons": [
+        {
+            "src": "logos/echoes.16.png",
+            "type": "image/png",
+            "sizes": "16x16"
+        },
+        {
+            "src": "logos/echoes.24.png",
+            "type": "image/png",
+            "sizes": "24x24"
+        },
+        {
+            "src": "logos/echoes.32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "logos/echoes.48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "logos/echoes.64.png",
+            "type": "image/png",
+            "sizes": "64x64"
+        },
+        {
+            "src": "logos/echoes.96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "logos/echoes.128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "logos/echoes.256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "logos/echoes.512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "logos/echoes.1024.png",
+            "type": "image/png",
+            "sizes": "1024x1024"
+        }
+    ]
+}

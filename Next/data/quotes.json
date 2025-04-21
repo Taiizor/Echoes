@@ -1,0 +1,992 @@
+[
+  {
+    "id": 1,
+    "lang": "en",
+    "author": "Albert Einstein",
+    "quote": "Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world."
+  },
+  {
+    "id": 2,
+    "lang": "en",
+    "author": "Oscar Wilde",
+    "quote": "Be yourself; everyone else is already taken."
+  },
+  {
+    "id": 3,
+    "lang": "en",
+    "author": "Maya Angelou",
+    "quote": "I've learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel."
+  },
+  {
+    "id": 4,
+    "lang": "en",
+    "author": "Nelson Mandela",
+    "quote": "It always seems impossible until it's done."
+  },
+  {
+    "id": 5,
+    "lang": "en",
+    "author": "Jane Austen",
+    "quote": "The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid."
+  },
+  {
+    "id": 6,
+    "lang": "en",
+    "author": "William Shakespeare",
+    "quote": "To be, or not to be, that is the question."
+  },
+  {
+    "id": 7,
+    "lang": "en",
+    "author": "Mark Twain",
+    "quote": "Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do."
+  },
+  {
+    "id": 8,
+    "lang": "en",
+    "author": "Martin Luther King Jr.",
+    "quote": "Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that."
+  },
+  {
+    "id": 9,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Hayatta en hakiki mürşit ilimdir."
+  },
+  {
+    "id": 10,
+    "lang": "tr",
+    "author": "Nazım Hikmet",
+    "quote": "Yaşamak bir ağaç gibi tek ve hür ve bir orman gibi kardeşçesine."
+  },
+  {
+    "id": 11,
+    "lang": "tr",
+    "author": "Yunus Emre",
+    "quote": "İlim ilim bilmektir, ilim kendin bilmektir."
+  },
+  {
+    "id": 12,
+    "lang": "tr",
+    "author": "Mevlana",
+    "quote": "Ya olduğun gibi görün, ya göründüğün gibi ol."
+  },
+  {
+    "id": 13,
+    "lang": "tr",
+    "author": "Ahmet Hamdi Tanpınar",
+    "quote": "Her mevsim bir başka güzel, fakat hepsi geçiyor."
+  },
+  {
+    "id": 14,
+    "lang": "tr",
+    "author": "Peyami Safa",
+    "quote": "Üzüntü bir insanın yaşamak gücünü çalar."
+  },
+  {
+    "id": 15,
+    "lang": "tr",
+    "author": "Necip Fazıl Kısakürek",
+    "quote": "Ölüm güzel şey, budur perde ardından haber. Hiç güzel olmasaydı, ölür müydü Peygamber?"
+  },
+  {
+    "id": 16,
+    "lang": "tr",
+    "author": "Sabahattin Ali",
+    "quote": "İnsan ancak kalbinin sesini dinlediği zaman doğru hareket etmiş olur."
+  },
+  {
+    "id": 17,
+    "lang": "fr",
+    "author": "Antoine de Saint-Exupéry",
+    "quote": "On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux."
+  },
+  {
+    "id": 18,
+    "lang": "fr",
+    "author": "Victor Hugo",
+    "quote": "La musique exprime ce qui ne peut être dit et sur quoi il est impossible de rester silencieux."
+  },
+  {
+    "id": 19,
+    "lang": "fr",
+    "author": "Albert Camus",
+    "quote": "Au milieu de l'hiver, j'ai découvert en moi un invincible été."
+  },
+  {
+    "id": 20,
+    "lang": "fr",
+    "author": "Voltaire",
+    "quote": "J'ai décidé d'être heureux parce que c'est bon pour la santé."
+  },
+  {
+    "id": 21,
+    "lang": "fr",
+    "author": "Jean-Paul Sartre",
+    "quote": "L'homme est condamné à être libre."
+  },
+  {
+    "id": 22,
+    "lang": "es",
+    "author": "Miguel de Cervantes",
+    "quote": "La libertad, Sancho, es uno de los más preciosos dones que a los hombres dieron los cielos."
+  },
+  {
+    "id": 23,
+    "lang": "es",
+    "author": "Pablo Neruda",
+    "quote": "Me gustas cuando callas porque estás como ausente."
+  },
+  {
+    "id": 24,
+    "lang": "es",
+    "author": "Gabriel García Márquez",
+    "quote": "La memoria del corazón elimina los malos recuerdos y magnifica los buenos, y gracias a ese artificio, logramos sobrellevar el pasado."
+  },
+  {
+    "id": 25,
+    "lang": "es",
+    "author": "Mario Benedetti",
+    "quote": "No te rindas, por favor no cedas, aunque el frío queme, aunque el miedo muerda."
+  },
+  {
+    "id": 26,
+    "lang": "es",
+    "author": "Jorge Luis Borges",
+    "quote": "He cometido el peor de los pecados que un hombre puede cometer. No he sido feliz."
+  },
+  {
+    "id": 27,
+    "lang": "de",
+    "author": "Johann Wolfgang von Goethe",
+    "quote": "Was immer du tun kannst oder träumst es zu können, fang damit an."
+  },
+  {
+    "id": 28,
+    "lang": "de",
+    "author": "Friedrich Nietzsche",
+    "quote": "Was mich nicht umbringt, macht mich stärker."
+  },
+  {
+    "id": 29,
+    "lang": "de",
+    "author": "Hermann Hesse",
+    "quote": "Damit das Mögliche entsteht, muss immer wieder das Unmögliche versucht werden."
+  },
+  {
+    "id": 30,
+    "lang": "de",
+    "author": "Immanuel Kant",
+    "quote": "Handle nur nach derjenigen Maxime, durch die du zugleich wollen kannst, dass sie ein allgemeines Gesetz werde."
+  },
+  {
+    "id": 31,
+    "lang": "de",
+    "author": "Albert Einstein",
+    "quote": "Phantasie ist wichtiger als Wissen, denn Wissen ist begrenzt."
+  },
+  {
+    "id": 32,
+    "lang": "ar",
+    "author": "جبران خليل جبران",
+    "quote": "الحياة بلا حب كشجرة بلا أزهار."
+  },
+  {
+    "id": 33,
+    "lang": "ar",
+    "author": "أبو الطيب المتنبي",
+    "quote": "على قدر أهل العزم تأتي العزائم، وتأتي على قدر الكرام المكارم."
+  },
+  {
+    "id": 34,
+    "lang": "ar",
+    "author": "نزار قباني",
+    "quote": "الحب هو أن تضيء شمعة وليس أن تلعن الظلام."
+  },
+  {
+    "id": 35,
+    "lang": "ar",
+    "author": "أحمد شوقي",
+    "quote": "وطني لو شغلت بالخلد عنه، نازعتني إليه في الخلد نفسي."
+  },
+  {
+    "id": 36,
+    "lang": "ar",
+    "author": "محمود درويش",
+    "quote": "على هذه الأرض ما يستحق الحياة."
+  },
+  {
+    "id": 37,
+    "lang": "it",
+    "author": "Dante Alighieri",
+    "quote": "Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, ché la diritta via era smarrita."
+  },
+  {
+    "id": 38,
+    "lang": "it",
+    "author": "Leonardo da Vinci",
+    "quote": "La sapienza è figliola dell'esperienza."
+  },
+  {
+    "id": 39,
+    "lang": "it",
+    "author": "Niccolò Machiavelli",
+    "quote": "Il fine giustifica i mezzi."
+  },
+  {
+    "id": 40,
+    "lang": "it",
+    "author": "Italo Calvino",
+    "quote": "Un classico è un libro che non ha mai finito di dire quel che ha da dire."
+  },
+  {
+    "id": 41,
+    "lang": "ru",
+    "author": "Лев Толстой",
+    "quote": "Все счастливые семьи похожи друг на друга, каждая несчастливая семья несчастлива по-своему."
+  },
+  {
+    "id": 42,
+    "lang": "ru",
+    "author": "Фёдор Достоевский",
+    "quote": "Красота спасёт мир."
+  },
+  {
+    "id": 43,
+    "lang": "ru",
+    "author": "Антон Чехов",
+    "quote": "Краткость — сестра таланта."
+  },
+  {
+    "id": 44,
+    "lang": "ru",
+    "author": "Александр Пушкин",
+    "quote": "Я вас любил: любовь еще, быть может, в душе моей угасла не совсем."
+  },
+  {
+    "id": 45,
+    "lang": "ja",
+    "author": "宮沢賢治",
+    "quote": "雨ニモマケズ、風ニモマケズ。"
+  },
+  {
+    "id": 46,
+    "lang": "ja",
+    "author": "夏目漱石",
+    "quote": "吾輩は猫である。名前はまだ無い。"
+  },
+  {
+    "id": 47,
+    "lang": "ja",
+    "author": "松尾芭蕉",
+    "quote": "古池や蛙飛び込む水の音。"
+  },
+  {
+    "id": 48,
+    "lang": "ja",
+    "author": "村上春樹",
+    "quote": "痛みは忘れなければならないものではなく、受け入れるべきものだ。"
+  },
+  {
+    "id": 49,
+    "lang": "zh",
+    "author": "孔子",
+    "quote": "學而不思則罔，思而不學則殆。"
+  },
+  {
+    "id": 50,
+    "lang": "zh",
+    "author": "老子",
+    "quote": "千里之行，始於足下。"
+  },
+  {
+    "id": 51,
+    "lang": "zh",
+    "author": "孫子",
+    "quote": "知己知彼，百戰不殆。"
+  },
+  {
+    "id": 52,
+    "lang": "zh",
+    "author": "魯迅",
+    "quote": "希望是附麗於存在的，有存在，便有希望，有希望，便是光明。"
+  },
+  {
+    "id": 53,
+    "lang": "pt",
+    "author": "Fernando Pessoa",
+    "quote": "Tudo vale a pena quando a alma não é pequena."
+  },
+  {
+    "id": 54,
+    "lang": "pt",
+    "author": "Machado de Assis",
+    "quote": "A vida não é mais que um sonho que se desfaz."
+  },
+  {
+    "id": 55,
+    "lang": "pt",
+    "author": "Paulo Coelho",
+    "quote": "Quando se quer alguma coisa, todo o universo conspira para que realize seu desejo."
+  },
+  {
+    "id": 56,
+    "lang": "pt",
+    "author": "José Saramago",
+    "quote": "Se podes olhar, vê. Se podes ver, repara."
+  },
+  {
+    "id": 57,
+    "lang": "ko",
+    "author": "김소월",
+    "quote": "산에는 꽃 피네. 꽃이 피네. 갈 봄 여름 없이 꽃이 피네."
+  },
+  {
+    "id": 58,
+    "lang": "ko",
+    "author": "박경리",
+    "quote": "모든 인생은 끝이 있고, 모든 만남에는 헤어짐이 있다."
+  },
+  {
+    "id": 59,
+    "lang": "ko",
+    "author": "윤동주",
+    "quote": "별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니."
+  },
+  {
+    "id": 60,
+    "lang": "sv",
+    "author": "Astrid Lindgren",
+    "quote": "Man blir inte gammal för att man levt ett visst antal år. Man blir gammal när man övergivit sina ideal."
+  },
+  {
+    "id": 61,
+    "lang": "sv",
+    "author": "August Strindberg",
+    "quote": "Livet är en strid, och världen är dess arena."
+  },
+  {
+    "id": 62,
+    "lang": "sv",
+    "author": "Selma Lagerlöf",
+    "quote": "Det är vackrare att höra en sträng som brister än att aldrig spänna en båge."
+  },
+  {
+    "id": 63,
+    "lang": "hi",
+    "author": "महात्मा गांधी",
+    "quote": "जहां इच्छा है, वहां राह है।"
+  },
+  {
+    "id": 64,
+    "lang": "hi",
+    "author": "रबीन्द्रनाथ टैगोर",
+    "quote": "यदि आप रोते हैं क्योंकि सूरज आपसे दूर चला गया है, तो आपके आंसू आपको तारे देखने से रोकेंगे।"
+  },
+  {
+    "id": 65,
+    "lang": "hi",
+    "author": "मुंशी प्रेमचंद",
+    "quote": "सभ्यता का असली मापदंड यह नहीं कि हम कितना उन्नति कर रहे हैं, बल्कि यह है कि हम कितना परोपकार कर रहे हैं।"
+  },
+  {
+    "id": 66,
+    "lang": "fa",
+    "author": "حافظ",
+    "quote": "صلاح ما همه آن است که یار فرماید، طریق خدمت ما، رندی و نظر بازی است."
+  },
+  {
+    "id": 67,
+    "lang": "fa",
+    "author": "مولانا",
+    "quote": "تو ز قرآن ای پسر، ظاهر مبین، دیو آدم را نبیند غیر طین."
+  },
+  {
+    "id": 68,
+    "lang": "fa",
+    "author": "عمر خیام",
+    "quote": "دی رفت و همی نیاید از وی یادی، فردا نرسیده است همین امروز شادی."
+  },
+  {
+    "id": 69,
+    "lang": "fa",
+    "author": "سعدی",
+    "quote": "بنی آدم اعضای یکدیگرند، که در آفرینش ز یک گوهرند."
+  },
+  {
+    "id": 70,
+    "lang": "el",
+    "author": "Σωκράτης",
+    "quote": "Το να γνωρίζεις τον εαυτό σου είναι η αρχή κάθε σοφίας."
+  },
+  {
+    "id": 71,
+    "lang": "el",
+    "author": "Αριστοτέλης",
+    "quote": "Η αρετή είναι γνώση που μπορεί να διδαχθεί."
+  },
+  {
+    "id": 72,
+    "lang": "el",
+    "author": "Κωνσταντίνος Καβάφης",
+    "quote": "Σα βγεις στον πηγαιμό για την Ιθάκη, να εύχεσαι να 'ναι μακρύς ο δρόμος."
+  },
+  {
+    "id": 73,
+    "lang": "pl",
+    "author": "Wisława Szymborska",
+    "quote": "Tyle wiemy o sobie, ile nas sprawdzono."
+  },
+  {
+    "id": 74,
+    "lang": "pl",
+    "author": "Adam Mickiewicz",
+    "quote": "Litwo! Ojczyzno moja! Ty jesteś jak zdrowie. Ile cię trzeba cenić, ten tylko się dowie, kto cię stracił."
+  },
+  {
+    "id": 75,
+    "lang": "pl",
+    "author": "Stanisław Jerzy Lec",
+    "quote": "Myśl jest bronią masowego rażenia."
+  },
+  {
+    "id": 76,
+    "lang": "pl",
+    "author": "Czesław Miłosz",
+    "quote": "Język jest jedyną ojczyzną."
+  },
+  {
+    "id": 77,
+    "lang": "id",
+    "author": "Pramoedya Ananta Toer",
+    "quote": "Menulis adalah bekerja untuk keabadian."
+  },
+  {
+    "id": 78,
+    "lang": "id",
+    "author": "Chairil Anwar",
+    "quote": "Aku ingin hidup seribu tahun lagi."
+  },
+  {
+    "id": 79,
+    "lang": "id",
+    "author": "Soekarno",
+    "quote": "Berikan aku seribu orang tua, niscaya akan kucabut Semeru dari akarnya. Berikan aku sepuluh pemuda, niscaya akan kuguncangkan dunia."
+  },
+  {
+    "id": 80,
+    "lang": "hu",
+    "author": "Sándor Petőfi",
+    "quote": "Szabadság, szerelem! E kettő kell nekem."
+  },
+  {
+    "id": 81,
+    "lang": "hu",
+    "author": "Imre Kertész",
+    "quote": "Az ember csak annyit ér, amennyit a többi ember számára jelent."
+  },
+  {
+    "id": 82,
+    "lang": "hu",
+    "author": "Attila József",
+    "quote": "A semmi ágán ül szivem, kis teste hangtalan vacog."
+  },
+  {
+    "id": 83,
+    "lang": "no",
+    "author": "Henrik Ibsen",
+    "quote": "Majoriteten har aldri retten på sin side. Aldri, sier jeg!"
+  },
+  {
+    "id": 84,
+    "lang": "no",
+    "author": "Knut Hamsun",
+    "quote": "Sult er ikke det værste. Det værste er at måtte gå med tomme hender."
+  },
+  {
+    "id": 85,
+    "lang": "th",
+    "author": "พุทธทาสภิกขุ",
+    "quote": "ความทุกข์เกิดขึ้นเพราะความยึดมั่นถือมั่น"
+  },
+  {
+    "id": 86,
+    "lang": "th",
+    "author": "สุนทรภู่",
+    "quote": "รักกันให้เหมือนกลูอยู่เหมือนไม้ ถึงพายุใหญ่โค่นไม่ลง"
+  },
+  {
+    "id": 87,
+    "lang": "nl",
+    "author": "Multatuli",
+    "quote": "De roeping van de mens is mens te zijn."
+  },
+  {
+    "id": 88,
+    "lang": "nl",
+    "author": "Harry Mulisch",
+    "quote": "Alles van waarde is weerloos."
+  },
+  {
+    "id": 89,
+    "lang": "nl",
+    "author": "Anne Frank",
+    "quote": "Wie gelukkig is, maakt anderen gelukkig."
+  },
+  {
+    "id": 90,
+    "lang": "cs",
+    "author": "Franz Kafka",
+    "quote": "Nešťastný je ten, kdo má ve svém srdci žádnou lásku."
+  },
+  {
+    "id": 91,
+    "lang": "cs",
+    "author": "Václav Havel",
+    "quote": "Naděje není přesvědčení, že něco dobře dopadne, ale jistota, že něco má smysl - bez ohledu na to, jak to dopadne."
+  },
+  {
+    "id": 92,
+    "lang": "cs",
+    "author": "Milan Kundera",
+    "quote": "Boj člověka proti moci je bojem paměti proti zapomínání."
+  },
+  {
+    "id": 93,
+    "lang": "fi",
+    "author": "Aleksis Kivi",
+    "quote": "Maa on ikuinen, mutta ihminen on kuin kukkanen kedolla."
+  },
+  {
+    "id": 94,
+    "lang": "fi",
+    "author": "Mika Waltari",
+    "quote": "Tärkeintä ei ole se mitä teet, vaan se miten teet."
+  },
+  {
+    "id": 95,
+    "lang": "uk",
+    "author": "Тарас Шевченко",
+    "quote": "Борітеся — поборете! Вам Бог помагає! За вас правда, за вас слава і воля святая!"
+  },
+  {
+    "id": 96,
+    "lang": "uk",
+    "author": "Леся Українка",
+    "quote": "Contra spem spero! Сподіваюсь без надії!"
+  },
+  {
+    "id": 97,
+    "lang": "uk",
+    "author": "Іван Франко",
+    "quote": "Книги — морська глибина: Хто в них пірне аж до дна, Той, хоч і труду мав досить, Дивнії перли виносить."
+  },
+  {
+    "id": 98,
+    "lang": "ro",
+    "author": "Mihai Eminescu",
+    "quote": "Viața este un bine pierdut dacă n-a fost trăită cum trebuie."
+  },
+  {
+    "id": 99,
+    "lang": "ro",
+    "author": "Emil Cioran",
+    "quote": "Nu poți iubi viața dacă nu iubești și moartea."
+  },
+  {
+    "id": 100,
+    "lang": "da",
+    "author": "Hans Christian Andersen",
+    "quote": "At rejse er at leve."
+  },
+  {
+    "id": 101,
+    "lang": "da",
+    "author": "Søren Kierkegaard",
+    "quote": "Livet forstås baglæns, men må leves forlæns."
+  },
+  {
+    "id": 102,
+    "lang": "he",
+    "author": "שלום עליכם",
+    "quote": "אַ מענטש טראַכט און גאָט לאַכט."
+  },
+  {
+    "id": 103,
+    "lang": "he",
+    "author": "דוד בן גוריון",
+    "quote": "בישראל, כדי להיות ריאליסט, צריך להאמין בניסים."
+  },
+  {
+    "id": 104,
+    "lang": "vi",
+    "author": "Hồ Chí Minh",
+    "quote": "Không có gì quý hơn độc lập, tự do."
+  },
+  {
+    "id": 105,
+    "lang": "vi",
+    "author": "Nguyễn Du",
+    "quote": "Trăm năm trong cõi người ta, chữ tài chữ mệnh khéo là ghét nhau."
+  },
+  {
+    "id": 106,
+    "lang": "hr",
+    "author": "Miroslav Krleža",
+    "quote": "Tko ne zna ljubiti, taj ne zna ni živjeti."
+  },
+  {
+    "id": 107,
+    "lang": "bg",
+    "author": "Христо Ботев",
+    "quote": "Тоз, който падне в бой за свобода, той не умира."
+  },
+  {
+    "id": 108,
+    "lang": "am",
+    "author": "ሀይለ ሥላሴ",
+    "quote": "እስካልታወቀ ድረስ፣ ታሪክ ለሚቀጥለው ትውልድ ወግ ነው።"
+  },
+  {
+    "id": 109,
+    "lang": "sq",
+    "author": "Ismail Kadare",
+    "quote": "Diktaturat mund të rrëzojnë gjithçka, por jo kujtesën."
+  },
+  {
+    "id": 110,
+    "lang": "sw",
+    "author": "Julius Nyerere",
+    "quote": "Uhuru na kazi. Uhuru na umoja."
+  },
+  {
+    "id": 111,
+    "lang": "ga",
+    "author": "Seamus Heaney",
+    "quote": "Is maith an scáthán súil charad."
+  },
+  {
+    "id": 112,
+    "lang": "ga",
+    "author": "Oscar Wilde",
+    "quote": "Tá gach duine againn sa láib, ach tá cuid againn ag féachaint ar na réaltaí."
+  },
+  {
+    "id": 113,
+    "lang": "ca",
+    "author": "Salvador Espriu",
+    "quote": "Ens mantindrem fidels per sempre més al servei d'aquest poble."
+  },
+  {
+    "id": 114,
+    "lang": "ca",
+    "author": "Mercè Rodoreda",
+    "quote": "La vida és això: suar i rentar-se."
+  },
+  {
+    "id": 115,
+    "lang": "lt",
+    "author": "Justinas Marcinkevičius",
+    "quote": "Laisvė – tai supratimas, kad esi atsakingas."
+  },
+  {
+    "id": 116,
+    "lang": "lt",
+    "author": "Vincas Mykolaitis-Putinas",
+    "quote": "Kas laisvę mums parodė, tam amžina garbė."
+  },
+  {
+    "id": 117,
+    "lang": "et",
+    "author": "Jaan Kross",
+    "quote": "Inimene on kannatlik loom. Sellepärast ta ongi inimene."
+  },
+  {
+    "id": 118,
+    "lang": "et",
+    "author": "Lydia Koidula",
+    "quote": "Mis on kodumaa? Kõik, mis rõõmustab ja kurvastab mind."
+  },
+  {
+    "id": 119,
+    "lang": "is",
+    "author": "Halldór Laxness",
+    "quote": "Sá sem hefur aldrei gleymt sér í víni veit ekki hvað nægur svefn er."
+  },
+  {
+    "id": 120,
+    "lang": "is",
+    "author": "Jónas Hallgrímsson",
+    "quote": "Ísland, farsældafrón og hagsælda hrímhvíta móðir!"
+  },
+  {
+    "id": 121,
+    "lang": "sl",
+    "author": "France Prešeren",
+    "quote": "Žive naj vsi narodi, ki hrepene dočakat dan, da koder sonce hodi, prepir iz sveta bo pregnan."
+  },
+  {
+    "id": 122,
+    "lang": "sl",
+    "author": "Ivan Cankar",
+    "quote": "Narod si bo pisal sodbo sam, ne frak mu je ne bo in ne talar."
+  },
+  {
+    "id": 123,
+    "lang": "sk",
+    "author": "Pavol Országh Hviezdoslav",
+    "quote": "Národ bez kultúry, je mŕtvy národ."
+  },
+  {
+    "id": 124,
+    "lang": "sk",
+    "author": "Milan Rúfus",
+    "quote": "Kto stratil slobodu, vie, čo je sloboda."
+  },
+  {
+    "id": 125,
+    "lang": "lv",
+    "author": "Rainis",
+    "quote": "Pastāvēs, kas pārvērtīsies."
+  },
+  {
+    "id": 126,
+    "lang": "lv",
+    "author": "Imants Ziedonis",
+    "quote": "Dzīve ir tikai viena, un tā nav mēģinājums."
+  },
+  {
+    "id": 127,
+    "lang": "ka",
+    "author": "შოთა რუსთაველი",
+    "quote": "რასაცა გასცემ შენია, რაც არა დაკარგულია."
+  },
+  {
+    "id": 128,
+    "lang": "ka",
+    "author": "ილია ჭავჭავაძე",
+    "quote": "ენა საღვთო რამ არის, და იგი კაცთა მიერ არ შექმნილა."
+  },
+  {
+    "id": 129,
+    "lang": "az",
+    "author": "Nizami Gəncəvi",
+    "quote": "Öz-özünə güvənən kəs dünyada əzizdir."
+  },
+  {
+    "id": 130,
+    "lang": "az",
+    "author": "Hüseyn Cavid",
+    "quote": "Bir millətin tarixini öyrənmək üçün onun ədəbiyyatını oxumaq lazımdır."
+  },
+  {
+    "id": 131,
+    "lang": "hy",
+    "author": "Եղիշե Չարենց",
+    "quote": "Ով հայ ժողովուրդ, քո միակ փրկությունը քո հավաքական ուժի մեջ է։"
+  },
+  {
+    "id": 132,
+    "lang": "hy",
+    "author": "Պարույր Սևակ",
+    "quote": "Մենք քիչ ենք, բայց մեզ հայ են ասում։"
+  },
+  {
+    "id": 133,
+    "lang": "bn",
+    "author": "রবীন্দ্রনাথ ঠাকুর",
+    "quote": "মেঘের পরে মেঘ জমেছে, আজ যে তোমার চিঠি পাব না।"
+  },
+  {
+    "id": 134,
+    "lang": "bn",
+    "author": "কাজী নজরুল ইসলাম",
+    "quote": "আমি সেই দিন হব মাটির দেহের ধুলা, বাংলার গান লেখা শেষ হবে যে দিন।"
+  },
+  {
+    "id": 135,
+    "lang": "ml",
+    "author": "വൈലോപ്പിള്ളി ശ്രീധരമേനോൻ",
+    "quote": "നിലാവിന്റെ നീലഭസ്മം പൂശി സുഖമായുറങ്ങുന്നിതാ പൂമരങ്ങൾ."
+  },
+  {
+    "id": 136,
+    "lang": "ml",
+    "author": "ചങ്ങമ്പുഴ കൃഷ്ണപിള്ള",
+    "quote": "നീയെന്റെ ഗീതമാകുന്നു; നിന്നെക്കുറിച്ചെൻ ഗാനങ്ങൾ."
+  },
+  {
+    "id": 137,
+    "lang": "ta",
+    "author": "திருவள்ளுவர்",
+    "quote": "கற்றது கைமண் அளவு, கல்லாதது உலகளவு."
+  },
+  {
+    "id": 138,
+    "lang": "ta",
+    "author": "பாரதியார்",
+    "quote": "வாழ்க நிரந்தரம்! வாழ்க தமிழ்மொழி!"
+  },
+  {
+    "id": 139,
+    "lang": "te",
+    "author": "శ్రీ శ్రీ",
+    "quote": "నువ్వు నిద్రపోయే ముందు ప్రపంచం నీది, నువ్వు లేచే సరికి నువ్వు ప్రపంచానివి."
+  },
+  {
+    "id": 140,
+    "lang": "eu",
+    "author": "Bernardo Atxaga",
+    "quote": "Bizi ala bizi ez, hau da dilema."
+  },
+  {
+    "id": 141,
+    "lang": "eu",
+    "author": "Gabriel Aresti",
+    "quote": "Nire aitaren etxea defendituko dut."
+  },
+  {
+    "id": 142,
+    "lang": "mi",
+    "author": "Te Whiti o Rongomai",
+    "quote": "Ka whawhai tonu mātou, ake, ake, ake!"
+  },
+  {
+    "id": 143,
+    "lang": "mi",
+    "author": "Witi Ihimaera",
+    "quote": "Kia kaha, kia māia, kia manawanui."
+  },
+  {
+    "id": 144,
+    "lang": "mn",
+    "author": "Чингис Хаан",
+    "quote": "Эрэгтэй хүний хамгийн том аз жаргал бол эх орныхоо төлөө тэмцэх явдал юм."
+  },
+  {
+    "id": 145,
+    "lang": "af",
+    "author": "N. P. van Wyk Louw",
+    "quote": "Die mooiste, wat ons het, is die geloof dat niks verlore gaan nie."
+  },
+  {
+    "id": 146,
+    "lang": "af",
+    "author": "Breyten Breytenbach",
+    "quote": "Om te lewe is om te brand."
+  },
+  {
+    "id": 147,
+    "lang": "cy",
+    "author": "Dylan Thomas",
+    "quote": "Paid â mynd yn dawel i'r nos da."
+  },
+  {
+    "id": 148,
+    "lang": "cy",
+    "author": "R. S. Thomas",
+    "quote": "Mae'r gwir yn drech na phopeth."
+  },
+  {
+    "id": 149,
+    "lang": "gl",
+    "author": "Rosalía de Castro",
+    "quote": "Adiós ríos, adiós fontes, adiós regatos pequenos."
+  },
+  {
+    "id": 150,
+    "lang": "gl",
+    "author": "Castelao",
+    "quote": "O que fai boa á xente é o carácter."
+  },
+  {
+    "id": 151,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Bir milletin en değerli varlığı, kadınlarıdır."
+  },
+  {
+    "id": 152,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Egemenlik verilmez, alınır."
+  },
+  {
+    "id": 153,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Yurtta sulh, cihanda sulh."
+  },
+  {
+    "id": 154,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Vatanını en çok seven, görevini en iyi yapandır."
+  },
+  {
+    "id": 155,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Bir ulus sanattan ve sanatçıdan yoksunsa, tam bir hayata sahip olamaz."
+  },
+  {
+    "id": 156,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Özgürlük ve bağımsızlık benim karakterimdir."
+  },
+  {
+    "id": 157,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Büyük ölülere matem gerekmez, fikirlerine bağlılık gerekir."
+  },
+  {
+    "id": 158,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "En büyük savaş, cahilliğe karşı yapılan savaştır."
+  },
+  {
+    "id": 159,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Cumhuriyet, fikir serbestliği taraftarıdır. Samimi ve meşru olmak şartıyla her fikre hürmet ederiz."
+  },
+  {
+    "id": 160,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Gençliği yetiştiriniz. Onlara ilim ve irfanın müspet fikirlerini veriniz. Geleceğin aydınlığına onlarla kavuşacaksınız."
+  },
+  {
+    "id": 161,
+    "lang": "en",
+    "author": "Albert Einstein",
+    "quote": "The important thing is not to stop questioning. Curiosity has its own reason for existing."
+  },
+  {
+    "id": 162,
+    "lang": "en",
+    "author": "Albert Einstein",
+    "quote": "Look deep into nature, and then you will understand everything better."
+  },
+  {
+    "id": 163,
+    "lang": "en",
+    "author": "Albert Einstein",
+    "quote": "The only source of knowledge is experience."
+  },
+  {
+    "id": 164,
+    "lang": "en",
+    "author": "Albert Einstein",
+    "quote": "Peace cannot be kept by force; it can only be achieved by understanding."
+  },
+  {
+    "id": 165,
+    "lang": "en",
+    "author": "Albert Einstein",
+    "quote": "Life is like riding a bicycle. To keep your balance, you must keep moving."
+  }
+] 
