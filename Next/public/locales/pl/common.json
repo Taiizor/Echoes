@@ -6,7 +6,8 @@
   "nav": {
     "home": "Strona główna",
     "docs": "Dokumentacja API",
-    "about": "O nas"
+    "about": "O nas",
+    "contact": "Kontakt"
   },
   "api": {
     "title": "Funkcje API",
@@ -79,7 +80,13 @@
   "footer": {
     "madeWith": "Stworzone z",
     "by": "przez",
-    "allRightsReserved": "Wszelkie prawa zastrzeżone"
+    "allRightsReserved": "Wszelkie prawa zastrzeżone",
+    "explore": "Odkrywaj",
+    "resources": "Zasoby",
+    "legal": "Informacje prawne",
+    "guides": "Przewodniki",
+    "privacy": "Polityka prywatności",
+    "terms": "Warunki korzystania"
   },
   "about": {
     "title": "O Echoes",

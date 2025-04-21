@@ -6,7 +6,8 @@
   "nav": {
     "home": "Inicio",
     "docs": "Documentación API",
-    "about": "Acerca de"
+    "about": "Acerca de",
+    "contact": "Contacto"
   },
   "api": {
     "title": "Características de la API",
@@ -79,7 +80,13 @@
   "footer": {
     "madeWith": "Hecho con",
     "by": "por",
-    "allRightsReserved": "Todos los Derechos Reservados"
+    "allRightsReserved": "Todos los Derechos Reservados",
+    "explore": "Explorar",
+    "resources": "Recursos",
+    "legal": "Legal",
+    "guides": "Guías",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
   },
   "about": {
     "title": "Acerca de Echoes",

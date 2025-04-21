@@ -5,8 +5,9 @@
   },
   "nav": {
     "home": "Ana Sayfa",
-    "docs": "API Dokümantasyonu",
-    "about": "Hakkında"
+    "docs": "Dokümantasyonu",
+    "about": "Hakkında",
+    "contact": "İletişim"
   },
   "api": {
     "title": "API Özellikleri",
@@ -79,7 +80,13 @@
   "footer": {
     "madeWith": "Sevgi ile yapıldı",
     "by": "tarafından",
-    "allRightsReserved": "Tüm Hakları Saklıdır"
+    "allRightsReserved": "Tüm Hakları Saklıdır",
+    "explore": "Keşfet",
+    "resources": "Kaynaklar",
+    "legal": "Yasal",
+    "guides": "Rehberler",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Şartları"
   },
   "about": {
     "title": "Echoes Hakkında",

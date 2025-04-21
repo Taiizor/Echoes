@@ -988,5 +988,665 @@
     "lang": "en",
     "author": "Albert Einstein",
     "quote": "Life is like riding a bicycle. To keep your balance, you must keep moving."
+  },
+  {
+    "id": 166,
+    "lang": "en",
+    "author": "Confucius",
+    "quote": "It does not matter how slowly you go as long as you do not stop."
+  },
+  {
+    "id": 167,
+    "lang": "en",
+    "author": "Theodore Roosevelt",
+    "quote": "Believe you can and you're halfway there."
+  },
+  {
+    "id": 168,
+    "lang": "en",
+    "author": "Winston Churchill",
+    "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts."
+  },
+  {
+    "id": 169,
+    "lang": "en",
+    "author": "Helen Keller",
+    "quote": "Life is either a daring adventure or nothing at all."
+  },
+  {
+    "id": 170,
+    "lang": "en",
+    "author": "Lao Tzu",
+    "quote": "A journey of a thousand miles begins with a single step."
+  },
+  {
+    "id": 171,
+    "lang": "en",
+    "author": "Mahatma Gandhi",
+    "quote": "Be the change you want to see in the world."
+  },
+  {
+    "id": 172,
+    "lang": "en",
+    "author": "Eleanor Roosevelt",
+    "quote": "No one can make you feel inferior without your consent."
+  },
+  {
+    "id": 173,
+    "lang": "en",
+    "author": "Vince Lombardi",
+    "quote": "It's not whether you get knocked down; it's whether you get up."
+  },
+  {
+    "id": 174,
+    "lang": "en",
+    "author": "Les Brown",
+    "quote": "Shoot for the moon. Even if you miss, you'll land among the stars."
+  },
+  {
+    "id": 175,
+    "lang": "en",
+    "author": "Anne Frank",
+    "quote": "How wonderful it is that nobody need wait a single moment to improve the world."
+  },
+  {
+    "id": 176,
+    "lang": "en",
+    "author": "Kevin Kruse",
+    "quote": "Life is about making an impact, not making an income."
+  },
+  {
+    "id": 177,
+    "lang": "en",
+    "author": "Napoleon Hill",
+    "quote": "Whatever the mind of man can conceive and believe, it can achieve."
+  },
+  {
+    "id": 178,
+    "lang": "en",
+    "author": "Albert Einstein",
+    "quote": "Strive not to be a success, but rather to be of value."
+  },
+  {
+    "id": 179,
+    "lang": "en",
+    "author": "Robert Frost",
+    "quote": "Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference."
+  },
+  {
+    "id": 180,
+    "lang": "en",
+    "author": "Florence Nightingale",
+    "quote": "I attribute my success to this: I never gave or took any excuse."
+  },
+  {
+    "id": 181,
+    "lang": "en",
+    "author": "Wayne Gretzky",
+    "quote": "You miss 100% of the shots you don’t take."
+  },
+  {
+    "id": 182,
+    "lang": "en",
+    "author": "Michael Jordan",
+    "quote": "I've missed more than 9000 shots in my career. … And that is why I succeed."
+  },
+  {
+    "id": 183,
+    "lang": "en",
+    "author": "Amelia Earhart",
+    "quote": "The most difficult thing is the decision to act, the rest is merely tenacity."
+  },
+  {
+    "id": 184,
+    "lang": "en",
+    "author": "Babe Ruth",
+    "quote": "Every strike brings me closer to the next home run."
+  },
+  {
+    "id": 185,
+    "lang": "en",
+    "author": "W. Clement Stone",
+    "quote": "Definiteness of purpose is the starting point of all achievement."
+  },
+  {
+    "id": 186,
+    "lang": "en",
+    "author": "Kevin Kruse",
+    "quote": "Life isn't about getting and having, it's about giving and being."
+  },
+  {
+    "id": 187,
+    "lang": "en",
+    "author": "John Lennon",
+    "quote": "Life is what happens to you while you’re busy making other plans."
+  },
+  {
+    "id": 188,
+    "lang": "en",
+    "author": "Earl Nightingale",
+    "quote": "We become what we think about."
+  },
+  {
+    "id": 189,
+    "lang": "en",
+    "author": "Mark Twain",
+    "quote": "Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do… Explore, Dream, Discover."
+  },
+  {
+    "id": 190,
+    "lang": "en",
+    "author": "Charles Swindoll",
+    "quote": "Life is 10% what happens to me and 90% of how I react to it."
+  },
+  {
+    "id": 191,
+    "lang": "en",
+    "author": "Alice Walker",
+    "quote": "The most common way people give up their power is by thinking they don’t have any."
+  },
+  {
+    "id": 192,
+    "lang": "en",
+    "author": "Buddha",
+    "quote": "The mind is everything. What you think you become."
+  },
+  {
+    "id": 193,
+    "lang": "en",
+    "author": "Chinese Proverb",
+    "quote": "The best time to plant a tree was 20 years ago. The second best time is now."
+  },
+  {
+    "id": 194,
+    "lang": "en",
+    "author": "Socrates",
+    "quote": "An unexamined life is not worth living."
+  },
+  {
+    "id": 195,
+    "lang": "en",
+    "author": "Woody Allen",
+    "quote": "Eighty percent of success is showing up."
+  },
+  {
+    "id": 196,
+    "lang": "en",
+    "author": "Anonymous",
+    "quote": "If you want to achieve greatness stop asking for permission."
+  },
+  {
+    "id": 197,
+    "lang": "en",
+    "author": "John Wooden",
+    "quote": "Things work out best for those who make the best of how things work out."
+  },
+  {
+    "id": 198,
+    "lang": "en",
+    "author": "Anonymous",
+    "quote": "To live a creative life, we must lose our fear of being wrong."
+  },
+  {
+    "id": 199,
+    "lang": "en",
+    "author": "Jim Rohn",
+    "quote": "If you are not willing to risk the usual you will have to settle for the ordinary."
+  },
+  {
+    "id": 200,
+    "lang": "en",
+    "author": "Anonymous",
+    "quote": "Trust because you are willing to accept the risk, not because it’s safe or certain."
+  },
+  {
+    "id": 201,
+    "lang": "en",
+    "author": "Swami Vivekananda",
+    "quote": "Take up one idea. Make that one idea your life–think of it, dream of it, live on that idea…"
+  },
+  {
+    "id": 202,
+    "lang": "en",
+    "author": "Walt Disney",
+    "quote": "All our dreams can come true if we have the courage to pursue them."
+  },
+  {
+    "id": 203,
+    "lang": "en",
+    "author": "Anonymous",
+    "quote": "Good things come to people who wait, but better things come to those who go out and get them."
+  },
+  {
+    "id": 204,
+    "lang": "en",
+    "author": "Anonymous",
+    "quote": "If you do what you always did, you will get what you always got."
+  },
+  {
+    "id": 205,
+    "lang": "en",
+    "author": "Winston Churchill",
+    "quote": "Success is walking from failure to failure with no loss of enthusiasm."
+  },
+  {
+    "id": 206,
+    "lang": "en",
+    "author": "Proverb",
+    "quote": "Just when the caterpillar thought the world was ending, he turned into a butterfly."
+  },
+  {
+    "id": 207,
+    "lang": "en",
+    "author": "Anonymous",
+    "quote": "Successful entrepreneurs are givers and not takers of positive energy."
+  },
+  {
+    "id": 208,
+    "lang": "en",
+    "author": "Vaibhav Shah",
+    "quote": "Whenever you see a successful person you only see the public glories, never the private sacrifices…"
+  },
+  {
+    "id": 209,
+    "lang": "en",
+    "author": "Chris Grosser",
+    "quote": "Opportunities don’t happen, you create them."
+  },
+  {
+    "id": 210,
+    "lang": "en",
+    "author": "Albert Einstein",
+    "quote": "Try not to become a person of success, but rather try to become a person of value."
+  },
+  {
+    "id": 211,
+    "lang": "en",
+    "author": "Eleanor Roosevelt",
+    "quote": "Great minds discuss ideas; average minds discuss events; small minds discuss people."
+  },
+  {
+    "id": 212,
+    "lang": "en",
+    "author": "Thomas A. Edison",
+    "quote": "I have not failed. I’ve just found 10,000 ways that won’t work."
+  },
+  {
+    "id": 213,
+    "lang": "en",
+    "author": "Kim Garst",
+    "quote": "If you don’t value your time, neither will others. Stop giving away your time and talents–start charging for it."
+  },
+  {
+    "id": 214,
+    "lang": "en",
+    "author": "David Brinkley",
+    "quote": "A successful man is one who can lay a firm foundation with the bricks others have thrown at him."
+  },
+  {
+    "id": 215,
+    "lang": "en",
+    "author": "Eleanor Roosevelt",
+    "quote": "No one can make you feel inferior without your consent."
+  },
+  {
+    "id": 216,
+    "lang": "en",
+    "author": "Dalai Lama",
+    "quote": "Just one small positive thought in the morning can change your whole day."
+  },
+  {
+    "id": 217,
+    "lang": "en",
+    "author": "Chris Grosser",
+    "quote": "Opportunities don’t happen, you create them."
+  },
+  {
+    "id": 218,
+    "lang": "en",
+    "author": "Gary Vaynerchuk",
+    "quote": "Love your family, work super hard, live your passion."
+  },
+  {
+    "id": 219,
+    "lang": "en",
+    "author": "George Eliot",
+    "quote": "It is never too late to be what you might have been."
+  },
+  {
+    "id": 220,
+    "lang": "en",
+    "author": "Les Brown",
+    "quote": "Don’t let someone else’s opinion of you become your reality."
+  },
+  {
+    "id": 221,
+    "lang": "en",
+    "author": "Mark Cuban",
+    "quote": "If you’re not positive energy, you’re negative energy."
+  },
+  {
+    "id": 222,
+    "lang": "en",
+    "author": "Stephen R. Covey",
+    "quote": "I am not a product of my circumstances. I am a product of my decisions."
+  },
+  {
+    "id": 223,
+    "lang": "en",
+    "author": "John Wooden",
+    "quote": "Do the best you can. No one can do more than that."
+  },
+  {
+    "id": 224,
+    "lang": "en",
+    "author": "Walt Disney",
+    "quote": "If you can dream it, you can do it."
+  },
+  {
+    "id": 225,
+    "lang": "en",
+    "author": "Theodore Roosevelt",
+    "quote": "Do what you can, with what you have, where you are."
+  },
+  {
+    "id": 226,
+    "lang": "en",
+    "author": "Joe Girard",
+    "quote": "The elevator to success is out of order. You’ll have to use the stairs, one step at a time."
+  },
+  {
+    "id": 227,
+    "lang": "en",
+    "author": "Dave Carolan",
+    "quote": "Be a positive energy trampoline—absorb what you need and rebound more back."
+  },
+  {
+    "id": 228,
+    "lang": "en",
+    "author": "Zig Ziglar",
+    "quote": "People often say that motivation doesn’t last. Well, neither does bathing—that’s why we recommend it daily."
+  },
+  {
+    "id": 229,
+    "lang": "en",
+    "author": "Unknown",
+    "quote": "Work until your bank account looks like a phone number."
+  },
+  {
+    "id": 230,
+    "lang": "en",
+    "author": "Oscar Wilde",
+    "quote": "I am so clever that sometimes I don’t understand a single word of what I am saying."
+  },
+  {
+    "id": 231,
+    "lang": "en",
+    "author": "Winnie the Pooh",
+    "quote": "People say nothing is impossible, but I do nothing every day."
+  },
+  {
+    "id": 232,
+    "lang": "en",
+    "author": "Tom Lehrer",
+    "quote": "Life is like a sewer … what you get out of it depends on what you put into it."
+  },
+  {
+    "id": 233,
+    "lang": "en",
+    "author": "Lily Tomlin",
+    "quote": "I always wanted to be somebody, but now I realize I should have been more specific."
+  },
+  {
+    "id": 234,
+    "lang": "en",
+    "author": "Michael Jordan",
+    "quote": "Talent wins games, but teamwork and intelligence win championships."
+  },
+  {
+    "id": 235,
+    "lang": "en",
+    "author": "Vince Lombardi",
+    "quote": "Individual commitment to a group effort—that is what makes a team work, a company work, a society work, a civilization work."
+  },
+  {
+    "id": 236,
+    "lang": "en",
+    "author": "Winston Churchill",
+    "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts."
+  },
+  {
+    "id": 237,
+    "lang": "en",
+    "author": "Oprah Winfrey",
+    "quote": "You define your own life. Don't let other people write your script."
+  },
+  {
+    "id": 238,
+    "lang": "en",
+    "author": "Malala Yousafzai",
+    "quote": "You are never too old to set another goal or to dream a new dream."
+  },
+  {
+    "id": 239,
+    "lang": "en",
+    "author": "David Goggins",
+    "quote": "Don't stop when you're tired, stop when you're done."
+  },
+  {
+    "id": 240,
+    "lang": "en",
+    "author": "Carrie Ann Moss",
+    "quote": "People tell you the world looks a certain way… Nobody sets the rules but you."
+  },
+  {
+    "id": 241,
+    "lang": "en",
+    "author": "Michelle Obama",
+    "quote": "For me, becoming isn’t about arriving somewhere or achieving a certain aim… The journey doesn't end."
+  },
+  {
+    "id": 242,
+    "lang": "en",
+    "author": "Mother Teresa",
+    "quote": "Spread love everywhere you go."
+  },
+  {
+    "id": 243,
+    "lang": "en",
+    "author": "Lady Gaga",
+    "quote": "Do not allow people to dim your shine because they are blinded. Tell them to put some sunglasses on."
+  },
+  {
+    "id": 244,
+    "lang": "en",
+    "author": "Gabrielle Bernstein",
+    "quote": "If you make your internal life a priority, then everything else you need on the outside will be given to you…"
+  },
+  {
+    "id": 245,
+    "lang": "en",
+    "author": "Mandy Hale",
+    "quote": "You don't always need a plan. Sometimes you just need to breathe, trust, let go and see what happens."
+  },
+  {
+    "id": 246,
+    "lang": "en",
+    "author": "Kesha",
+    "quote": "You can be everything. You can be the infinite amount of things that people are."
+  },
+  {
+    "id": 247,
+    "lang": "en",
+    "author": "Ralph Waldo Emerson",
+    "quote": "What lies behind you and what lies in front of you, pales in comparison to what lies inside of you."
+  },
+  {
+    "id": 248,
+    "lang": "en",
+    "author": "Nelson Mandela",
+    "quote": "It always seems impossible until it's done."
+  },
+  {
+    "id": 249,
+    "lang": "en",
+    "author": "Hayley Williams",
+    "quote": "I'm going to be gone one day, and I have to accept that tomorrow isn't promised…"
+  },
+  {
+    "id": 250,
+    "lang": "en",
+    "author": "Alexandria Ocasio-Cortez",
+    "quote": "I am experienced enough to do this. I am knowledgeable enough to do this…"
+  },
+  {
+    "id": 251,
+    "lang": "en",
+    "author": "William James",
+    "quote": "Belief creates the actual fact."
+  },
+  {
+    "id": 252,
+    "lang": "en",
+    "author": "Robin Williams",
+    "quote": "No matter what people tell you, words and ideas can change the world."
+  },
+  {
+    "id": 253,
+    "lang": "en",
+    "author": "Ava DuVernay",
+    "quote": "I'm not going to continue knocking that old door that doesn't open for me. I'm going to create my own door…"
+  },
+  {
+    "id": 254,
+    "lang": "en",
+    "author": "Aristotle",
+    "quote": "It is during our darkest moments that we must focus to see the light."
+  },
+  {
+    "id": 255,
+    "lang": "en",
+    "author": "Marie Forleo",
+    "quote": "Not having the best situation, but seeing the best in your situation is the key to happiness."
+  },
+  {
+    "id": 256,
+    "lang": "en",
+    "author": "Serena Williams",
+    "quote": "You have to believe in yourself when no one else does."
+  },
+  {
+    "id": 257,
+    "lang": "en",
+    "author": "Carol Burnett",
+    "quote": "When you have a dream, you’ve got to grab it and never let go."
+  },
+  {
+    "id": 258,
+    "lang": "en",
+    "author": "Steve Jobs",
+    "quote": "The most important thing is to enjoy your life—to be happy—it’s all that matters."
+  },
+  {
+    "id": 259,
+    "lang": "en",
+    "author": "Mother Teresa",
+    "quote": "Spread love everywhere you go. Let no one ever come without leaving happier."
+  },
+  {
+    "id": 260,
+    "lang": "en",
+    "author": "Oscar Wilde",
+    "quote": "Be yourself; everyone else is already taken."
+  },
+  {
+    "id": 261,
+    "lang": "en",
+    "author": "Oprah Winfrey",
+    "quote": "The biggest adventure you can take is to live the life of your dreams."
+  },
+  {
+    "id": 262,
+    "lang": "en",
+    "author": "Franklin D. Roosevelt",
+    "quote": "The only thing we have to fear is fear itself."
+  },
+  {
+    "id": 263,
+    "lang": "en",
+    "author": "Michael Jordan",
+    "quote": "Some people want it to happen, some wish it would happen, others make it happen."
+  },
+  {
+    "id": 264,
+    "lang": "en",
+    "author": "Tony Robbins",
+    "quote": "You’ve got to be in it to win it."
+  },
+  {
+    "id": 265,
+    "lang": "en",
+    "author": "Confucius",
+    "quote": "It does not matter how slowly you go, as long as you do not stop."
+  },
+  {
+    "id": 266,
+    "lang": "en",
+    "author": "Dolly Parton",
+    "quote": "Find out who you are and do it on purpose."
+  },
+  {
+    "id": 267,
+    "lang": "en",
+    "author": "Michelle Obama",
+    "quote": "For me, becoming isn’t about arriving somewhere or achieving a certain aim… The journey doesn’t end."
+  },
+  {
+    "id": 268,
+    "lang": "en",
+    "author": "Sofia Vergara",
+    "quote": "Confident people have a way of carrying themselves that makes others attracted to them."
+  },
+  {
+    "id": 269,
+    "lang": "en",
+    "author": "Leonardo DiCaprio",
+    "quote": "If you can do what you do best and be happy, you are further along in life than most people."
+  },
+  {
+    "id": 270,
+    "lang": "en",
+    "author": "Kesha",
+    "quote": "You can be everything. You can be the infinite amount of things that people are."
+  },
+  {
+    "id": 271,
+    "lang": "en",
+    "author": "Deepak Chopra",
+    "quote": "Always go with your passions. Never ask yourself if it’s realistic or not."
+  },
+  {
+    "id": 272,
+    "lang": "en",
+    "author": "Norman Vincent Peale",
+    "quote": "When you change your thoughts, remember to also change your world."
+  },
+  {
+    "id": 273,
+    "lang": "en",
+    "author": "Stephanie Perkins",
+    "quote": "The more you know who you are, and what you want, the less you let things upset you."
+  },
+  {
+    "id": 274,
+    "lang": "en",
+    "author": "Edwin Elliot",
+    "quote": "By being yourself, you put something wonderful in the world that was not there before."
+  },
+  {
+    "id": 275,
+    "lang": "en",
+    "author": "Eleanor Roosevelt",
+    "quote": "Do one thing every day that scares you."
   }
-] 
+]

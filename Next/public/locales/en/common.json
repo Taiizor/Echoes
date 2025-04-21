@@ -6,7 +6,8 @@
   "nav": {
     "home": "Home",
     "docs": "API Documentation",
-    "about": "About"
+    "about": "About",
+    "contact": "Contact"
   },
   "api": {
     "title": "API Features",
@@ -79,7 +80,13 @@
   "footer": {
     "madeWith": "Made with",
     "by": "by",
-    "allRightsReserved": "All Rights Reserved"
+    "allRightsReserved": "All Rights Reserved",
+    "explore": "Explore",
+    "resources": "Resources",
+    "legal": "Legal",
+    "guides": "Guides",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
   },
   "about": {
     "title": "About Echoes",
