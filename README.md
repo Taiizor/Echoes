@@ -91,17 +91,17 @@ GET /api/quotes/random   # Get random quote
 #### Random Quote Filters
 
 ```
-# By author
-GET /api/quotes/random?author=Einstein
-
-# By multiple authors (comma-separated)
-GET /api/quotes/random?author=Einstein,Gandhi
-
 # By language
 GET /api/quotes/random?lang=tr
 
 # By multiple languages (comma-separated)
 GET /api/quotes/random?lang=en,tr
+
+# By author
+GET /api/quotes/random?author=Einstein
+
+# By multiple authors (comma-separated)
+GET /api/quotes/random?author=Einstein,Gandhi
 
 # Combined filters
 GET /api/quotes/random?author=Yunus&lang=tr
