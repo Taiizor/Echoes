@@ -40,6 +40,8 @@
     "copy": "Kopieren",
     "getAllQuotes": "Alle Zitate abrufen",
     "getAllQuotesDescription": "Alle Zitatdaten aus dem System abrufen",
+    "getAllQuotesWithPagination": "Alle Zitate mit Paginierung abrufen",
+    "getAllQuotesWithPaginationDescription": "Alle Zitate mit Seitenzahl und Elementen pro Seite abrufen",
     "getQuoteById": "Zitat nach ID abrufen",
     "getRandomQuote": "Zufälliges Zitat abrufen",
     "getRandomQuoteDescription": "Jedes Mal ein anderes Zitat anzeigen",

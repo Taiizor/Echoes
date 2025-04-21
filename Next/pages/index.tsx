@@ -99,6 +99,11 @@ export default function Home() {
       endpoint: "/api/quotes"
     },
     {
+      title: t('docs.getAllQuotesWithPagination'),
+      description: t('docs.getAllQuotesWithPaginationDescription'),
+      endpoint: "/api/quotes?page=2&perPage=20"
+    },
+    {
       title: t('docs.getRandomQuote'),
       description: t('docs.getRandomQuoteDescription'),
       endpoint: "/api/quotes/random"

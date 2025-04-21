@@ -40,6 +40,8 @@
     "copy": "Kopyala",
     "getAllQuotes": "Tüm alıntıları al",
     "getAllQuotesDescription": "Sistemdeki tüm alıntı verilerini alın",
+    "getAllQuotesWithPagination": "Sayfalama ile tüm alıntıları al",
+    "getAllQuotesWithPaginationDescription": "Sayfa numarası ve sayfa başına öğe sayısı ile tüm alıntıları alın",
     "getQuoteById": "ID'ye göre alıntı al",
     "getRandomQuote": "Rastgele alıntı al",
     "getRandomQuoteDescription": "Her seferinde farklı bir alıntı görüntüleyin",

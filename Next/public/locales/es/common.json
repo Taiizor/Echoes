@@ -40,6 +40,8 @@
     "copy": "Copiar",
     "getAllQuotes": "Obtener todas las citas",
     "getAllQuotesDescription": "Obtener todos los datos de citas del sistema",
+    "getAllQuotesWithPagination": "Obtener todas las citas con paginación",
+    "getAllQuotesWithPaginationDescription": "Obtener todas las citas con número de página y elementos por página",
     "getQuoteById": "Obtener cita por ID",
     "getRandomQuote": "Obtener cita aleatoria",
     "getRandomQuoteDescription": "Mostrar una cita diferente cada vez",

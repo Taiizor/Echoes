@@ -40,6 +40,8 @@
     "copy": "Kopiuj",
     "getAllQuotes": "Pobierz wszystkie cytaty",
     "getAllQuotesDescription": "Pobierz wszystkie dane cytatów z systemu",
+    "getAllQuotesWithPagination": "Pobierz wszystkie cytaty z paginacją",
+    "getAllQuotesWithPaginationDescription": "Pobierz wszystkie cytaty z numerem strony i elementami na stronę",
     "getQuoteById": "Pobierz cytat według ID",
     "getRandomQuote": "Pobierz losowy cytat",
     "getRandomQuoteDescription": "Wyświetl za każdym razem inny cytat",

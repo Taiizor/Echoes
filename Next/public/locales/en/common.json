@@ -40,6 +40,8 @@
     "copy": "Copy",
     "getAllQuotes": "Get all quotes",
     "getAllQuotesDescription": "Get all quote data from the system",
+    "getAllQuotesWithPagination": "Get all quotes with pagination",
+    "getAllQuotesWithPaginationDescription": "Get all quotes with page number and items per page",
     "getQuoteById": "Get quote by ID",
     "getRandomQuote": "Get random quote",
     "getRandomQuoteDescription": "Display a different quote each time",
