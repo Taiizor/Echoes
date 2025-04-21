@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # Development environment
+  dev:
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "4578:4578"
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+
+  # Production environment
+  prod:
+    build:
+      context: .
+      target: production
+    restart: always
+    ports:
+      - "4578:4578"
+    environment:
+      - NODE_ENV=production
+    command: npm run start 
