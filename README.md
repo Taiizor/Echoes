@@ -8,7 +8,7 @@
 
 Echoes is a modern web application that offers inspiring quotes from around the world. It aims to inspire users by providing access to wisdom and insights in different languages, all within a beautiful, responsive interface.
 
-[Live Demo](https://echoes.soferity.com/) | [API Documentation](https://echoes.soferity.com/docs)
+[Live Preview](https://echoes.soferity.com/) | [API Documentation](https://echoes.soferity.com/docs)
 
 ## ✨ Features
 
@@ -71,8 +71,8 @@ docker-compose up -d
 ## ⚙️ Configuration
 
 - **Adding Quotes**: Edit the `data/quotes.json` file to add new quotes
-- **Translations**: Modify files in the `public/locales` folder to update or add translations
 - **Theme**: Customize the `tailwind.config.js` file to change color schemes
+- **Translations**: Modify files in the `public/locales` folder to update or add translations
 
 ## 📖 API Documentation
 
@@ -126,8 +126,8 @@ Contributions are welcome and appreciated! Here's how you can contribute:
 6. Open a Pull Request
 
 Types of contributions:
-- Adding new quotes to the database
 - Improving or adding translations
+- Adding new quotes to the database
 - Fixing bugs or improving performance
 - Adding new features or enhancing existing ones
 
