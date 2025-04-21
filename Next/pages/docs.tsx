@@ -63,13 +63,13 @@ const DocsPageContent = () => {
         {
           name: 'page',
           type: 'number',
-          description: t('docs.pageParamDescription') || 'Sayfa numarası (varsayılan: 1)',
+          description: t('docs.pageParamDescription'),
           required: false,
         },
         {
           name: 'perPage',
           type: 'number',
-          description: t('docs.perPageParamDescription') || 'Sayfa başına alıntı sayısı (varsayılan: 10, maksimum: 10000)',
+          description: t('docs.perPageParamDescription'),
           required: false,
         },
       ],
@@ -136,6 +136,56 @@ const DocsPageContent = () => {
 }`,
     },
   ];
+
+  // Example usage codes
+  const codeExamples = [
+    {
+      key: 'fetchAllQuotesPaginated',
+      code: `fetch('https://echoes.soferity.com/api/quotes')
+  .then(response => response.json())
+  .then(data => console.log(data));`
+    },
+    {
+      key: 'fetchQuotesWithPagination',
+      code: `fetch('https://echoes.soferity.com/api/quotes?page=2&perPage=20')
+  .then(response => response.json())
+  .then(data => console.log(data));`
+    },
+    {
+      key: 'fetchRandomQuote',
+      code: `fetch('https://echoes.soferity.com/api/quotes/random')
+  .then(response => response.json())
+  .then(data => console.log(data));`
+    },
+    {
+      key: 'fetchRandomQuoteByAuthor',
+      code: `fetch('https://echoes.soferity.com/api/quotes/random?author=Einstein')
+  .then(response => response.json())
+  .then(data => console.log(data));`
+    },
+    {
+      key: 'fetchRandomQuoteByMultipleAuthors',
+      code: `fetch('https://echoes.soferity.com/api/quotes/random?author=Einstein,Atatürk')
+  .then(response => response.json())
+  .then(data => console.log(data));`
+    },
+    {
+      key: 'fetchRandomQuoteByMultipleLanguages',
+      code: `fetch('https://echoes.soferity.com/api/quotes/random?lang=en,tr')
+  .then(response => response.json())
+  .then(data => console.log(data));`
+    },
+    {
+      key: 'fetchRandomQuoteByMultipleAuthorsAndLanguages',
+      code: `fetch('https://echoes.soferity.com/api/quotes/random?author=Einstein,Atatürk&lang=en,tr')
+  .then(response => response.json())
+  .then(data => console.log(data));`
+    }
+  ];
+
+  // Combine all code examples (for copy button)
+  const allCodeExamples = codeExamples.map(ex => `// ${t(`docs.${ex.key}`)}
+${ex.code}`).join('\n\n');
 
   return (
     <>
@@ -321,76 +371,15 @@ const DocsPageContent = () => {
                 
                 <div className="relative mt-8 overflow-hidden bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-700">
                   <div className="absolute top-3 right-3">
-                    <CopyButton text={`// Fetch all quotes (paginated)
-fetch('https://echoes.soferity.com/api/quotes')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// Fetch quotes with pagination parameters
-fetch('https://echoes.soferity.com/api/quotes?page=2&perPage=20')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// Fetch a random quote
-fetch('https://echoes.soferity.com/api/quotes/random')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// Fetch a random quote by author
-fetch('https://echoes.soferity.com/api/quotes/random?author=Einstein')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// Fetch a random quote by multiple authors
-fetch('https://echoes.soferity.com/api/quotes/random?author=Einstein,Atatürk')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// Fetch a random quote by multiple languages
-fetch('https://echoes.soferity.com/api/quotes/random?lang=en,tr')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// Fetch a random quote by multiple authors and languages
-fetch('https://echoes.soferity.com/api/quotes/random?author=Einstein,Atatürk&lang=en,tr')
-  .then(response => response.json())
-  .then(data => console.log(data));`} />
+                    <CopyButton text={allCodeExamples} />
                   </div>
                   <pre className="p-4 pt-12 text-gray-700 dark:text-gray-300 font-mono text-sm overflow-x-auto whitespace-pre-wrap">
-{`// ${t('docs.fetchAllQuotesPaginated')}
-fetch('https://echoes.soferity.com/api/quotes')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// ${t('docs.fetchQuotesWithPagination')}
-fetch('https://echoes.soferity.com/api/quotes?page=2&perPage=20')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// ${t('docs.fetchRandomQuote')}
-fetch('https://echoes.soferity.com/api/quotes/random')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// ${t('docs.fetchRandomQuoteByAuthor')}
-fetch('https://echoes.soferity.com/api/quotes/random?author=Einstein')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// ${t('docs.fetchRandomQuoteByMultipleAuthors')}
-fetch('https://echoes.soferity.com/api/quotes/random?author=Einstein,Atatürk')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// ${t('docs.fetchRandomQuoteByMultipleLanguages')}
-fetch('https://echoes.soferity.com/api/quotes/random?lang=en,tr')
-  .then(response => response.json())
-  .then(data => console.log(data));
-
-// ${t('docs.fetchRandomQuoteByMultipleAuthorsAndLanguages')}
-fetch('https://echoes.soferity.com/api/quotes/random?author=Einstein,Atatürk&lang=en,tr')
-  .then(response => response.json())
-  .then(data => console.log(data));`}
+                    {codeExamples.map((example, index) => (
+                      <div key={example.key} className={index > 0 ? 'mt-6' : ''}>
+                        {`// ${t(`docs.${example.key}`)}`}
+                        <div className="mt-1">{example.code}</div>
+                      </div>
+                    ))}
                   </pre>
                 </div>
               </div>
