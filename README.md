@@ -3,7 +3,7 @@
 ![Echoes](.images/Logo.png)
 
 [![License](https://img.shields.io/badge/License-GPL_3.0-blue.svg)](LICENSE)
-[![Next.js](https://img.shields.io/badge/Built_with-Next.js_14-black?logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Built_with-Next.js_15-black?logo=next.js)](https://nextjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Styled_with-Tailwind_CSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
 
 Echoes is a modern web application that offers inspiring quotes from around the world. It aims to inspire users by providing access to wisdom and insights in different languages, all within a beautiful, responsive interface.
