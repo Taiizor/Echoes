@@ -5,9 +5,9 @@ Echoes is a modern web application that offers inspiring quotes from around the 
 ## Features
 
 - 🧩 API for developers
+- 🌐 Multilingual interface
 - 🔄 Random quote display
 - 📱 Mobile-friendly design
-- 🌐 Multilingual interface
 - 🎨 Light/dark theme support
 - 📚 Quotes from various languages
 - 🔍 Filtering by author and language
