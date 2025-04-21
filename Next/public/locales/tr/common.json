@@ -72,7 +72,9 @@
   },
   "theme": {
     "light": "Aydınlık Mod",
-    "dark": "Karanlık Mod"
+    "dark": "Karanlık Mod",
+    "switchLight": "Aydınlık Moda Geç",
+    "switchDark": "Karanlık Moda Geç"
   },
   "footer": {
     "madeWith": "Sevgi ile yapıldı",

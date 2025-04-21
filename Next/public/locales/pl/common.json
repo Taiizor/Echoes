@@ -72,7 +72,9 @@
   },
   "theme": {
     "light": "Jasny motyw",
-    "dark": "Ciemny motyw"
+    "dark": "Ciemny motyw",
+    "switchLight": "Przełącz na jasny motyw",
+    "switchDark": "Przełącz na ciemny motyw"
   },
   "footer": {
     "madeWith": "Stworzone z",

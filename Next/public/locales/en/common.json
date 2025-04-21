@@ -72,7 +72,9 @@
   },
   "theme": {
     "light": "Light Mode",
-    "dark": "Dark Mode"
+    "dark": "Dark Mode",
+    "switchLight": "Switch to Light Mode",
+    "switchDark": "Switch to Dark Mode"
   },
   "footer": {
     "madeWith": "Made with",

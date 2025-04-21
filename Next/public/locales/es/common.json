@@ -72,7 +72,9 @@
   },
   "theme": {
     "light": "Modo Claro",
-    "dark": "Modo Oscuro"
+    "dark": "Modo Oscuro",
+    "switchLight": "Cambiar a modo claro",
+    "switchDark": "Cambiar a modo oscuro"
   },
   "footer": {
     "madeWith": "Hecho con",

@@ -72,7 +72,9 @@
   },
   "theme": {
     "light": "Heller Modus",
-    "dark": "Dunkler Modus"
+    "dark": "Dunkler Modus",
+    "switchLight": "Zum hellen Modus wechseln",
+    "switchDark": "Zum dunklen Modus wechseln"
   },
   "footer": {
     "madeWith": "Erstellt mit",
