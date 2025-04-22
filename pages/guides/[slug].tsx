@@ -1598,7 +1598,7 @@ Echoes currently supports the following languages:
 | ja            | Japanese      |
 | ar            | Arabic        |
 
-*More languages are being added regularly. Check the API documentation for the most up-to-date list.*
+<strong>More languages are being added regularly. Check the API documentation for the most up-to-date list.</strong>
 
 ## Retrieving Quotes in Different Languages
 
@@ -1829,7 +1829,7 @@ async function testLanguageSupport() {
   for (const lang of languages) {
     console.log(\`Testing language: \${lang}\`);
     try {
-      const response = await fetch(\`https://api.echoes.example/quotes/random?language=\${lang}\`);
+      const response = await fetch(\`https://echoes.soferity.com/api/quotes/random?lang=\${lang}\`);
       const data = await response.json();
       console.log(\`Quote in \${lang}:\`, data.content);
     } catch (error) {
@@ -1838,12 +1838,6 @@ async function testLanguageSupport() {
   }
 }
 \`\`\`
-
-## Conclusion
-
-Implementing multi-language support with the Echoes API allows you to create more inclusive, accessible applications that can reach a global audience. Whether you're building a simple quote widget or a comprehensive application, the ability to offer content in multiple languages significantly enhances the user experience.
-
-For more advanced integration techniques, check out our [Advanced API Usage](/guides/advanced-api-usage) guide, or learn how to contribute translations to the Echoes project in our [Community Contributions](/guides/community-contributions) guide.
       `,
       relatedGuides: ['getting-started', 'javascript-integration', 'advanced-api-usage']
     }
