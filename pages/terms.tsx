@@ -243,17 +243,6 @@ export default function TermsPage() {
               }
             />
             
-            {/* Jurisdiction */}
-            <TermsSection
-              icon={<ClientOnly><FiGlobe className="h-7 w-7" /></ClientOnly>}
-              title={t('terms.jurisdiction')}
-              content={
-                <p className="text-gray-600 dark:text-gray-400">
-                  {t('terms.jurisdictionText')}
-                </p>
-              }
-            />
-            
             {/* Contact Us */}
             <TermsSection
               icon={<ClientOnly><FiMail className="h-7 w-7" /></ClientOnly>}
