@@ -574,8 +574,8 @@ fetch('https://echoes.soferity.com/api/quotes?page=2&perPage=20')
   .then(data => console.log(data));
 \`\`\`
 
-- \`page\`: Page number (default: 1)
-- \`perPage\`: Number of quotes per page (default: 10, maximum: 100)
+- <strong>page</strong>: Page number (default: 1)
+- <strong>perPage</strong>: Number of quotes per page (default: 10, maximum: 100)
       `,
       relatedGuides: ['getting-started', 'javascript-integration', 'advanced-api-usage']
     }
