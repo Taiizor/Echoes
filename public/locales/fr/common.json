@@ -7,7 +7,8 @@
     "home": "Accueil",
     "docs": "Documentation API",
     "about": "À propos",
-    "contact": "Contact"
+    "contact": "Contact",
+    "guides": "Guides"
   },
   "api": {
     "title": "Fonctionnalités de l'API",

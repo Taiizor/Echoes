@@ -14,8 +14,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
   const navLinks = [
     { href: '/', label: t('nav.home') },
     { href: '/docs', label: t('nav.docs') },
-    { href: '/about', label: t('nav.about') },
-    { href: '/contact', label: t('nav.contact') }
+    { href: '/about', label: t('nav.about') }
   ];
   
   const socialLinks = [
@@ -92,18 +91,18 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                   </h3>
                   <ul className="space-y-4">
                     <li>
-                      <Link 
+                      {/* <Link 
                         href="/blog" 
                         className="group text-base text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                       >
                         <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
                           Blog
                         </span>
-                      </Link>
+                      </Link> */}
                     </li>
                     <li>
                       <Link 
-                        href="/docs/guides" 
+                        href="/guides" 
                         className="group text-base text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                       >
                         <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">

@@ -111,6 +111,7 @@ const Header: React.FC<HeaderProps> = () => {
   // Navbar Links
   const navLinks = [
     { href: '/', label: t('nav.home') },
+    { href: '/guides', label: t('nav.guides') },
     { href: '/docs', label: t('nav.docs') },
     { href: '/about', label: t('nav.about') }
   ];

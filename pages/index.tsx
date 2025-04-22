@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { FiRefreshCw, FiExternalLink, FiCode, FiArrowRight, FiCheckCircle, FiGithub } from 'react-icons/fi';
+import { FiRefreshCw, FiExternalLink, FiCode, FiArrowRight, FiCheckCircle, FiGithub, FiBookOpen } from 'react-icons/fi';
 import useQuotes, { Quote } from '@/hooks/useQuotes';
 
 // Client-side only component to avoid hydration errors
@@ -198,6 +198,10 @@ export default function Home() {
                 <Button href="/docs">
                   {t('nav.docs')}
                   <FiCode className="ml-2" />
+                </Button>
+                <Button href="/guides">
+                  {t('nav.guides')}
+                  <FiBookOpen className="ml-2" />
                 </Button>
                 <Button href="https://github.com/Taiizor/Echoes">
                   GitHub
