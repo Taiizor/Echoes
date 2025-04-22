@@ -957,14 +957,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const slug = params?.slug as string;
   
-  // Eğer rehber bulunamadıysa 404 sayfasına yönlendir
+  // If guide is not found, redirect to 404 page
   if (!guides[slug]) {
     return {
       notFound: true
     };
   }
   
-  // Varsayılan olarak rehberleri sadece İngilizce dilinde sunuyoruz
+  // By default, we only offer guides in English
   if (!guides[slug]['en']) {
     return {
       notFound: true
@@ -976,7 +976,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
       ...(await serverSideTranslations(locale || 'en', ['common'])),
       slug
     },
-    // Sayfa her 1 saatte bir yeniden oluşturulur (isteğe bağlı)
+    // Page is regenerated every 1 hour (optional)
     revalidate: 3600
   };
 };
