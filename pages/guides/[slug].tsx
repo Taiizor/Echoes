@@ -46,7 +46,59 @@ const GuideDetail = ({ slug }: { slug: string }) => {
   // Dile göre rehber verilerini oluştur
   const getGuideDataForLocale = () => {
     const currentLocale = i18n.language;
-    return guides[slug][currentLocale] || guides[slug]['en']; // Dil yoksa İngilizce'ye geri dön
+    const guideData = guides[slug][currentLocale] || guides[slug]['en']; // Dil yoksa İngilizce'ye geri dön
+    
+    // Eğer içerik mevcut dilin dışında bir dilde ise, başlık ve açıklamayı çevirmeye çalış
+    if (!guides[slug][currentLocale] && guides[slug]['en']) {
+      // Eğer bu rehber için çeviri anahtarları varsa, onları kullan
+      const translationKeys = getTranslationKeysForGuide(slug);
+      
+      if (translationKeys) {
+        return {
+          ...guideData,
+          title: t(translationKeys.title) || guideData.title,
+          description: t(translationKeys.description) || guideData.description
+        };
+      }
+    }
+    
+    return guideData;
+  };
+  
+  // Rehber için çeviri anahtarlarını al
+  const getTranslationKeysForGuide = (slug: string) => {
+    const translationMap: Record<string, { title: string, description: string }> = {
+      'getting-started': {
+        title: 'guides.apiIntro.title',
+        description: 'guides.apiIntro.description'
+      },
+      'filtering-quotes': {
+        title: 'guides.filtering.title',
+        description: 'guides.filtering.description'
+      },
+      'javascript-integration': {
+        title: 'guides.jsIntegration.title',
+        description: 'guides.jsIntegration.description'
+      },
+      'react-integration': {
+        title: 'guides.reactIntegration.title',
+        description: 'guides.reactIntegration.description'
+      },
+      'multi-language-support': {
+        title: 'guides.multiLang.title',
+        description: 'guides.multiLang.description'
+      },
+      'advanced-api-usage': {
+        title: 'guides.advancedApi.title',
+        description: 'guides.advancedApi.description'
+      },
+      'community-contributions': {
+        title: 'guides.community.title',
+        description: 'guides.community.description'
+      }
+    };
+    
+    return translationMap[slug] || null;
   };
   
   // Eğer henüz hazır değilse veya rehber bulunamadıysa
@@ -111,7 +163,22 @@ const GuideDetail = ({ slug }: { slug: string }) => {
   const relatedGuideContent = guide.relatedGuides
     .map(relatedSlug => {
       if (guides[relatedSlug]) {
-        return guides[relatedSlug][i18n.language] || guides[relatedSlug]['en'];
+        const relatedGuideData = guides[relatedSlug][i18n.language] || guides[relatedSlug]['en'];
+        
+        // Eğer içerik mevcut dilin dışında bir dilde ise, başlık ve açıklamayı çevirmeye çalış
+        if (!guides[relatedSlug][i18n.language] && guides[relatedSlug]['en']) {
+          const translationKeys = getTranslationKeysForGuide(relatedSlug);
+          
+          if (translationKeys) {
+            return {
+              ...relatedGuideData,
+              title: t(translationKeys.title) || relatedGuideData.title,
+              description: t(translationKeys.description) || relatedGuideData.description
+            };
+          }
+        }
+        
+        return relatedGuideData;
       }
       return null;
     })
