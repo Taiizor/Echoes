@@ -937,7 +937,113 @@ This guide covers advanced techniques for using the Echoes API, including cachin
       content: `
 # Community Contributions
 
-This guide explains how you can contribute to the Echoes project, whether through adding new quotes, improving the API, or enhancing documentation.
+Echoes is a community-driven project, and we welcome contributions from developers, translators, and quote enthusiasts around the world. This guide explains how you can become part of the Echoes community and contribute to its growth.
+
+## Ways to Contribute
+
+There are many ways to contribute to the Echoes project:
+
+- **Adding new quotes**: Expand our collection with inspiring quotes in any language
+- **Translating existing quotes**: Help make our quotes available in more languages
+- **Improving the API**: Enhance functionality or fix bugs in the API codebase
+- **Enhancing documentation**: Improve guides, examples, and API documentation
+- **Building tools and integrations**: Create tools that leverage the Echoes API
+
+## Contributing Quotes
+
+Our quote database is the heart of Echoes. Here's how you can contribute new quotes:
+
+### Contributing Through GitHub
+
+All quote contributions are managed through our GitHub repository:
+
+1. Fork the [Echoes repository](https://github.com/Taiizor/Echoes)
+2. Navigate to the quotes data directory
+3. Add your new quotes or translations
+4. Submit a pull request
+
+## Translation Contributions
+
+Help make Echoes available in more languages by contributing translations through the main repository:
+
+1. Fork the [Echoes repository](https://github.com/Taiizor/Echoes)
+2. Navigate to the localization files
+3. Choose a language you're fluent in
+4. Translate untranslated quotes or review existing translations
+
+\`\`\`Bash
+# Clone the repository
+git clone https://github.com/Taiizor/Echoes
+cd Echoes
+
+# Create a new branch for your work
+git checkout -b add-turkish-quotes
+
+# Make your changes and commit
+git add .
+git commit -m "Add 20 new Turkish quotes"
+git push origin add-turkish-quotes
+
+# Then open a pull request on GitHub
+\`\`\`
+
+## Code Contributions
+
+If you're a developer, you can contribute to the Echoes codebase:
+
+### Setting Up the Development Environment
+
+\`\`\`Bash
+# Clone the repository
+git clone https://github.com/Taiizor/Echoes
+cd Echoes
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+\`\`\`
+
+### Pull Request Process
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Write or update tests
+5. Submit a pull request
+
+We follow standard GitHub pull request workflows. Please ensure your code follows our style guide and passes all tests.
+
+## Documentation Contributions
+
+Help improve the Echoes documentation:
+
+1. Fix typos or clarify existing guides
+2. Add new examples or use cases
+3. Translate documentation to other languages
+
+Documentation is written in Markdown and can be found in the repository.
+
+## Community Guidelines
+
+When contributing to Echoes, please follow these guidelines:
+
+- Be respectful and inclusive in all communications
+- Follow our code of conduct
+- Test your contributions thoroughly
+- Document your changes clearly
+- Be patient during the review process
+
+## Getting Help
+
+If you need help with your contribution, you can:
+
+- Ask questions in the GitHub issues
+- Contact the project maintainers via GitHub
+- Join our Discord community: \`https://discord.gg/nxG977byXb\`
+
+We look forward to your contributions and to welcoming you to the Echoes community!
       `,
       relatedGuides: ['getting-started', 'advanced-api-usage']
     }
