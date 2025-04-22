@@ -500,7 +500,7 @@ This request will return a random quote. The response will look something like t
   "quote": "Imagination is more important than knowledge."
 }
 \`\`\`
-    `,
+      `,
       relatedGuides: ['filtering-quotes', 'javascript-integration', 'advanced-api-usage']
     }
   },
@@ -576,7 +576,7 @@ fetch('https://echoes.soferity.com/api/quotes?page=2&perPage=20')
 
 - \`page\`: Page number (default: 1)
 - \`perPage\`: Number of quotes per page (default: 10, maximum: 100)
-    `,
+      `,
       relatedGuides: ['getting-started', 'javascript-integration', 'advanced-api-usage']
     }
   },
@@ -878,16 +878,8 @@ echoesClient.getQuotesByLanguage('en')
   .then(quotes => console.log('English Quotes:', quotes))
   .catch(error => console.error('Error:', error));
 \`\`\`
-
-## Next Steps
-
-In this guide, you've learned the basics of using the Echoes API in JavaScript. To go further, check out these guides:
-
-- [React Integration](/guides/react-integration)
-- [Multi-language Support](/guides/multi-language-support)
-- [Advanced API Usage](/guides/advanced-api-usage)
       `,
-      relatedGuides: ['getting-started', 'react-integration', 'advanced-api-usage']
+      relatedGuides: ['multi-language-support', 'advanced-api-usage', 'react-integration']
     }
   },
   'react-integration': {
