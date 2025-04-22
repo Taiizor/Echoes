@@ -37,7 +37,7 @@ const GuidesPage = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Dropdown dışına tıklandığında kapanması için
+  // To close dropdown when clicked outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -51,7 +51,7 @@ const GuidesPage = () => {
     };
   }, []);
 
-  // Rehberler verisi
+  // Guides data
   const guides: GuideItem[] = [
     {
       id: '1',
@@ -118,11 +118,11 @@ const GuidesPage = () => {
     }
   ];
 
-  // Tüm etiketleri topla
+  // Collect all tags
   const allTags: string[] = guides.flatMap(guide => guide.tags)
     .filter((tag, index, array) => array.indexOf(tag) === index);
 
-  // Filtreleme ve arama fonksiyonu
+  // Filtering and search function
   const filteredGuides = guides.filter(guide => {
     const matchesFilter = activeFilter === 'all' || guide.tags.includes(activeFilter);
     const matchesSearch = guide.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -130,14 +130,14 @@ const GuidesPage = () => {
     return matchesFilter && matchesSearch;
   });
 
-  // Seviye etiketi renk sınıfları
+  // Level tag color classes
   const levelColorClasses = {
     [t('guides.levels.beginner')]: 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-400',
     [t('guides.levels.intermediate')]: 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-400',
     [t('guides.levels.advanced')]: 'bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-400'
   };
 
-  // Etiketlerin görüntü metni
+  // Display text for tags
   const getFilterLabel = (value: string) => {
     if (value === 'all') return t('guides.allTags');
     return value;
@@ -150,7 +150,7 @@ const GuidesPage = () => {
         <meta name="description" content={t('guides.pageDescription')} />
       </Head>
 
-      {/* Hero Bölümü */}
+      {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-b from-primary-600 to-primary-900 dark:from-primary-800 dark:to-primary-950 text-white">
         <div className="absolute top-0 left-0 right-0 w-full h-full opacity-10">
           <div className="absolute top-10 left-10 w-40 h-40 rounded-full bg-white blur-3xl"></div>
@@ -177,15 +177,15 @@ const GuidesPage = () => {
         <div className="w-full h-16 bg-gradient-to-b from-transparent to-gray-50 dark:to-gray-900"></div>
       </div>
 
-      {/* Ana İçerik */}
+      {/* Main Content */}
       <div className="bg-gray-50 dark:bg-gray-900 py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             
-            {/* Arama ve Filtreleme Araçları */}
+            {/* Search and Filtering Tools */}
             <div className="mb-10 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
               <div className="grid md:grid-cols-3 gap-6">
-                {/* Arama */}
+                {/* Search */}
                 <div className="md:col-span-2">
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -203,7 +203,7 @@ const GuidesPage = () => {
                   </div>
                 </div>
                 
-                {/* Özel Etiket Dropdown Filtresi */}
+                {/* Custom Tag Dropdown Filter */}
                 <div className="relative" ref={dropdownRef}>
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -252,7 +252,7 @@ const GuidesPage = () => {
               </div>
             </div>
             
-            {/* Rehberler Listesi */}
+            {/* Guides List */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredGuides.length > 0 ? (
                 filteredGuides.map((guide) => (
@@ -325,7 +325,7 @@ const GuidesPage = () => {
               )}
             </div>
             
-            {/* Diğer Kaynaklar */}
+            {/* Other Resources */}
             <div className="mt-16 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100 dark:border-gray-700">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 {t('guides.otherResources.title')}
