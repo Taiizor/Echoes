@@ -254,8 +254,8 @@ const GuideDetail = ({ slug }: { slug: string }) => {
         const htmlCodeBlock = `
           <div class="my-8 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/90 shadow-sm">
             <div class="flex items-center justify-between px-4 py-2 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-              <div class="flex items-center">
-                <span class="mr-2 text-gray-500 dark:text-gray-400">
+              <div className="flex items-center">
+                <span className="mr-2 text-gray-500 dark:text-gray-400">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="16 18 22 12 16 6"></polyline>
                     <polyline points="8 6 2 12 8 18"></polyline>
@@ -943,11 +943,11 @@ Echoes is a community-driven project, and we welcome contributions from develope
 
 There are many ways to contribute to the Echoes project:
 
-- **Adding new quotes**: Expand our collection with inspiring quotes in any language
-- **Translating existing quotes**: Help make our quotes available in more languages
-- **Improving the API**: Enhance functionality or fix bugs in the API codebase
-- **Enhancing documentation**: Improve guides, examples, and API documentation
-- **Building tools and integrations**: Create tools that leverage the Echoes API
+- <strong>Adding new quotes</strong>: Expand our collection with inspiring quotes in any language
+- <strong>Translating existing quotes</strong>: Help make our quotes available in more languages
+- <strong>Improving the API</strong>: Enhance functionality or fix bugs in the API codebase
+- <strong>Enhancing documentation</strong>: Improve guides, examples, and API documentation
+- <strong>Building tools and integrations</strong>: Create tools that leverage the Echoes API
 
 ## Contributing Quotes
 
@@ -1041,7 +1041,7 @@ If you need help with your contribution, you can:
 
 - Ask questions in the GitHub issues
 - Contact the project maintainers via GitHub
-- Join our Discord community: \`https://discord.gg/nxG977byXb\`
+- Join our [Discord Community](https://discord.gg/nxG977byXb)
 
 We look forward to your contributions and to welcoming you to the Echoes community!
       `,
