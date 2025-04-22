@@ -834,12 +834,12 @@ class EchoesClient {
     return this._fetch('/quotes', { page, perPage });
   }
   
-  async getQuotesByLanguage(lang, page = 1, perPage = 10) {
-    return this._fetch('/quotes', { lang, page, perPage });
+  async getRandomQuoteByLanguage(lang) {
+    return this._fetch('/quotes/random', { lang });
   }
   
-  async getQuotesByAuthor(author, page = 1, perPage = 10) {
-    return this._fetch('/quotes', { author, page, perPage });
+  async getRandomQuoteByAuthor(author) {
+    return this._fetch('/quotes/random', { author });
   }
   
   async _fetch(endpoint, params = {}) {
@@ -873,8 +873,8 @@ echoesClient.getRandomQuote()
   .then(quote => console.log('Random Quote:', quote))
   .catch(error => console.error('Error:', error));
 
-// Get quotes in a specific language
-echoesClient.getQuotesByLanguage('en')
+// Get a random quote in a specific language
+echoesClient.getRandomQuoteByLanguage('en')
   .then(quotes => console.log('English Quotes:', quotes))
   .catch(error => console.error('Error:', error));
 \`\`\`
