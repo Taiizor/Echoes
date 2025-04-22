@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -15,7 +15,9 @@ import {
   FiCode, 
   FiUsers,
   FiCpu,
-  FiSearch
+  FiSearch,
+  FiChevronDown,
+  FiCheck
 } from 'react-icons/fi';
 
 interface GuideItem {
@@ -32,6 +34,22 @@ const GuidesPage = () => {
   const { t } = useTranslation('common');
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Dropdown dışına tıklandığında kapanması için
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    }
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   // Rehberler verisi
   const guides: GuideItem[] = [
@@ -119,6 +137,12 @@ const GuidesPage = () => {
     'İleri': 'bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-400'
   };
 
+  // Etiketlerin görüntü metni
+  const getFilterLabel = (value: string) => {
+    if (value === 'all') return 'Tüm Etiketler';
+    return value;
+  };
+
   return (
     <>
       <Head>
@@ -179,20 +203,51 @@ const GuidesPage = () => {
                   </div>
                 </div>
                 
-                {/* Etiket Filtresi */}
-                <div>
-                  <select
-                    className="block w-full py-3 px-4 border border-gray-200 dark:border-gray-700 rounded-xl 
-                    bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 
-                    text-gray-900 dark:text-gray-100 transition duration-150"
-                    value={activeFilter}
-                    onChange={(e) => setActiveFilter(e.target.value)}
+                {/* Özel Etiket Dropdown Filtresi */}
+                <div className="relative" ref={dropdownRef}>
+                  <button
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="flex items-center justify-between w-full pl-4 pr-3 py-3 border border-gray-200 dark:border-gray-700 rounded-xl 
+                    bg-gradient-to-r from-primary-50 to-gray-50 dark:from-primary-950/40 dark:to-gray-900 
+                    text-gray-900 dark:text-gray-100 font-medium
+                    focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 
+                    shadow-sm hover:shadow-md dark:shadow-gray-900/30 
+                    transition-all duration-200 cursor-pointer"
                   >
-                    <option value="all">Tüm Etiketler</option>
-                    {allTags.map(tag => (
-                      <option key={tag} value={tag}>{tag}</option>
-                    ))}
-                  </select>
+                    <span>{getFilterLabel(activeFilter)}</span>
+                    <FiChevronDown className={`w-5 h-5 text-primary-600 dark:text-primary-400 transition-transform duration-200 ${isDropdownOpen ? 'transform rotate-180' : ''}`} />
+                  </button>
+                  
+                  {isDropdownOpen && (
+                    <div className="absolute z-10 mt-2 w-full rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden">
+                      <div className="max-h-60 overflow-y-auto py-1 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700">
+                        <button
+                          onClick={() => {
+                            setActiveFilter('all');
+                            setIsDropdownOpen(false);
+                          }}
+                          className={`w-full text-left px-4 py-2.5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 ${activeFilter === 'all' ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-200'}`}
+                        >
+                          <span>Tüm Etiketler</span>
+                          {activeFilter === 'all' && <FiCheck className="w-4 h-4 text-primary-600 dark:text-primary-400" />}
+                        </button>
+                        
+                        {allTags.map(tag => (
+                          <button
+                            key={tag}
+                            onClick={() => {
+                              setActiveFilter(tag);
+                              setIsDropdownOpen(false);
+                            }}
+                            className={`w-full text-left px-4 py-2.5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 ${activeFilter === tag ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-200'}`}
+                          >
+                            <span>{tag}</span>
+                            {activeFilter === tag && <FiCheck className="w-4 h-4 text-primary-600 dark:text-primary-400" />}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
