@@ -892,7 +892,663 @@ echoesClient.getRandomQuoteByLanguage('en')
       content: `
 # React Integration
 
-This guide will show you how to integrate Echoes API into your React application. You'll learn how to create React components that display quotes and handle API interactions.
+This guide will show you how to integrate Echoes API into your React application. You'll learn how to create React components that display quotes and handle API interactions with proper state management and error handling.
+
+## Setting Up Your React Project
+
+First, make sure you have a React project set up. You can use Create React App or Next.js:
+
+\`\`\`Bash
+# Using Create React App
+npx create-react-app echoes-quotes-app
+cd echoes-quotes-app
+
+# Or with Next.js
+npx create-next-app echoes-quotes-app
+cd echoes-quotes-app
+\`\`\`
+
+## Creating a Quote Component
+
+Let's create a simple Quote component that displays a single quote:
+
+\`\`\`JavaScript
+// components/Quote.jsx
+import React from 'react';
+
+const Quote = ({ quote }) => {
+  if (!quote) return null;
+  
+  return (
+    <div className="quote-card">
+      <blockquote className="quote-text">
+        {quote.quote}
+      </blockquote>
+      <div className="quote-author">
+        — {quote.author}
+      </div>
+      <div className="quote-language">
+        Language: {quote.lang}
+      </div>
+    </div>
+  );
+};
+
+export default Quote;
+\`\`\`
+
+## Creating a Quotes Container
+
+Now, let's create a container component that fetches quotes from the Echoes API:
+
+\`\`\`JavaScript
+// components/QuotesContainer.jsx
+import React, { useState, useEffect } from 'react';
+import Quote from './Quote';
+
+const QuotesContainer = () => {
+  const [quote, setQuote] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  const fetchRandomQuote = async () => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      const response = await fetch('https://echoes.soferity.com/api/quotes/random');
+      
+      if (!response.ok) {
+        throw new Error(\`HTTP error! Status: \${response.status}\`);
+      }
+      
+      const data = await response.json();
+      setQuote(data);
+    } catch (err) {
+      setError('Failed to fetch quote. Please try again later.');
+      console.error('Error fetching quote:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  // Fetch a quote when the component mounts
+  useEffect(() => {
+    fetchRandomQuote();
+  }, []);
+  
+  return (
+    <div className="quotes-container">
+      <h2>Quote of the Day</h2>
+      
+      {loading && <p className="loading">Loading quote...</p>}
+      {error && <p className="error">{error}</p>}
+      {!loading && !error && quote && <Quote quote={quote} />}
+      
+      <button 
+        onClick={fetchRandomQuote}
+        disabled={loading}
+        className="new-quote-btn"
+      >
+        Get New Quote
+      </button>
+    </div>
+  );
+};
+
+export default QuotesContainer;
+\`\`\`
+
+## Adding Filtering Capabilities
+
+Let's enhance our components to allow filtering by language and author:
+
+\`\`\`JavaScript
+// components/QuoteFilter.jsx
+import React, { useState } from 'react';
+
+const QuoteFilter = ({ onFilterChange }) => {
+  const [language, setLanguage] = useState('');
+  const [author, setAuthor] = useState('');
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onFilterChange({ language, author });
+  };
+  
+  return (
+    <form onSubmit={handleSubmit} className="quote-filter">
+      <div className="filter-group">
+        <label htmlFor="language">Language:</label>
+        <select 
+          id="language" 
+          value={language} 
+          onChange={(e) => setLanguage(e.target.value)}
+        >
+          <option value="">Any Language</option>
+          <option value="en">English</option>
+          <option value="tr">Turkish</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+        </select>
+      </div>
+      
+      <div className="filter-group">
+        <label htmlFor="author">Author:</label>
+        <input 
+          type="text" 
+          id="author" 
+          value={author} 
+          onChange={(e) => setAuthor(e.target.value)}
+          placeholder="Enter author name" 
+        />
+      </div>
+      
+      <button type="submit" className="filter-btn">Apply Filters</button>
+    </form>
+  );
+};
+
+export default QuoteFilter;
+\`\`\`
+
+Now let's update our QuotesContainer to include filtering:
+
+\`\`\`JavaScript
+// Updated QuotesContainer.jsx
+import React, { useState, useEffect } from 'react';
+import Quote from './Quote';
+import QuoteFilter from './QuoteFilter';
+
+const QuotesContainer = () => {
+  const [quote, setQuote] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [filters, setFilters] = useState({ language: '', author: '' });
+  
+  const fetchRandomQuote = async () => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      // Build the URL with filters
+      let url = 'https://echoes.soferity.com/api/quotes/random';
+      const params = new URLSearchParams();
+      
+      if (filters.language) {
+        params.append('lang', filters.language);
+      }
+      
+      if (filters.author) {
+        params.append('author', filters.author);
+      }
+      
+      // Add query string if we have parameters
+      if (params.toString()) {
+        url += \`?\${params.toString()}\`;
+      }
+      
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error(\`HTTP error! Status: \${response.status}\`);
+      }
+      
+      const data = await response.json();
+      setQuote(data);
+    } catch (err) {
+      setError('Failed to fetch quote. Please try again later.');
+      console.error('Error fetching quote:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  // Handle filter changes
+  const handleFilterChange = (newFilters) => {
+    setFilters(newFilters);
+  };
+  
+  // Fetch a quote when filters change
+  useEffect(() => {
+    fetchRandomQuote();
+  }, [filters]);
+  
+  return (
+    <div className="quotes-container">
+      <h2>Quote of the Day</h2>
+      
+      <QuoteFilter onFilterChange={handleFilterChange} />
+      
+      {loading && <p className="loading">Loading quote...</p>}
+      {error && <p className="error">{error}</p>}
+      {!loading && !error && quote && <Quote quote={quote} />}
+      
+      <button 
+        onClick={fetchRandomQuote}
+        disabled={loading}
+        className="new-quote-btn"
+      >
+        Get New Quote
+      </button>
+    </div>
+  );
+};
+
+export default QuotesContainer;
+\`\`\`
+
+## Multi-language Support
+
+To support displaying quotes in multiple languages with proper translations for UI elements, you can use libraries like <strong>react-i18next</strong>. Here's a basic setup:
+
+\`\`\`Bash
+npm install react-i18next i18next
+\`\`\`
+
+\`\`\`JavaScript
+// i18n.js
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
+const resources = {
+  en: {
+    translation: {
+      quoteOfTheDay: 'Quote of the Day',
+      loading: 'Loading quote...',
+      getNewQuote: 'Get New Quote',
+      language: 'Language',
+      author: 'Author',
+      applyFilters: 'Apply Filters',
+      anyLanguage: 'Any Language'
+    }
+  },
+  tr: {
+    translation: {
+      quoteOfTheDay: 'Günün Sözü',
+      loading: 'Alıntı yükleniyor...',
+      getNewQuote: 'Yeni Alıntı Getir',
+      language: 'Dil',
+      author: 'Yazar',
+      applyFilters: 'Filtreleri Uygula',
+      anyLanguage: 'Herhangi Bir Dil'
+    }
+  }
+};
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources,
+    lng: 'en',
+    fallbackLng: 'en',
+    interpolation: {
+      escapeValue: false
+    }
+  });
+
+export default i18n;
+\`\`\`
+
+Now we can update our components to use translations:
+
+\`\`\`JavaScript
+// Updated QuotesContainer.jsx with i18n
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import Quote from './Quote';
+import QuoteFilter from './QuoteFilter';
+
+const QuotesContainer = () => {
+  const { t } = useTranslation();
+  const [quote, setQuote] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [filters, setFilters] = useState({ language: '', author: '' });
+  
+  // ... rest of the component remains the same
+  
+  return (
+    <div className="quotes-container">
+      <h2>{t('quoteOfTheDay')}</h2>
+      
+      <QuoteFilter onFilterChange={handleFilterChange} />
+      
+      {loading && <p className="loading">{t('loading')}</p>}
+      {error && <p className="error">{error}</p>}
+      {!loading && !error && quote && <Quote quote={quote} />}
+      
+      <button 
+        onClick={fetchRandomQuote}
+        disabled={loading}
+        className="new-quote-btn"
+      >
+        {t('getNewQuote')}
+      </button>
+    </div>
+  );
+};
+
+export default QuotesContainer;
+\`\`\`
+
+## Implementing a Quote Collection Page
+
+Let's create a page that displays multiple quotes with pagination:
+
+\`\`\`JavaScript
+// components/QuoteCollection.jsx
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import Quote from './Quote';
+
+const QuoteCollection = () => {
+  const { t } = useTranslation();
+  const [quotes, setQuotes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  
+  const fetchQuotes = async (pageNum) => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      const response = await fetch(\`https://echoes.soferity.com/api/quotes?page=\${pageNum}&perPage=10\`);
+      
+      if (!response.ok) {
+        throw new Error(\`HTTP error! Status: \${response.status}\`);
+      }
+      
+      const data = await response.json();
+      setQuotes(data.quotes);
+      setTotalPages(data.totalPages || 1);
+    } catch (err) {
+      setError('Failed to fetch quotes. Please try again later.');
+      console.error('Error fetching quotes:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  // Fetch quotes when page changes
+  useEffect(() => {
+    fetchQuotes(page);
+  }, [page]);
+  
+  const handlePrevPage = () => {
+    if (page > 1) setPage(page - 1);
+  };
+  
+  const handleNextPage = () => {
+    if (page < totalPages) setPage(page + 1);
+  };
+  
+  return (
+    <div className="quotes-collection">
+      <h2>{t('quoteCollection')}</h2>
+      
+      {loading && <p className="loading">{t('loading')}</p>}
+      {error && <p className="error">{error}</p>}
+      
+      {!loading && !error && quotes.length === 0 && (
+        <p>No quotes found. Try changing filters or page.</p>
+      )}
+      
+      {!loading && !error && quotes.length > 0 && (
+        <>
+          <div className="quotes-grid">
+            {quotes.map(quote => (
+              <Quote key={quote.id} quote={quote} />
+            ))}
+          </div>
+          
+          <div className="pagination">
+            <button 
+              onClick={handlePrevPage} 
+              disabled={page === 1 || loading}
+              className="pagination-btn"
+            >
+              {t('prevPage')}
+            </button>
+            
+            <span className="page-indicator">
+              {t('pageIndicator', { current: page, total: totalPages })}
+            </span>
+            
+            <button 
+              onClick={handleNextPage} 
+              disabled={page === totalPages || loading}
+              className="pagination-btn"
+            >
+              {t('nextPage')}
+            </button>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default QuoteCollection;
+\`\`\`
+
+## Using React Context for Global State
+
+For more complex applications, you might want to use React Context to manage global state:
+
+\`\`\`JavaScript
+// context/QuoteContext.js
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+
+const QuoteContext = createContext();
+
+export function QuoteProvider({ children }) {
+  const [quote, setQuote] = useState(null);
+  const [quotes, setQuotes] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [filters, setFilters] = useState({ language: '', author: '' });
+  
+  const fetchRandomQuote = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      // Build the URL with filters
+      let url = 'https://echoes.soferity.com/api/quotes/random';
+      const params = new URLSearchParams();
+      
+      if (filters.language) {
+        params.append('lang', filters.language);
+      }
+      
+      if (filters.author) {
+        params.append('author', filters.author);
+      }
+      
+      // Add query string if we have parameters
+      if (params.toString()) {
+        url += \`?\${params.toString()}\`;
+      }
+      
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error(\`HTTP error! Status: \${response.status}\`);
+      }
+      
+      const data = await response.json();
+      setQuote(data);
+    } catch (err) {
+      setError('Failed to fetch quote. Please try again later.');
+      console.error('Error fetching quote:', err);
+    } finally {
+      setLoading(false);
+    }
+  }, [filters]);
+  
+  const fetchQuotes = useCallback(async (page = 1, perPage = 10) => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      // Build the URL with filters
+      let url = \`https://echoes.soferity.com/api/quotes?page=\${page}&perPage=\${perPage}\`;
+      const params = new URLSearchParams();
+      
+      if (filters.language) {
+        params.append('lang', filters.language);
+      }
+      
+      if (filters.author) {
+        params.append('author', filters.author);
+      }
+      
+      // Add query string if we have parameters
+      if (params.toString()) {
+        url += \`&\${params.toString()}\`;
+      }
+      
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error(\`HTTP error! Status: \${response.status}\`);
+      }
+      
+      const data = await response.json();
+      setQuotes(data.quotes || []);
+      return data;
+    } catch (err) {
+      setError('Failed to fetch quotes. Please try again later.');
+      console.error('Error fetching quotes:', err);
+      return { quotes: [] };
+    } finally {
+      setLoading(false);
+    }
+  }, [filters]);
+  
+  const updateFilters = (newFilters) => {
+    setFilters(prev => ({ ...prev, ...newFilters }));
+  };
+  
+  useEffect(() => {
+    fetchRandomQuote();
+  }, [fetchRandomQuote]);
+  
+  return (
+    <QuoteContext.Provider value={{
+      quote,
+      quotes,
+      loading,
+      error,
+      filters,
+      fetchRandomQuote,
+      fetchQuotes,
+      updateFilters
+    }}>
+      {children}
+    </QuoteContext.Provider>
+  );
+}
+
+export function useQuote() {
+  const context = useContext(QuoteContext);
+  if (context === undefined) {
+    throw new Error('useQuote must be used within a QuoteProvider');
+  }
+  return context;
+}
+\`\`\`
+
+## Full App Example
+
+Now you can assemble everything into a complete app:
+
+\`\`\`JavaScript
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { QuoteProvider } from './context/QuoteContext';
+import QuotesContainer from './components/QuotesContainer';
+import QuoteCollection from './components/QuoteCollection';
+import './i18n';
+import './styles/quotes.css';
+
+const LanguageSwitcher = () => {
+  const { i18n } = useTranslation();
+  
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+  
+  return (
+    <div className="language-switcher">
+      <button onClick={() => changeLanguage('en')}>English</button>
+      <button onClick={() => changeLanguage('tr')}>Türkçe</button>
+    </div>
+  );
+};
+
+function App() {
+  const { t } = useTranslation();
+  
+  return (
+    <QuoteProvider>
+      <Router>
+        <div className="app">
+          <header className="app-header">
+            <h1>{t('appTitle')}</h1>
+            <LanguageSwitcher />
+            <nav>
+              <Link to="/">{t('randomQuote')}</Link>
+              <Link to="/collection">{t('quoteCollection')}</Link>
+            </nav>
+          </header>
+          
+          <main>
+            <Routes>
+              <Route path="/" element={<QuotesContainer />} />
+              <Route path="/collection" element={<QuoteCollection />} />
+            </Routes>
+          </main>
+          
+          <footer>
+            <p>
+              {t('poweredBy')} <a href="https://github.com/Taiizor/Echoes" target="_blank" rel="noopener noreferrer">Echoes API</a>
+            </p>
+          </footer>
+        </div>
+      </Router>
+    </QuoteProvider>
+  );
+}
+
+export default App;
+\`\`\`
+
+## Conclusion
+
+You now have all the components needed to build a full-featured React application using the Echoes API. This guide covered:
+
+- Basic quote display components
+- Fetching and displaying random quotes
+- Filtering quotes by language and author
+- Multi-language support with react-i18next
+- Pagination for browsing multiple quotes
+- Global state management with React Context
+
+Feel free to expand on these examples by adding features like:
+
+- Favorite quotes functionality
+- Share quotes on social media
+- Dark/light theme support
+- Advanced filtering and search options
+
+Remember to handle error cases gracefully and provide proper loading states to ensure a good user experience.
       `,
       relatedGuides: ['getting-started', 'javascript-integration', 'advanced-api-usage']
     }
@@ -1041,7 +1697,7 @@ If you need help with your contribution, you can:
 
 - Ask questions in the GitHub issues
 - Contact the project maintainers via GitHub
-- Join our [Discord Community](https://discord.gg/nxG977byXb)
+- Join our [Discord Community](https://discord.gg/soferity)
 
 We look forward to your contributions and to welcoming you to the Echoes community!
       `,
