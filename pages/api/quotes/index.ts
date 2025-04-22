@@ -19,8 +19,18 @@ type PaginatedResponse = {
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Add CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
   // Set content type header for JSON responses
   res.setHeader('Content-Type', 'application/json');
+  
+  // Respond immediately for OPTIONS requests
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
   
   // HTTP method check
   if (req.method !== 'GET') {
