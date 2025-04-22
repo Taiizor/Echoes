@@ -32,4 +32,39 @@
 		<lastmod>2025-04-22T23:38:42+01:00</lastmod>
 		<priority>1.0</priority>
 	</url>
+	<url>
+		<loc>https://echoes.soferity.com/guides/getting-started</loc>
+		<lastmod>2025-04-22T23:38:42+01:00</lastmod>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://echoes.soferity.com/guides/filtering-quotes</loc>
+		<lastmod>2025-04-22T23:38:42+01:00</lastmod>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://echoes.soferity.com/guides/react-integration</loc>
+		<lastmod>2025-04-22T23:38:42+01:00</lastmod>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://echoes.soferity.com/guides/advanced-api-usage</loc>
+		<lastmod>2025-04-22T23:38:42+01:00</lastmod>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://echoes.soferity.com/guides/javascript-integration</loc>
+		<lastmod>2025-04-22T23:38:42+01:00</lastmod>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://echoes.soferity.com/guides/multi-language-support</loc>
+		<lastmod>2025-04-22T23:38:42+01:00</lastmod>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://echoes.soferity.com/guides/community-contributions</loc>
+		<lastmod>2025-04-22T23:38:42+01:00</lastmod>
+		<priority>1.0</priority>
+	</url>
 </urlset>
