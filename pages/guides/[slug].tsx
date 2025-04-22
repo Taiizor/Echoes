@@ -203,6 +203,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
     // Now process headings, subheadings, and paragraphs
     let contentWithHeadings = processedContent.replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">$1</h1>');
     let contentWithSubHeadings = contentWithHeadings.replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mt-6 mb-3 text-gray-800 dark:text-gray-200">$1</h2>');
+    contentWithSubHeadings = contentWithSubHeadings.replace(/^### (.*$)/gm, '<h3 class="text-xl font-bold mt-4 mb-2 text-gray-800 dark:text-gray-200">$1</h3>');
     
     // Process lines that don't start with # and aren't placeholders as paragraphs
     let contentWithParagraphs = contentWithSubHeadings.replace(/^(?!(#|__CODE_BLOCK_))(.+)/gm, '<p class="my-4 text-gray-700 dark:text-gray-300">$2</p>');
