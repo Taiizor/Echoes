@@ -500,14 +500,6 @@ This request will return a random quote. The response will look something like t
   "quote": "Imagination is more important than knowledge."
 }
 \`\`\`
-
-## Next Steps
-
-Now that you understand the basic API usage, you can check out the following guides for more specific scenarios:
-
-- [Filtering Quotes](/guides/filtering-quotes)
-- [JavaScript Integration](/guides/javascript-integration)
-- [React Integration](/guides/react-integration)
     `,
       relatedGuides: ['filtering-quotes', 'javascript-integration', 'advanced-api-usage']
     }
@@ -584,18 +576,6 @@ fetch('https://echoes.soferity.com/api/quotes?page=2&perPage=20')
 
 - \`page\`: Page number (default: 1)
 - \`perPage\`: Number of quotes per page (default: 10, maximum: 100)
-
-## Advanced Filtering Scenarios
-
-For more complex scenarios, you can combine these filters and tailor the API to your application's specific needs.
-
-For example, you can get paginated quotes from a specific author in a specific language:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes?lang=en&author=Einstein&page=1&perPage=5')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
     `,
       relatedGuides: ['getting-started', 'javascript-integration', 'advanced-api-usage']
     }
