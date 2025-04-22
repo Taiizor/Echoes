@@ -1585,19 +1585,62 @@ The Echoes API recognizes language through the \`language\` parameter, which acc
 
 Echoes currently supports the following languages:
 
-| Language Code | Language Name |
-|---------------|---------------|
-| en            | English       |
-| tr            | Turkish       |
-| es            | Spanish       |
-| fr            | French        |
-| de            | German        |
-| it            | Italian       |
-| pt            | Portuguese    |
-| ru            | Russian       |
-| zh            | Chinese       |
-| ja            | Japanese      |
-| ar            | Arabic        |
+<div class="overflow-x-auto my-6">
+  <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg">
+    <thead class="bg-gray-50 dark:bg-gray-800">
+      <tr>
+        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Language Code</th>
+        <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Language Name</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">en</td>
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">English</td>
+      </tr>
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">tr</td>
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Turkish</td>
+      </tr>
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">es</td>
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Spanish</td>
+      </tr>
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">fr</td>
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">French</td>
+      </tr>
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">de</td>
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">German</td>
+      </tr>
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">it</td>
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Italian</td>
+      </tr>
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">pt</td>
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Portuguese</td>
+      </tr>
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">ru</td>
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Russian</td>
+      </tr>
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">zh</td>
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Chinese</td>
+      </tr>
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">ja</td>
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Japanese</td>
+      </tr>
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30">
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">ar</td>
+        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">Arabic</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <strong>More languages are being added regularly. Check the API documentation for the most up-to-date list.</strong>
 
