@@ -77,6 +77,17 @@ const GuideDetail = ({ slug }: { slug: string }) => {
     [t('guides.levels.advanced')]: 'bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-400'
   };
   
+  // Seviye adlarını çevirme
+  const getTranslatedLevel = (level: string) => {
+    const levelMap: Record<string, string> = {
+      'Beginner': t('guides.levels.beginner'),
+      'Intermediate': t('guides.levels.intermediate'),
+      'Advanced': t('guides.levels.advanced')
+    };
+    
+    return levelMap[level] || level;
+  };
+  
   // İlgili rehberler
   const relatedGuideContent = guide.relatedGuides
     .map(relatedSlug => {
@@ -259,8 +270,8 @@ const GuideDetail = ({ slug }: { slug: string }) => {
                     <guide.icon className="h-6 w-6" />
                   </div>
                   <div>
-                    <span className={`px-2.5 py-1 text-xs font-medium rounded-md ${levelColorClasses[guide.level]}`}>
-                      {guide.level}
+                    <span className={`px-2.5 py-1 text-xs font-medium rounded-md ${levelColorClasses[getTranslatedLevel(guide.level)]}`}>
+                      {getTranslatedLevel(guide.level)}
                     </span>
                   </div>
                 </div>
