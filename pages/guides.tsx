@@ -279,7 +279,7 @@ const GuidesPage = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <Link 
                   href="/docs"
-                  className="flex items-start gap-4 p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-colors group"
+                  className="flex items-start gap-4 p-4 bg-blue-50 dark:bg-blue-900/10 hover:bg-blue-100 dark:hover:bg-blue-900/20 rounded-xl transition-colors group border border-blue-100 dark:border-blue-900/20"
                 >
                   <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
                     <FiServer className="h-5 w-5" />
@@ -298,7 +298,7 @@ const GuidesPage = () => {
                   href="https://github.com/Taiizor/Echoes"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-4 p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-xl transition-colors group"
+                  className="flex items-start gap-4 p-4 bg-purple-50 dark:bg-purple-900/10 hover:bg-purple-100 dark:hover:bg-purple-900/20 rounded-xl transition-colors group border border-purple-100 dark:border-purple-900/20"
                 >
                   <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400">
                     <FiCode className="h-5 w-5" />
