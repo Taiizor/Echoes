@@ -60,7 +60,7 @@ const GuidesPage = () => {
       icon: FiServer,
       level: t('guides.levels.beginner'),
       tags: [t('guides.tags.api'), t('guides.tags.introduction')],
-      slug: 'baslangic-rehberi'
+      slug: 'getting-started'
     },
     {
       id: '2',
@@ -69,7 +69,7 @@ const GuidesPage = () => {
       icon: FiFilter,
       level: t('guides.levels.beginner'),
       tags: [t('guides.tags.api'), t('guides.tags.filtering')],
-      slug: 'alintilari-filtreleme'
+      slug: 'filtering-quotes'
     },
     {
       id: '3',
@@ -78,7 +78,7 @@ const GuidesPage = () => {
       icon: FiCode,
       level: t('guides.levels.intermediate'),
       tags: [t('guides.tags.javascript'), t('guides.tags.integration')],
-      slug: 'javascript-entegrasyonu'
+      slug: 'javascript-integration'
     },
     {
       id: '4',
@@ -87,7 +87,7 @@ const GuidesPage = () => {
       icon: FiCodesandbox,
       level: t('guides.levels.intermediate'),
       tags: [t('guides.tags.react'), t('guides.tags.integration')],
-      slug: 'react-entegrasyonu'
+      slug: 'react-integration'
     },
     {
       id: '5',
@@ -96,7 +96,7 @@ const GuidesPage = () => {
       icon: FiGlobe,
       level: t('guides.levels.intermediate'),
       tags: [t('guides.tags.multiLanguage'), t('guides.tags.integration')],
-      slug: 'coklu-dil-destegi'
+      slug: 'multi-language-support'
     },
     {
       id: '6',
@@ -105,7 +105,7 @@ const GuidesPage = () => {
       icon: FiCpu,
       level: t('guides.levels.advanced'),
       tags: [t('guides.tags.api'), t('guides.tags.advanced')],
-      slug: 'gelismis-api-kullanimi'
+      slug: 'advanced-api-usage'
     },
     {
       id: '7',
@@ -114,7 +114,7 @@ const GuidesPage = () => {
       icon: FiUsers,
       level: t('guides.levels.advanced'),
       tags: [t('guides.tags.community'), t('guides.tags.contribution')],
-      slug: 'topluluk-katkilari'
+      slug: 'community-contributions'
     }
   ];
 

@@ -345,75 +345,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
 
 // Çoklu dil destekli rehber verileri
 const guides: MultiLanguageGuides = {
-  'baslangic-rehberi': {
-    'tr': {
-      title: 'Echoes API\'ye Başlangıç',
-      description: 'Echoes API\'nin temel kullanımını ve kurulumunu öğrenin.',
-      icon: FiServer,
-      level: 'Başlangıç',
-      tags: ['API', 'Giriş'],
-      content: `
-# Echoes API'ye Başlangıç
-
-Echoes API, dünya çapında farklı dillerden ilham verici alıntılara erişmenizi sağlayan güçlü bir RESTful API'dir. Bu rehber, API'nin temel kullanımını ve projenize nasıl entegre edeceğinizi anlatacaktır.
-
-## API'ye Genel Bakış
-
-Echoes API şu özellikleri sunar:
-
-- Tüm alıntıları listeleme
-- Belirli bir alıntıyı ID'ye göre alma
-- Rastgele alıntı alma
-- Dil veya yazara göre filtreleme
-
-## Temel URL
-
-Tüm API istekleri için temel URL:
-
-\`\`\`
-https://echoes.soferity.com/api
-\`\`\`
-
-## Kimlik Doğrulama
-
-Echoes API'nin basit kullanımı için kimlik doğrulama gerekmez. Ancak, yüksek hacimli kullanım için API anahtarı edinmeniz gerekebilir.
-
-## İlk İsteğinizi Yapalım
-
-İşte basit bir alıntı almak için JavaScript örneği:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('Hata:', error);
-  });
-\`\`\`
-
-Bu istek, rastgele bir alıntı döndürecektir. Yanıt şuna benzer olacaktır:
-
-\`\`\`JSON
-{
-  "id": 42,
-  "lang": "tr",
-  "author": "Mustafa Kemal Atatürk",
-  "quote": "Hayatta en hakiki mürşit ilimdir."
-}
-\`\`\`
-
-## Sonraki Adımlar
-
-Artık temel API kullanımını anladığınıza göre, daha spesifik senaryolar için aşağıdaki rehberlere göz atabilirsiniz:
-
-- [Alıntıları Filtreleme](/guides/alintilari-filtreleme)
-- [JavaScript ile Entegrasyon](/guides/javascript-entegrasyonu)
-- [React Uygulamanıza Entegrasyon](/guides/react-entegrasyonu)
-    `,
-      relatedGuides: ['alintilari-filtreleme', 'javascript-entegrasyonu']
-    },
+  'getting-started': {
     'en': {
       title: 'Getting Started with Echoes API',
       description: 'Learn the basic usage and setup of the Echoes API.',
@@ -476,168 +408,14 @@ This request will return a random quote. The response will look something like t
 
 Now that you understand the basic API usage, you can check out the following guides for more specific scenarios:
 
-- [Filtering Quotes](/guides/alintilari-filtreleme)
-- [Integration with JavaScript](/guides/javascript-entegrasyonu)
-- [Integration with Your React Application](/guides/react-entegrasyonu)
+- [Filtering Quotes](/guides/filtering-quotes)
+- [JavaScript Integration](/guides/javascript-integration)
+- [React Integration](/guides/react-integration)
     `,
-      relatedGuides: ['alintilari-filtreleme', 'javascript-entegrasyonu']
-    },
-    'fr': {
-      title: 'Premiers pas avec l\'API Echoes',
-      description: 'Apprenez l\'utilisation de base et la configuration de l\'API Echoes.',
-      icon: FiServer,
-      level: 'Débutant',
-      tags: ['API', 'Introduction'],
-      content: `
-# Premiers pas avec l'API Echoes
-
-L'API Echoes est une API RESTful puissante qui vous permet d'accéder à des citations inspirantes de différentes langues du monde entier. Ce guide vous montrera l'utilisation de base de l'API et comment l'intégrer dans votre projet.
-
-## Aperçu de l'API
-
-L'API Echoes offre les fonctionnalités suivantes:
-
-- Lister toutes les citations
-- Obtenir une citation spécifique par ID
-- Obtenir une citation aléatoire
-- Filtrer par langue ou auteur
-
-## URL de base
-
-L'URL de base pour toutes les requêtes API:
-
-\`\`\`
-https://echoes.soferity.com/api
-\`\`\`
-
-## Authentification
-
-L'utilisation simple de l'API Echoes ne nécessite pas d'authentification. Cependant, pour une utilisation à volume élevé, vous devrez peut-être obtenir une clé API.
-
-## Effectuez votre première requête
-
-Voici un exemple JavaScript pour obtenir une citation simple:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('Erreur:', error);
-  });
-\`\`\`
-
-Cette requête retournera une citation aléatoire. La réponse ressemblera à ceci:
-
-\`\`\`JSON
-{
-  "id": 42,
-  "lang": "fr",
-  "author": "Albert Camus",
-  "quote": "La liberté n'est rien d'autre que la chance d'être meilleur."
-}
-\`\`\`
-
-## Prochaines étapes
-
-Maintenant que vous comprenez l'utilisation de base de l'API, vous pouvez consulter les guides suivants pour des scénarios plus spécifiques:
-
-- [Filtrage des citations](/guides/alintilari-filtreleme)
-- [Intégration avec JavaScript](/guides/javascript-entegrasyonu)
-- [Intégration avec votre application React](/guides/react-entegrasyonu)
-    `,
-      relatedGuides: ['alintilari-filtreleme', 'javascript-entegrasyonu']
+      relatedGuides: ['filtering-quotes', 'javascript-integration', 'advanced-api-usage']
     }
   },
-  'alintilari-filtreleme': {
-    'tr': {
-      title: 'Alıntıları Filtreleme',
-      description: 'API ile alıntıları yazara ve dile göre filtreleme.',
-      icon: FiFilter,
-      level: 'Başlangıç',
-      tags: ['API', 'Filtreleme'],
-      content: `
-# Alıntıları Filtreleme
-
-Echoes API ile alıntıları çeşitli kriterlere göre filtreleyebilirsiniz. Bu rehber, API'yi kullanarak alıntıları yazar, dil ve diğer parametrelere göre nasıl filtreleyeceğinizi gösterecektir.
-
-## Dile Göre Filtreleme
-
-Belirli bir dildeki alıntıları almak için \`lang\` parametresini kullanabilirsiniz:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random?lang=tr')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-Birden fazla dil için virgülle ayırarak belirtebilirsiniz:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random?lang=tr,en')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-## Yazara Göre Filtreleme
-
-Belirli bir yazarın alıntılarını almak için \`author\` parametresini kullanabilirsiniz:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random?author=Atatürk')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-Burada yazar adının tam eşleşmesi gerekmez, kısmi eşleşme de çalışır.
-
-Birden fazla yazar için:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random?author=Atatürk,Einstein')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-## Dil ve Yazar Kombinasyonu
-
-Hem dil hem de yazarı filtrelemek için her iki parametreyi de kullanabilirsiniz:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random?lang=tr&author=Atatürk')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-## Sayfalama
-
-Tüm alıntıları listelerken sayfalama parametrelerini kullanabilirsiniz:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes?page=2&perPage=20')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-- \`page\`: Sayfa numarası (varsayılan: 1)
-- \`perPage\`: Sayfa başına gösterilecek alıntı sayısı (varsayılan: 10, maksimum: 100)
-
-## İleri Filtreleme Senaryoları
-
-Daha karmaşık senaryolar için, bu filtreleri birleştirebilir ve API'yi uygulamanızın özel ihtiyaçlarına göre ayarlayabilirsiniz.
-
-Örneğin, belirli bir dildeki belirli bir yazarın alıntılarını sayfalayarak alabilirsiniz:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes?lang=tr&author=Atatürk&page=1&perPage=5')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-    `,
-      relatedGuides: ['baslangic-rehberi', 'javascript-entegrasyonu', 'gelismis-api-kullanimi']
-    },
+  'filtering-quotes': {
     'en': {
       title: 'Filtering Quotes',
       description: 'Filter quotes by author and language using the API.',
@@ -722,404 +500,10 @@ fetch('https://echoes.soferity.com/api/quotes?lang=en&author=Einstein&page=1&per
   .then(data => console.log(data));
 \`\`\`
     `,
-      relatedGuides: ['baslangic-rehberi', 'javascript-entegrasyonu', 'gelismis-api-kullanimi']
-    },
-    'fr': {
-      title: 'Filtrage des citations',
-      description: 'Filtrez les citations par auteur et langue en utilisant l\'API.',
-      icon: FiFilter,
-      level: 'Débutant',
-      tags: ['API', 'Filtrage'],
-      content: `
-# Filtrage des citations
-
-Avec l'API Echoes, vous pouvez filtrer les citations en fonction de divers critères. Ce guide vous montrera comment filtrer les citations par auteur, langue et autres paramètres à l'aide de l'API.
-
-## Filtrage par langue
-
-Pour obtenir des citations dans une langue spécifique, vous pouvez utiliser le paramètre \`lang\`:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random?lang=fr')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-Pour plusieurs langues, spécifiez-les séparées par des virgules:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random?lang=fr,en')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-## Filtrage par auteur
-
-Pour obtenir des citations d'un auteur spécifique, vous pouvez utiliser le paramètre \`author\`:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random?author=Camus')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-Le nom de l'auteur n'a pas besoin d'une correspondance exacte; la correspondance partielle fonctionne également.
-
-Pour plusieurs auteurs:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random?author=Camus,Hugo')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-## Combinaison de langue et d'auteur
-
-Pour filtrer par langue et auteur, utilisez les deux paramètres:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes/random?lang=fr&author=Camus')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-## Pagination
-
-Lors de la liste de toutes les citations, vous pouvez utiliser les paramètres de pagination:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes?page=2&perPage=20')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-
-- \`page\`: Numéro de page (par défaut: 1)
-- \`perPage\`: Nombre de citations par page (par défaut: 10, maximum: 100)
-
-## Scénarios de filtrage avancés
-
-Pour des scénarios plus complexes, vous pouvez combiner ces filtres et adapter l'API aux besoins spécifiques de votre application.
-
-Par exemple, vous pouvez obtenir des citations paginées d'un auteur spécifique dans une langue spécifique:
-
-\`\`\`JavaScript
-fetch('https://echoes.soferity.com/api/quotes?lang=fr&author=Camus&page=1&perPage=5')
-  .then(response => response.json())
-  .then(data => console.log(data));
-\`\`\`
-    `,
-      relatedGuides: ['baslangic-rehberi', 'javascript-entegrasyonu', 'gelismis-api-kullanimi']
+      relatedGuides: ['getting-started', 'javascript-integration', 'advanced-api-usage']
     }
   },
-  'javascript-entegrasyonu': {
-    'tr': {
-      title: 'JavaScript ile Entegrasyon',
-      description: 'JavaScript projelerinize Echoes API\'yi entegre etme.',
-      icon: FiCode,
-      level: 'Orta',
-      tags: ['JavaScript', 'Entegrasyon'],
-      content: `
-# JavaScript ile Entegrasyon
-
-Bu rehber, Echoes API'yi JavaScript projelerinize nasıl entegre edeceğinizi adım adım gösterecektir. Web uygulamalarınızda, Node.js projelerinizde veya diğer JavaScript ortamlarında API'yi kullanmak için temel teknikleri öğreneceksiniz.
-
-## Temel Fetch İsteği
-
-JavaScript'te API ile etkileşim kurmanın en basit yolu \`fetch\` API'sini kullanmaktır:
-
-\`\`\`JavaScript
-// Rastgele bir alıntı almak için basit bir fetch isteği
-fetch('https://echoes.soferity.com/api/quotes/random')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Ağ yanıtı başarısız oldu');
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Alıntı:', data.quote);
-    console.log('Yazar:', data.author);
-  })
-  .catch(error => {
-    console.error('API isteğinde hata oluştu:', error);
-  });
-\`\`\`
-
-## Async/Await Kullanımı
-
-Modern JavaScript'te, \`async/await\` sözdizimi kullanarak istekleri daha temiz ve okunabilir hale getirebilirsiniz:
-
-\`\`\`JavaScript
-async function getRandomQuote() {
-  try {
-    const response = await fetch('https://echoes.soferity.com/api/quotes/random');
-    
-    if (!response.ok) {
-      throw new Error('Ağ yanıtı başarısız oldu');
-    }
-    
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Alıntı alınırken hata oluştu:', error);
-    return null;
-  }
-}
-
-// Fonksiyonu kullanma
-getRandomQuote()
-  .then(quote => {
-    if (quote) {
-      console.log('Alıntı:', quote.quote);
-      console.log('Yazar:', quote.author);
-    }
-  });
-\`\`\`
-
-## HTML Sayfasına Entegrasyon
-
-İşte API'den rastgele alıntılar görüntüleyen basit bir HTML sayfası örneği:
-
-\`\`\`HTML
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Echoes Alıntı Görüntüleyici</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .quote-container {
-      background-color: #f5f5f5;
-      border-left: 4px solid #333;
-      padding: 15px;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-    .quote-text {
-      font-size: 18px;
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-    .quote-author {
-      font-weight: bold;
-      text-align: right;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
-</head>
-<body>
-  <h1>Günün Alıntısı</h1>
-  
-  <div class="quote-container">
-    <div id="quote-text" class="quote-text">Alıntı yükleniyor...</div>
-    <div id="quote-author" class="quote-author"></div>
-  </div>
-  
-  <button id="new-quote-btn">Yeni Alıntı</button>
-  
-  <script>
-    // DOM öğelerini seçme
-    const quoteTextElement = document.getElementById('quote-text');
-    const quoteAuthorElement = document.getElementById('quote-author');
-    const newQuoteButton = document.getElementById('new-quote-btn');
-    
-    // Rastgele alıntı alma fonksiyonu
-    async function fetchRandomQuote() {
-      try {
-        // Öğeleri yükleniyor durumuna ayarla
-        quoteTextElement.textContent = 'Alıntı yükleniyor...';
-        quoteAuthorElement.textContent = '';
-        
-        // API'den veri alma
-        const response = await fetch('https://echoes.soferity.com/api/quotes/random');
-        
-        if (!response.ok) {
-          throw new Error('Ağ yanıtı başarısız oldu');
-        }
-        
-        const data = await response.json();
-        
-        // Alıntıyı gösterme
-        quoteTextElement.textContent = data.quote;
-        quoteAuthorElement.textContent = '— ' + data.author;
-      } catch (error) {
-        console.error('Alıntı alınırken hata oluştu:', error);
-        quoteTextElement.textContent = 'Alıntı yüklenirken bir hata oluştu. Lütfen tekrar deneyin.';
-      }
-    }
-    
-    // Sayfa yüklendiğinde ilk alıntıyı getir
-    fetchRandomQuote();
-    
-    // Düğme tıklandığında yeni alıntı getir
-    newQuoteButton.addEventListener('click', fetchRandomQuote);
-  </script>
-</body>
-</html>
-\`\`\`
-
-## Parametrelerle Çalışma
-
-API'ye özel parametrelerle istekler göndermek için URL parametrelerini şu şekilde ekleyebilirsiniz:
-
-\`\`\`JavaScript
-// Belirli bir dildeki rastgele alıntıyı alma
-async function getRandomQuoteByLanguage(lang) {
-  try {
-    const url = \`https://echoes.soferity.com/api/quotes/random?lang=\${lang}\`;
-    const response = await fetch(url);
-    
-    if (!response.ok) {
-      throw new Error('Ağ yanıtı başarısız oldu');
-    }
-    
-    return await response.json();
-  } catch (error) {
-    console.error('Alıntı alınırken hata oluştu:', error);
-    return null;
-  }
-}
-
-// Türkçe alıntı alma
-getRandomQuoteByLanguage('tr')
-  .then(quote => {
-    if (quote) {
-      console.log('Türkçe Alıntı:', quote.quote);
-      console.log('Yazar:', quote.author);
-    }
-  });
-\`\`\`
-
-## Hata İşleme ve Yeniden Deneme Mekanizması
-
-Güçlü bir uygulama için, API isteklerinde hata işleme ve yeniden deneme mekanizması eklemek önemlidir:
-
-\`\`\`JavaScript
-async function fetchWithRetry(url, options = {}, retries = 3, backoff = 300) {
-  try {
-    const response = await fetch(url, options);
-    
-    if (response.ok) {
-      return await response.json();
-    }
-    
-    if (retries > 0) {
-      console.log(\`Yeniden deneniyor... Kalan deneme: \${retries}\`);
-      await new Promise(resolve => setTimeout(resolve, backoff));
-      return fetchWithRetry(url, options, retries - 1, backoff * 2);
-    }
-    
-    throw new Error(\`HTTP Hatası: \${response.status}\`);
-    
-  } catch (error) {
-    if (retries > 0) {
-      console.log(\`Bağlantı hatası, yeniden deneniyor... Kalan deneme: \${retries}\`);
-      await new Promise(resolve => setTimeout(resolve, backoff));
-      return fetchWithRetry(url, options, retries - 1, backoff * 2);
-    }
-    throw error;
-  }
-}
-
-// Yeniden deneme mekanizması ile kullanım
-fetchWithRetry('https://echoes.soferity.com/api/quotes/random')
-  .then(data => console.log('Başarıyla alındı:', data))
-  .catch(error => console.error('Tüm denemeler başarısız oldu:', error));
-\`\`\`
-
-## İleri Düzey: Özel Alıntı İstemcisi
-
-Büyük uygulamalar için, Echoes API'yi saran bir sınıf oluşturmak yararlı olabilir:
-
-\`\`\`JavaScript
-class EchoesClient {
-  constructor(baseUrl = 'https://echoes.soferity.com/api') {
-    this.baseUrl = baseUrl;
-  }
-  
-  async getRandomQuote(params = {}) {
-    return this._fetch('/quotes/random', params);
-  }
-  
-  async getQuoteById(id) {
-    return this._fetch(\`/quotes/\${id}\`);
-  }
-  
-  async getAllQuotes(page = 1, perPage = 10) {
-    return this._fetch('/quotes', { page, perPage });
-  }
-  
-  async getQuotesByLanguage(lang, page = 1, perPage = 10) {
-    return this._fetch('/quotes', { lang, page, perPage });
-  }
-  
-  async getQuotesByAuthor(author, page = 1, perPage = 10) {
-    return this._fetch('/quotes', { author, page, perPage });
-  }
-  
-  async _fetch(endpoint, params = {}) {
-    const url = new URL(\`\${this.baseUrl}\${endpoint}\`);
-    
-    // URL'ye parametreleri ekle
-    Object.keys(params).forEach(key => 
-      url.searchParams.append(key, params[key])
-    );
-    
-    try {
-      const response = await fetch(url);
-      
-      if (!response.ok) {
-        throw new Error(\`HTTP Hatası: \${response.status}\`);
-      }
-      
-      return await response.json();
-    } catch (error) {
-      console.error('API isteği başarısız oldu:', error);
-      throw error;
-    }
-  }
-}
-
-// İstemciyi kullanma
-const echoesClient = new EchoesClient();
-
-// Rastgele bir alıntı al
-echoesClient.getRandomQuote()
-  .then(quote => console.log('Rastgele Alıntı:', quote))
-  .catch(error => console.error('Hata:', error));
-
-// Belirli bir dildeki alıntıları al
-echoesClient.getQuotesByLanguage('tr')
-  .then(quotes => console.log('Türkçe Alıntılar:', quotes))
-  .catch(error => console.error('Hata:', error));
-\`\`\`
-
-## Sonraki Adımlar
-
-Bu rehberde JavaScript'te Echoes API kullanımının temellerini öğrendiniz. Daha ileri gitmek için şu rehberlere göz atabilirsiniz:
-
-- [React Uygulamanıza Entegrasyon](/guides/react-entegrasyonu)
-- [Çoklu Dil Desteği](/guides/coklu-dil-destegi)
-- [Gelişmiş API Kullanımı](/guides/gelismis-api-kullanimi)
-      `,
-      relatedGuides: ['baslangic-rehberi', 'react-entegrasyonu', 'gelismis-api-kullanimi']
-    },
+  'javascript-integration': {
     'en': {
       title: 'JavaScript Integration',
       description: 'Integrate Echoes API into your JavaScript projects.',
@@ -1422,23 +806,81 @@ echoesClient.getQuotesByLanguage('en')
 
 In this guide, you've learned the basics of using the Echoes API in JavaScript. To go further, check out these guides:
 
-- [React Integration](/guides/react-entegrasyonu)
-- [Multi-language Support](/guides/coklu-dil-destegi)
-- [Advanced API Usage](/guides/gelismis-api-kullanimi)
+- [React Integration](/guides/react-integration)
+- [Multi-language Support](/guides/multi-language-support)
+- [Advanced API Usage](/guides/advanced-api-usage)
       `,
-      relatedGuides: ['baslangic-rehberi', 'react-entegrasyonu', 'gelismis-api-kullanimi']
+      relatedGuides: ['getting-started', 'react-integration', 'advanced-api-usage']
+    }
+  },
+  'react-integration': {
+    'en': {
+      title: 'React Integration',
+      description: 'Add quote components to your React application.',
+      icon: FiCodesandbox,
+      level: 'Intermediate',
+      tags: ['React', 'Integration'],
+      content: `
+# React Integration
+
+This guide will show you how to integrate Echoes API into your React application. You'll learn how to create React components that display quotes and handle API interactions.
+      `,
+      relatedGuides: ['getting-started', 'javascript-integration', 'advanced-api-usage']
+    }
+  },
+  'multi-language-support': {
+    'en': {
+      title: 'Multi-language Support',
+      description: 'Implement quotes in different languages in your application.',
+      icon: FiGlobe,
+      level: 'Intermediate',
+      tags: ['Multi-language', 'Integration'],
+      content: `
+# Multi-language Support
+
+This guide will show you how to implement multi-language quote support in your application using the Echoes API.
+      `,
+      relatedGuides: ['getting-started', 'javascript-integration', 'advanced-api-usage']
+    }
+  },
+  'advanced-api-usage': {
+    'en': {
+      title: 'Advanced API Usage',
+      description: 'Advanced query techniques and optimizations with the API.',
+      icon: FiCpu,
+      level: 'Advanced',
+      tags: ['API', 'Advanced'],
+      content: `
+# Advanced API Usage
+
+This guide covers advanced techniques for using the Echoes API, including caching, rate limiting, and complex queries.
+      `,
+      relatedGuides: ['getting-started', 'javascript-integration', 'react-integration']
+    }
+  },
+  'community-contributions': {
+    'en': {
+      title: 'Community Contributions',
+      description: 'Learn how to contribute to the Echoes project.',
+      icon: FiUsers,
+      level: 'Advanced',
+      tags: ['Community', 'Contribution'],
+      content: `
+# Community Contributions
+
+This guide explains how you can contribute to the Echoes project, whether through adding new quotes, improving the API, or enhancing documentation.
+      `,
+      relatedGuides: ['getting-started', 'advanced-api-usage']
     }
   }
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: Object.keys(guides).flatMap((slug) => {
-      return Object.keys(guides[slug]).map((locale) => ({
-        params: { slug },
-        locale
-      }));
-    }),
+    paths: Object.keys(guides).map((slug) => ({
+      params: { slug },
+      locale: 'en'
+    })),
     fallback: 'blocking'
   };
 };
@@ -1453,19 +895,8 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     };
   }
   
-  // Eğer mevcut dilde rehber içeriği yoksa ama İngilizce varsa, dil dosyaları ile İngilizce göster
-  if (!guides[slug][locale as string] && guides[slug]['en']) {
-    return {
-      props: {
-        ...(await serverSideTranslations(locale || 'en', ['common'])),
-        slug
-      },
-      revalidate: 3600
-    };
-  }
-  
-  // Eğer o dilde içerik yoksa 404
-  if (!guides[slug][locale as string]) {
+  // Varsayılan olarak rehberleri sadece İngilizce dilinde sunuyoruz
+  if (!guides[slug]['en']) {
     return {
       notFound: true
     };
