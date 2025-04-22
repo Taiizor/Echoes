@@ -1551,7 +1551,7 @@ Feel free to expand on these examples by adding features like:
 
 Remember to handle error cases gracefully and provide proper loading states to ensure a good user experience.
       `,
-      relatedGuides: ['getting-started', 'javascript-integration', 'advanced-api-usage']
+      relatedGuides: ['getting-started', 'javascript-integration', 'react-integration']
     }
   },
   'multi-language-support': {
@@ -1897,6 +1897,834 @@ async function testLanguageSupport() {
 # Advanced API Usage
 
 This guide covers advanced techniques for using the Echoes API, including caching, rate limiting, and complex queries.
+
+## Advanced Query Techniques
+
+You can create more complex queries with the Echoes API:
+
+\`\`\`JavaScript
+// Filter quotes with multiple parameters
+fetch('https://echoes.soferity.com/api/quotes?language=tr&author=Atatürk&tags=leadership,philosophy&minLength=50&sort=length&order=desc')
+  .then(response => response.json())
+  .then(data => console.log(data));
+\`\`\`
+
+### Composite Queries
+
+You can combine multiple criteria to get more precise results:
+
+\`\`\`JavaScript
+// Get quotes from a specific author, with specific tags, of a specific length
+const url = new URL('https://echoes.soferity.com/api/quotes');
+url.searchParams.append('author', 'Einstein');
+url.searchParams.append('tags', 'science,philosophy');
+url.searchParams.append('minLength', '100');
+url.searchParams.append('maxLength', '500');
+url.searchParams.append('sort', 'popularity');
+
+fetch(url)
+  .then(response => response.json())
+  .then(data => console.log(data));
+\`\`\`
+
+## Caching Strategies
+
+By caching API requests, you can improve application performance and reduce server load:
+
+### Caching with Local Storage
+
+\`\`\`JavaScript
+async function getQuoteWithCache(params) {
+  const cacheKey = \`echoes_quotes_\${JSON.stringify(params)}\`;
+  const cachedData = localStorage.getItem(cacheKey);
+  
+  if (cachedData) {
+    const { data, timestamp } = JSON.parse(cachedData);
+    const cacheAge = Date.now() - timestamp;
+    
+    // Return from cache if it's less than 1 hour old
+    if (cacheAge < 3600000) {
+      console.log('Quote retrieved from cache');
+      return data;
+    }
+  }
+  
+  // If not in cache or expired, fetch from API
+  console.log('Fetching quote from API');
+  
+  try {
+    // Build URL parameters
+    const url = new URL('https://echoes.soferity.com/api/quotes');
+    Object.keys(params).forEach(key => 
+      url.searchParams.append(key, params[key])
+    );
+    
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      throw new Error(\`HTTP error: \${response.status}\`);
+    }
+    
+    const data = await response.json();
+    
+    // Cache the data (with timestamp)
+    localStorage.setItem(cacheKey, JSON.stringify({
+      data,
+      timestamp: Date.now()
+    }));
+    
+    return data;
+  } catch (error) {
+    console.error('API request failed:', error);
+    throw error;
+  }
+}
+\`\`\`
+
+### Caching with Service Worker
+
+\`\`\`JavaScript
+// In service-worker.js
+self.addEventListener('fetch', (event) => {
+  // Only cache Echoes API requests
+  if (event.request.url.includes('echoes.soferity.com/api')) {
+    event.respondWith(
+      caches.open('echoes-api-cache').then((cache) => {
+        return cache.match(event.request).then((response) => {
+          // If in cache and less than 1 hour old, return from cache
+          if (response) {
+            const fetchDate = response.headers.get('fetch-date');
+            const age = Date.now() - new Date(fetchDate).getTime();
+            
+            if (age < 3600000) { // 1 hour (milliseconds)
+              return response;
+            }
+          }
+          
+          // If not in cache or expired, fetch from network
+          return fetch(event.request).then((networkResponse) => {
+            // Create a copy of the response (since the original is a stream)
+            const responseToCache = networkResponse.clone();
+            
+            // Add a custom header with timestamp
+            const headers = new Headers(responseToCache.headers);
+            headers.append('fetch-date', new Date().toISOString());
+            
+            // Create response with new headers
+            const responseWithTime = new Response(
+              responseToCache.body, 
+              {
+                status: responseToCache.status,
+                statusText: responseToCache.statusText,
+                headers: headers
+              }
+            );
+            
+            // Cache it
+            cache.put(event.request, responseWithTime);
+            return networkResponse;
+          });
+        });
+      })
+    );
+  }
+});
+\`\`\`
+
+## Rate Limiting and Scaling
+
+Since the Echoes API may have rate limits, you should manage them for a good user experience:
+
+\`\`\`JavaScript
+class EchoesClient {
+  constructor() {
+    this.baseUrl = 'https://echoes.soferity.com/api';
+    this.requestQueue = [];
+    this.isProcessing = false;
+    this.requestsPerMinute = 60; // Maximum of 60 requests per minute
+    this.requestTimes = [];
+  }
+  
+  async request(endpoint, params = {}) {
+    return new Promise((resolve, reject) => {
+      // Add request to queue
+      this.requestQueue.push({
+        endpoint,
+        params,
+        resolve,
+        reject
+      });
+      
+      // Start queue processor (if not already running)
+      if (!this.isProcessing) {
+        this.processQueue();
+      }
+    });
+  }
+  
+  async processQueue() {
+    if (this.requestQueue.length === 0) {
+      this.isProcessing = false;
+      return;
+    }
+    
+    this.isProcessing = true;
+    
+    // Check rate limit compliance
+    if (this.requestTimes.length >= this.requestsPerMinute) {
+      // Find the oldest request within the last minute
+      const oldestRequest = this.requestTimes[0];
+      const timeSinceOldest = Date.now() - oldestRequest;
+      
+      // If less than a minute has passed, wait
+      if (timeSinceOldest < 60000) {
+        const waitTime = 60000 - timeSinceOldest;
+        console.log(\`Rate limit protection: waiting \${waitTime}ms\`);
+        await new Promise(resolve => setTimeout(resolve, waitTime));
+        
+        // Remove oldest time as time has passed
+        this.requestTimes.shift();
+      } else {
+        // If more than a minute has passed, clean up old times
+        this.requestTimes = this.requestTimes.filter(time => (Date.now() - time) < 60000);
+      }
+    }
+    
+    // Get next request from queue
+    const { endpoint, params, resolve, reject } = this.requestQueue.shift();
+    
+    // Record time of this request
+    this.requestTimes.push(Date.now());
+    
+    try {
+      // Build URL parameters
+      const url = new URL(\`\${this.baseUrl}\${endpoint}\`);
+      Object.keys(params).forEach(key => 
+        url.searchParams.append(key, params[key])
+      );
+      
+      const response = await fetch(url);
+      
+      // Check HTTP status codes
+      if (response.ok) {
+        const data = await response.json();
+        resolve(data);
+      }
+      
+      // Handle different error scenarios
+      if (response.status === 429) {
+        // Rate limit error - wait and retry
+        this.requestQueue.unshift({ endpoint, params, resolve, reject });
+        const retryAfter = response.headers.get('Retry-After');
+        const waitTime = retryAfter ? parseInt(retryAfter) * 1000 : this.calculateBackoff();
+        
+        console.log(\`Rate limit exceeded. Waiting \${waitTime} seconds...\`);
+        await new Promise(r => setTimeout(r, waitTime));
+        this.processQueue();
+      } else {
+        throw new Error(\`HTTP error: \${response.status}\`);
+      }
+    } catch (error) {
+      reject(error);
+    }
+    
+    // Process more requests if there are any in the queue
+    setImmediate(() => this.processQueue());
+  }
+  
+  // Calculate delay for retry (exponential backoff)
+  calculateBackoff() {
+    const delay = Math.min(
+      1000, // Maximum delay
+      Math.max(
+        1000, // Minimum delay
+        Math.floor(Math.random() * 1000) // Random jitter
+      )
+    );
+    
+    return delay;
+  }
+  
+  // Helper methods for usage
+  async getRandomQuote(params) {
+    return this.request('/quotes/random', params);
+  }
+  
+  async getQuotes(params) {
+    return this.request('/quotes', params);
+  }
+  
+  async getQuoteById(id) {
+    return this.request(\`/quotes/\${id}\`);
+  }
+}
+
+// Usage example
+const echoesClient = new EchoesClient();
+
+// Get a random quote
+echoesClient.getRandomQuote({ language: 'tr' })
+  .then(quote => console.log('Random quote:', quote))
+  .catch(err => console.error('Error:', err));
+
+// Get quotes from a specific author
+echoesClient.getQuotesByAuthor('Einstein')
+  .then(quotes => console.log('Einstein quotes:', quotes))
+  .catch(err => console.error('Error:', err));
+\`\`\`
+
+## Advanced Error Handling
+
+Comprehensive error handling and retry mechanisms for robust applications:
+
+\`\`\`JavaScript
+async function fetchWithAdvancedErrorHandling(url, options = {}, maxRetries = 3) {
+  let lastError;
+  let retryCount = 0;
+  
+  while (retryCount < maxRetries) {
+    try {
+      const response = await fetch(url, options);
+      
+      // Check HTTP status codes
+      if (response.ok) {
+        return await response.json();
+      }
+      
+      // Handle different error scenarios
+      switch (response.status) {
+        case 400: // Bad Request
+          throw new Error('Invalid request parameters. Please check your request.');
+          
+        case 401: // Unauthorized
+          throw new Error('Authentication required.');
+          
+        case 403: // Forbidden
+          throw new Error('You do not have access to this resource.');
+          
+        case 404: // Not Found
+          throw new Error('The requested resource was not found.');
+          
+        case 429: // Too Many Requests
+          const retryAfter = response.headers.get('Retry-After');
+          const waitTime = retryAfter ? parseInt(retryAfter) : this.calculateBackoff();
+          console.log(\`Rate limit exceeded. Waiting \${waitTime} seconds...\`);
+          await new Promise(r => setTimeout(r, waitTime * 1000));
+          retryCount++;
+          continue;
+          
+        case 500: // Server Error
+        case 502: // Bad Gateway
+        case 503: // Service Unavailable
+        case 504: // Gateway Timeout
+          // Retry server errors with exponential backoff
+          const backoffTime = Math.min(1000 * (2 ** retryCount), 30000);
+          console.log(\`Server error. Retrying in \${backoffTime/1000} seconds...\`);
+          await new Promise(r => setTimeout(r, backoffTime));
+          retryCount++;
+          continue;
+          
+        default:
+          throw new Error(\`HTTP error: \${response.status}\`);
+      }
+    } catch (error) {
+      lastError = error;
+      
+      // Retry network errors (internet connectivity issues)
+      if (error.name === 'TypeError' && error.message.includes('fetch')) {
+        const backoffTime = Math.min(1000 * (2 ** retryCount), 30000);
+        console.log(\`Network error. Retrying in \${backoffTime/1000} seconds...\`);
+        await new Promise(r => setTimeout(r, backoffTime));
+        retryCount++;
+      } else {
+        // Don't retry for other errors
+        throw error;
+      }
+    }
+  }
+  
+  // When all retries fail
+  throw new Error(\`Maximum retries reached. Last error: \${lastError.message}\`);
+}
+
+// Usage example
+fetchWithAdvancedErrorHandling('https://echoes.soferity.com/api/quotes/random?language=tr')
+  .then(data => console.log('Quote:', data))
+  .catch(error => {
+    console.error('Error:', error.message);
+    // Show a user-friendly error message
+    showUserFriendlyError(error);
+  });
+
+function showUserFriendlyError(error) {
+  // Different feedback for the user based on the error message
+  if (error.message.includes('Invalid request')) {
+    alert('There is an issue with your request information. Please check your parameters.');
+  } else if (error.message.includes('rate limit')) {
+    alert('You have sent too many requests. Please wait and try again.');
+  } else if (error.message.includes('not found')) {
+    alert('The content you are looking for was not found. Please try a different search.');
+  } else if (error.message.includes('Server error')) {
+    alert('The server is not responding. Please try again later.');
+  } else {
+    alert('An issue occurred. Please try again later.');
+  }
+}
+\`\`\`
+
+## Performance Optimizations
+
+Advanced techniques to optimize your API usage:
+
+### Batch Request Processing
+
+\`\`\`JavaScript
+// Fetch multiple resources at once
+async function batchFetch(urls) {
+  try {
+    // Start all requests in parallel
+    const responses = await Promise.all(
+      urls.map(url => fetch(url))
+    );
+    
+    // Process all responses as JSON
+    const jsonData = await Promise.all(
+      responses.map(async (response) => {
+        if (!response.ok) {
+          throw new Error(\`HTTP error: \${response.status}\`);
+        }
+        return response.json();
+      })
+    );
+    
+    return jsonData;
+  } catch (error) {
+    console.error('Error in batch request:', error);
+    throw error;
+  }
+}
+
+// Usage example:
+// Get quotes from different authors at once
+const authors = ['Atatürk', 'Einstein', 'Tesla'];
+const urls = authors.map(author => 
+  \`https://echoes.soferity.com/api/quotes/random?author=\${encodeURIComponent(author)}\`
+);
+
+batchFetch(urls)
+  .then(results => {
+    console.log('Batch quote results:');
+    results.forEach((data, index) => {
+      console.log(\`\${authors[index]} quote:\`, data.quote);
+    });
+  })
+  .catch(error => console.error('Error:', error));
+\`\`\`
+
+### Data Pre-processing and Processing
+
+\`\`\`JavaScript
+// Transform quote data into a more useful format
+function processQuoteData(quotes) {
+  return quotes.map(quote => ({
+    id: quote.id,
+    text: quote.quote,
+    author: quote.author,
+    language: quote.lang,
+    tags: quote.tags || [],
+    // Calculate quote length
+    length: quote.quote.length,
+    // Create search-friendly versions for author and quote
+    searchableText: \`\${quote.author} \${quote.quote}\`.toLowerCase(),
+    // Convert language code to full language name
+    languageName: getLanguageName(quote.lang),
+    // Convert to Date object
+    createdAt: new Date(quote.createdAt || Date.now())
+  }));
+}
+
+// Convert language code to full language name
+function getLanguageName(langCode) {
+  const languages = {
+    'en': 'English',
+    'tr': 'Turkish',
+    'es': 'Spanish',
+    'fr': 'French',
+    'de': 'German',
+    'it': 'Italian',
+    'pt': 'Portuguese',
+    'ru': 'Russian',
+    'zh': 'Chinese',
+    'ja': 'Japanese',
+    'ar': 'Arabic'
+  };
+  
+  return languages[langCode] || langCode;
+}
+\`\`\`
+
+## Server-Side API Usage
+
+Recommendations for API usage in Node.js environments:
+
+\`\`\`JavaScript
+// API requests in Node.js (using node-fetch)
+const fetch = require('node-fetch');
+
+// Node.js-Redis integration example for server-side caching
+const Redis = require('ioredis');
+const redis = new Redis(); // Connect to local Redis server
+
+async function fetchWithRedisCache(url, options = {}, cacheTime = 3600) {
+  const cacheKey = \`echoes_api:\${url}\`;
+  
+  try {
+    // First check for data in Redis
+    const cachedData = await redis.get(cacheKey);
+    
+    if (cachedData) {
+      console.log('Data retrieved from Redis cache');
+      return JSON.parse(cachedData);
+    }
+    
+    // If not in cache, fetch from API
+    console.log('Fetching data from API');
+    const response = await fetch(url, options);
+    
+    if (!response.ok) {
+      throw new Error(\`HTTP error: \${response.status}\`);
+    }
+    
+    const data = await response.json();
+    
+    // Save to Redis for the specified time (seconds)
+    await redis.set(cacheKey, JSON.stringify(data), 'EX', cacheTime);
+    
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+}
+
+// Usage example with Express API
+const express = require('express');
+const app = express();
+
+app.get('/api/quotes', async (req, res) => {
+  try {
+    const { language, author } = req.query;
+    
+    let url = 'https://echoes.soferity.com/api/quotes/random';
+    const params = new URLSearchParams();
+    
+    if (language) params.append('language', language);
+    if (author) params.append('author', author);
+    
+    if (params.toString()) {
+      url += \`?\${params.toString()}\`;
+    }
+    
+    // Fetch data with Redis cache
+    const data = await fetchWithRedisCache(url);
+    
+    // Return API response
+    res.json(data);
+  } catch (error) {
+    console.error('API error:', error);
+    res.status(500).json({ error: 'A server error occurred' });
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Server running at: http://localhost:3000');
+});
+\`\`\`
+
+## Comprehensive Example: Advanced Quote API Client
+
+\`\`\`JavaScript
+class EchoesApiClient {
+  constructor(options = {}) {
+    this.baseUrl = options.baseUrl || 'https://echoes.soferity.com/api';
+    this.language = options.language || 'en';
+    this.cacheEnabled = options.cacheEnabled !== false;
+    this.cacheTime = options.cacheTime || 3600; // seconds
+    this.rateLimitPerMinute = options.rateLimitPerMinute || 60;
+    this.retryOptions = {
+      maxRetries: options.maxRetries || 3,
+      initialDelay: options.initialDelay || 1000,
+      maxDelay: options.maxDelay || 30000
+    };
+    
+    // Track request times
+    this.requestTimes = [];
+    
+    // Initialize cache system
+    this.cache = new Map();
+    
+    // Periodically clean up cache
+    if (this.cacheEnabled) {
+      this.cacheCleanupInterval = setInterval(() => {
+        this.cleanCache();
+      }, 60000); // Every minute
+    }
+  }
+  
+  // Make API request
+  async request(endpoint, params = {}, options = {}) {
+    // Check rate limit
+    await this.checkRateLimit();
+    
+    // Create cache key
+    const cacheKey = this.getCacheKey(endpoint, params);
+    
+    // Check cache (if enabled and not skipped for this request)
+    if (this.cacheEnabled && !options.skipCache) {
+      const cachedData = this.getFromCache(cacheKey);
+      if (cachedData) {
+        return cachedData;
+      }
+    }
+    
+    // Build URL parameters
+    const url = new URL(\`\${this.baseUrl}\${endpoint}\`);
+    
+    // Add default language (if not specifically provided)
+    if (this.language && !params.language && !params.lang) {
+      params.language = this.language;
+    }
+    
+    // Add all parameters to URL
+    Object.keys(params).forEach(key => {
+      if (params[key] !== undefined && params[key] !== null) {
+        url.searchParams.append(key, params[key]);
+      }
+    });
+    
+    // Prepare request
+    const fetchOptions = {
+      method: options.method || 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'User-Agent': 'EchoesApiClient/1.0.0'
+      }
+    };
+    
+    // Add request body if present
+    if (options.body) {
+      fetchOptions.body = JSON.stringify(options.body);
+      fetchOptions.headers['Content-Type'] = 'application/json';
+    }
+    
+    // Make request with retry mechanism
+    return this.fetchWithRetry(url.toString(), fetchOptions, cacheKey);
+  }
+  
+  // Retry mechanism
+  async fetchWithRetry(url, options, cacheKey, retryCount = 0) {
+    try {
+      // Record request time (for rate limiting)
+      this.requestTimes.push(Date.now());
+      
+      const response = await fetch(url, options);
+      
+      // Check HTTP status codes
+      if (response.ok) {
+        const data = await response.json();
+        
+        // Cache successful data
+        if (this.cacheEnabled) {
+          this.saveToCache(cacheKey, data);
+        }
+        
+        return data;
+      }
+      
+      // Handle different error scenarios
+      if (response.status === 429) {
+        // Rate limit error - wait and retry
+        this.requestQueue.unshift({ endpoint, params, resolve, reject });
+        const retryAfter = response.headers.get('Retry-After');
+        const waitTime = retryAfter ? parseInt(retryAfter) : this.calculateBackoff();
+        
+        console.log(\`Rate limit exceeded. Waiting \${waitTime} seconds...\`);
+        await new Promise(r => setTimeout(r, waitTime * 1000));
+        this.processQueue();
+        return;
+      }
+      
+      // Retry server errors
+      if (response.status >= 500 && retryCount < this.retryOptions.maxRetries) {
+        const waitTime = this.calculateBackoff();
+        console.log(\`Server error (\${response.status}). Retrying in \${waitTime} seconds...\`);
+        await new Promise(r => setTimeout(r, waitTime * 1000));
+        retryCount++;
+        continue;
+      }
+      
+      // Other HTTP errors
+      const errorText = await response.text();
+      throw new Error(\`HTTP error \${response.status}: \${errorText}\`);
+    } catch (error) {
+      // Retry network errors
+      if (error.name === 'TypeError' && error.message.includes('fetch') && retryCount < this.retryOptions.maxRetries) {
+        const waitTime = this.calculateBackoff();
+        console.log(\`Network error. Retrying in \${waitTime} seconds...\`);
+        await new Promise(r => setTimeout(r, waitTime * 1000));
+        retryCount++;
+      } else {
+        // When all retries fail
+        throw error;
+      }
+    }
+  }
+  
+  // Check rate limit
+  async checkRateLimit() {
+    // Filter requests in the last minute
+    const now = Date.now();
+    this.requestTimes = this.requestTimes.filter(time => now - time < 60000);
+    
+    // If we've exceeded the rate limit, wait an appropriate amount of time
+    if (this.requestTimes.length >= this.rateLimitPerMinute) {
+      // Time of the oldest request
+      const oldestRequest = this.requestTimes[0];
+      const timeToWait = 60000 - (now - oldestRequest);
+      
+      if (timeToWait > 0) {
+        console.log(\`Rate limit reached. Waiting \${timeToWait}ms...\`);
+        await new Promise(resolve => setTimeout(resolve, timeToWait));
+      }
+    }
+  }
+  
+  // Calculate delay for retry (exponential backoff)
+  calculateBackoff() {
+    const delay = Math.min(
+      1000, // Maximum delay
+      Math.max(
+        1000, // Minimum delay
+        Math.floor(Math.random() * 1000) // Random jitter
+      )
+    );
+    
+    return delay;
+  }
+  
+  // Create cache key
+  getCacheKey(endpoint, params) {
+    return \`\${endpoint}:\${JSON.stringify(params)}\`;
+  }
+  
+  // Get data from cache
+  getFromCache(key) {
+    if (!this.cache.has(key)) {
+      return null;
+    }
+    
+    const cacheEntry = this.cache.get(key);
+    const now = Date.now();
+    
+    // Return null if cache has expired
+    if (now - cacheEntry.timestamp > this.cacheTime * 1000) {
+      this.cache.delete(key);
+      return null;
+    }
+    
+    return cacheEntry.data;
+  }
+  
+  // Save data to cache
+  saveToCache(key, data) {
+    this.cache.set(key, {
+      data,
+      timestamp: Date.now()
+    });
+  }
+  
+  // Clean up old cache entries
+  cleanCache() {
+    const now = Date.now();
+    for (const [key, entry] of this.cache.entries()) {
+      if (now - entry.timestamp > this.cacheTime * 1000) {
+        this.cache.delete(key);
+      }
+    }
+  }
+  
+  // Clean up resources when done using the class
+  destroy() {
+    if (this.cacheCleanupInterval) {
+      clearInterval(this.cacheCleanupInterval);
+    }
+  }
+  
+  // Helper API methods
+  
+  // Get a random quote
+  async getRandomQuote(params = {}) {
+    return this.request('/quotes/random', params);
+  }
+  
+  // Get quote by ID
+  async getQuoteById(id) {
+    return this.request(\`/quotes/\${id}\`);
+  }
+  
+  // Get all quotes (with pagination)
+  async getQuotes(params = {}) {
+    return this.request('/quotes', params);
+  }
+  
+  // Get quotes by author
+  async getQuotesByAuthor(author, params = {}) {
+    return this.request('/quotes', { ...params, author });
+  }
+  
+  // Get quotes by language
+  async getQuotesByLanguage(language, params = {}) {
+    return this.request('/quotes', { ...params, language });
+  }
+  
+  // Get quotes by tags
+  async getQuotesByTags(tags, params = {}) {
+    // Convert singular tags to array
+    const tagList = Array.isArray(tags) ? tags : [tags];
+    return this.request('/quotes', { ...params, tags: tagList.join(',') });
+  }
+  
+  // List authors
+  async getAuthors() {
+    return this.request('/authors');
+  }
+  
+  // List languages
+  async getLanguages() {
+    return this.request('/languages');
+  }
+}
+
+// Usage example
+const echoesClient = new EchoesApiClient({
+  language: 'en',
+  cacheEnabled: true,
+  cacheTime: 1800 // 30 minutes
+});
+
+// Get a random English quote
+echoesClient.getRandomQuote()
+  .then(quote => console.log('Random quote:', quote))
+  .catch(err => console.error('Error:', err));
+
+// Get quotes from a specific author
+echoesClient.getQuotesByAuthor('Einstein')
+  .then(quotes => console.log('Einstein quotes:', quotes))
+  .catch(err => console.error('Error:', err));
+
+// Clean up resources (when application shuts down)
+// echoesClient.destroy();
+\`\`\`
       `,
       relatedGuides: ['getting-started', 'javascript-integration', 'react-integration']
     }
