@@ -69,7 +69,7 @@ Echoes API'nin basit kullanımı için kimlik doğrulama gerekmez. Ancak, yükse
 
 İşte basit bir alıntı almak için JavaScript örneği:
 
-\`\`\`javascript
+\`\`\`JavaScript
 fetch('https://echoes.soferity.com/api/quotes/random')
   .then(response => response.json())
   .then(data => {
@@ -82,7 +82,7 @@ fetch('https://echoes.soferity.com/api/quotes/random')
 
 Bu istek, rastgele bir alıntı döndürecektir. Yanıt şuna benzer olacaktır:
 
-\`\`\`json
+\`\`\`JSON
 {
   "id": 42,
   "lang": "tr",
@@ -116,7 +116,7 @@ Echoes API ile alıntıları çeşitli kriterlere göre filtreleyebilirsiniz. Bu
 
 Belirli bir dildeki alıntıları almak için \`lang\` parametresini kullanabilirsiniz:
 
-\`\`\`javascript
+\`\`\`JavaScript
 fetch('https://echoes.soferity.com/api/quotes/random?lang=tr')
   .then(response => response.json())
   .then(data => console.log(data));
@@ -124,7 +124,7 @@ fetch('https://echoes.soferity.com/api/quotes/random?lang=tr')
 
 Birden fazla dil için virgülle ayırarak belirtebilirsiniz:
 
-\`\`\`javascript
+\`\`\`JavaScript
 fetch('https://echoes.soferity.com/api/quotes/random?lang=tr,en')
   .then(response => response.json())
   .then(data => console.log(data));
@@ -134,7 +134,7 @@ fetch('https://echoes.soferity.com/api/quotes/random?lang=tr,en')
 
 Belirli bir yazarın alıntılarını almak için \`author\` parametresini kullanabilirsiniz:
 
-\`\`\`javascript
+\`\`\`JavaScript
 fetch('https://echoes.soferity.com/api/quotes/random?author=Atatürk')
   .then(response => response.json())
   .then(data => console.log(data));
@@ -144,7 +144,7 @@ Burada yazar adının tam eşleşmesi gerekmez, kısmi eşleşme de çalışır.
 
 Birden fazla yazar için:
 
-\`\`\`javascript
+\`\`\`JavaScript
 fetch('https://echoes.soferity.com/api/quotes/random?author=Atatürk,Einstein')
   .then(response => response.json())
   .then(data => console.log(data));
@@ -154,7 +154,7 @@ fetch('https://echoes.soferity.com/api/quotes/random?author=Atatürk,Einstein')
 
 Hem dil hem de yazarı filtrelemek için her iki parametreyi de kullanabilirsiniz:
 
-\`\`\`javascript
+\`\`\`JavaScript
 fetch('https://echoes.soferity.com/api/quotes/random?lang=tr&author=Atatürk')
   .then(response => response.json())
   .then(data => console.log(data));
@@ -164,7 +164,7 @@ fetch('https://echoes.soferity.com/api/quotes/random?lang=tr&author=Atatürk')
 
 Tüm alıntıları listelerken sayfalama parametrelerini kullanabilirsiniz:
 
-\`\`\`javascript
+\`\`\`JavaScript
 fetch('https://echoes.soferity.com/api/quotes?page=2&perPage=20')
   .then(response => response.json())
   .then(data => console.log(data));
@@ -179,7 +179,7 @@ Daha karmaşık senaryolar için, bu filtreleri birleştirebilir ve API'yi uygul
 
 Örneğin, belirli bir dildeki belirli bir yazarın alıntılarını sayfalayarak alabilirsiniz:
 
-\`\`\`javascript
+\`\`\`JavaScript
 fetch('https://echoes.soferity.com/api/quotes?lang=tr&author=Atatürk&page=1&perPage=5')
   .then(response => response.json())
   .then(data => console.log(data));
@@ -283,13 +283,13 @@ const GuideDetail = ({ slug }: { slug: string }) => {
           
         // Programlama dili sınıfları
         const languageClasses = {
-          'javascript': 'text-yellow-500',
-          'typescript': 'text-blue-500',
-          'json': 'text-green-500',
-          'html': 'text-orange-500',
-          'css': 'text-pink-500',
-          'bash': 'text-gray-200',
-          'sh': 'text-gray-200'
+          'JavaScript': 'text-yellow-500',
+          'TypeScript': 'text-blue-500',
+          'JSON': 'text-green-500',
+          'HTML': 'text-orange-500',
+          'CSS': 'text-pink-500',
+          'Bash': 'text-gray-200',
+          'SH': 'text-gray-200'
         };
         
         const languageClass = languageClasses[languageLine as keyof typeof languageClasses] || 'text-gray-300';
