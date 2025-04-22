@@ -13,8 +13,8 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
   
   const navLinks = [
     { href: '/', label: t('nav.home') },
-    { href: '/docs', label: t('nav.docs') },
-    { href: '/about', label: t('nav.about') }
+    { href: '/about', label: t('nav.about') },
+    { href: '/docs', label: t('nav.docs') }
   ];
   
   const socialLinks = [
