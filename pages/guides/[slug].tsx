@@ -15,7 +15,9 @@ import {
   FiCpu, 
   FiUsers,
   FiBook, 
-  FiChevronRight 
+  FiChevronRight,
+  FiCopy,
+  FiCheck
 } from 'react-icons/fi';
 
 // Rehber içerik tipi
@@ -190,6 +192,7 @@ fetch('https://echoes.soferity.com/api/quotes?lang=tr&author=Atatürk&page=1&per
 const GuideDetail = ({ slug }: { slug: string }) => {
   const router = useRouter();
   const { t } = useTranslation('common');
+  const [copiedCode, setCopiedCode] = useState<string | null>(null);
   
   // Eğer henüz hazır değilse veya rehber bulunamadıysa
   if (router.isFallback || !guides[slug]) {
@@ -228,27 +231,129 @@ const GuideDetail = ({ slug }: { slug: string }) => {
   // Not: Gerçek projede bir markdown parser kullanılmalıdır
   const createContentFromMarkdown = (markdownContent: string) => {
     // Bu basit bir örnek. Gerçek projede 'react-markdown' gibi bir kütüphane kullanın
-    const contentWithHeadings = markdownContent.replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">$1</h1>');
-    const contentWithSubHeadings = contentWithHeadings.replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mt-6 mb-3 text-gray-800 dark:text-gray-200">$1</h2>');
-    const contentWithParagraphs = contentWithSubHeadings.replace(/^(?!(#|```))(.+)/gm, '<p class="my-4 text-gray-700 dark:text-gray-300">$2</p>');
     
-    // Kod bloklarını işle
-    let contentWithCodeBlocks = contentWithParagraphs;
+    // Önce kod bloklarını geçici belirteçlerle değiştir
+    let processedContent = markdownContent;
+    const codeBlocks: string[] = [];
     const codeBlockRegex = /```([\s\S]*?)```/g;
-    contentWithCodeBlocks = contentWithCodeBlocks.replace(codeBlockRegex, (match, code) => {
-      const language = code.split('\n')[0];
-      const codeContent = code.split('\n').slice(1).join('\n');
-      return `<div class="my-6 bg-gray-50 dark:bg-gray-800/90 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
-        <div class="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-sm text-gray-600 dark:text-gray-300">${language}</div>
-        <pre class="p-4 overflow-x-auto text-sm text-gray-800 dark:text-gray-300"><code>${codeContent}</code></pre>
-      </div>`;
+    
+    processedContent = processedContent.replace(codeBlockRegex, (match) => {
+      const placeholder = `__CODE_BLOCK_${codeBlocks.length}__`;
+      codeBlocks.push(match);
+      return placeholder;
     });
     
+    // Şimdi başlıkları, alt başlıkları ve paragrafları işle
+    let contentWithHeadings = processedContent.replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">$1</h1>');
+    let contentWithSubHeadings = contentWithHeadings.replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mt-6 mb-3 text-gray-800 dark:text-gray-200">$1</h2>');
+    
+    // Başında # olmayan ve placeholder olmayan satırları paragraf olarak işle
+    let contentWithParagraphs = contentWithSubHeadings.replace(/^(?!(#|__CODE_BLOCK_))(.+)/gm, '<p class="my-4 text-gray-700 dark:text-gray-300">$2</p>');
+    
     // Liste öğelerini ekle
-    contentWithCodeBlocks = contentWithCodeBlocks.replace(/^- (.*$)/gm, '<li class="ml-6 mb-2 text-gray-700 dark:text-gray-300">• $1</li>');
+    contentWithParagraphs = contentWithParagraphs.replace(/^- (.*$)/gm, '<li class="ml-6 mb-2 text-gray-700 dark:text-gray-300">• $1</li>');
     
     // Bağlantıları işle
-    return contentWithCodeBlocks.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-primary-600 dark:text-primary-400 hover:underline">$1</a>');
+    contentWithParagraphs = contentWithParagraphs.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-primary-600 dark:text-primary-400 hover:underline">$1</a>');
+    
+    // Şimdi kod bloklarını işle ve placeholder'ları gerçek HTML ile değiştir
+    let finalContent = contentWithParagraphs;
+    
+    // Benzersiz ID'ler oluşturmak için
+    let codeBlockCounter = 0;
+    
+    for (let i = 0; i < codeBlocks.length; i++) {
+      const placeholder = `__CODE_BLOCK_${i}__`;
+      const codeBlock = codeBlocks[i];
+      const match = codeBlock.match(/```([\s\S]*?)```/);
+      
+      if (match) {
+        const codeContent = match[1];
+        const languageLine = codeContent.split('\n')[0].trim();
+        const actualCode = codeContent.split('\n').slice(1).join('\n');
+        const blockId = `code-block-${codeBlockCounter++}`;
+        
+        // Güvenli HTML ve sözdizimi renklendirme için gerekli hazırlık
+        const escapedCode = actualCode
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+          
+        // Programlama dili sınıfları
+        const languageClasses = {
+          'javascript': 'text-yellow-500',
+          'typescript': 'text-blue-500',
+          'json': 'text-green-500',
+          'html': 'text-orange-500',
+          'css': 'text-pink-500',
+          'bash': 'text-gray-200',
+          'sh': 'text-gray-200'
+        };
+        
+        const languageClass = languageClasses[languageLine as keyof typeof languageClasses] || 'text-gray-300';
+        
+        const htmlCodeBlock = `
+          <div class="my-8 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/90 shadow-sm">
+            <div class="flex items-center justify-between px-4 py-2 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+              <div class="flex items-center">
+                <span class="mr-2 text-gray-500 dark:text-gray-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </span>
+                <span class="text-sm font-medium ${languageClass}">${languageLine}</span>
+              </div>
+              <button 
+                onclick="
+                  const codeBlock = document.getElementById('${blockId}');
+                  const code = codeBlock.textContent;
+                  navigator.clipboard.writeText(code);
+                  
+                  // Visual feedback
+                  const button = event.currentTarget;
+                  const icon = button.querySelector('.copy-icon');
+                  const checkIcon = button.querySelector('.check-icon');
+                  
+                  if (icon && checkIcon) {
+                    icon.classList.add('hidden');
+                    checkIcon.classList.remove('hidden');
+                    
+                    setTimeout(() => {
+                      icon.classList.remove('hidden');
+                      checkIcon.classList.add('hidden');
+                    }, 2000);
+                  }
+                "
+                class="p-1 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 focus:outline-none transition-colors"
+                title="Kopyala"
+              >
+                <span class="copy-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </span>
+                <span class="check-icon hidden">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-4 h-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div class="relative">
+              <pre id="${blockId}" class="p-4 overflow-x-auto text-sm font-mono leading-relaxed text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-800/90"><code>${escapedCode}</code></pre>
+            </div>
+          </div>
+        `;
+        
+        finalContent = finalContent.replace(placeholder, htmlCodeBlock);
+      }
+    }
+    
+    return finalContent;
   };
   
   return (
