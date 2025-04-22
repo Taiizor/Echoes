@@ -20,7 +20,7 @@ import {
   FiCheck
 } from 'react-icons/fi';
 
-// Rehber içerik tipi
+// Guide content type
 interface GuideContent {
   title: string;
   description: string;
@@ -31,7 +31,7 @@ interface GuideContent {
   relatedGuides: string[];
 }
 
-// Tüm diller için rehber içerikleri
+// Guide contents for all languages
 interface MultiLanguageGuides {
   [slug: string]: {
     [locale: string]: GuideContent;
@@ -43,14 +43,14 @@ const GuideDetail = ({ slug }: { slug: string }) => {
   const { t, i18n } = useTranslation('common');
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   
-  // Dile göre rehber verilerini oluştur
+  // Create guide data according to language
   const getGuideDataForLocale = () => {
     const currentLocale = i18n.language;
-    const guideData = guides[slug][currentLocale] || guides[slug]['en']; // Dil yoksa İngilizce'ye geri dön
+    const guideData = guides[slug][currentLocale] || guides[slug]['en']; // Fallback to English if language not available
     
-    // Eğer içerik mevcut dilin dışında bir dilde ise, başlık ve açıklamayı çevirmeye çalış
+    // If content is in a language other than the current one, try to translate title and description
     if (!guides[slug][currentLocale] && guides[slug]['en']) {
-      // Eğer bu rehber için çeviri anahtarları varsa, onları kullan
+      // If there are translation keys for this guide, use them
       const translationKeys = getTranslationKeysForGuide(slug);
       
       if (translationKeys) {
@@ -65,7 +65,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
     return guideData;
   };
   
-  // Rehber için çeviri anahtarlarını al
+  // Get translation keys for guide
   const getTranslationKeysForGuide = (slug: string) => {
     const translationMap: Record<string, { title: string, description: string }> = {
       'getting-started': {
@@ -101,7 +101,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
     return translationMap[slug] || null;
   };
   
-  // Eğer henüz hazır değilse veya rehber bulunamadıysa
+  // If not ready yet or guide not found
   if (router.isFallback || !guides[slug]) {
     return (
       <div className="flex justify-center items-center min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -122,14 +122,14 @@ const GuideDetail = ({ slug }: { slug: string }) => {
   
   const guide = getGuideDataForLocale();
   
-  // Seviye etiketi renk sınıfları
+  // Level tag color classes
   const levelColorClasses = {
     [t('guides.levels.beginner')]: 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-400',
     [t('guides.levels.intermediate')]: 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-400',
     [t('guides.levels.advanced')]: 'bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-400'
   };
   
-  // Seviye adlarını çevirme
+  // Translate level names
   const getTranslatedLevel = (level: string) => {
     const levelMap: Record<string, string> = {
       'Beginner': t('guides.levels.beginner'),
@@ -140,9 +140,9 @@ const GuideDetail = ({ slug }: { slug: string }) => {
     return levelMap[level] || level;
   };
   
-  // Etiketleri çevirme
+  // Translate tags
   const getTranslatedTag = (tag: string) => {
-    // API tag haritalaması için örnek
+    // Example API tag mapping
     const tagMap: Record<string, string> = {
       'API': t('guides.tags.api'),
       'Introduction': t('guides.tags.introduction'),
@@ -159,13 +159,13 @@ const GuideDetail = ({ slug }: { slug: string }) => {
     return tagMap[tag] || tag;
   };
   
-  // İlgili rehberler
+  // Related guides
   const relatedGuideContent = guide.relatedGuides
     .map(relatedSlug => {
       if (guides[relatedSlug]) {
         const relatedGuideData = guides[relatedSlug][i18n.language] || guides[relatedSlug]['en'];
         
-        // Eğer içerik mevcut dilin dışında bir dilde ise, başlık ve açıklamayı çevirmeye çalış
+        // If content is in a language other than the current one, try to translate title and description
         if (!guides[relatedSlug][i18n.language] && guides[relatedSlug]['en']) {
           const translationKeys = getTranslationKeysForGuide(relatedSlug);
           
@@ -182,14 +182,14 @@ const GuideDetail = ({ slug }: { slug: string }) => {
       }
       return null;
     })
-    .filter((guide): guide is GuideContent => Boolean(guide)); // TypeScript'e null olmadığını belirtmek için tip koruyucu
+    .filter((guide): guide is GuideContent => Boolean(guide)); // Type guard to inform TypeScript it's not null
   
-  // Markdown içeriğini HTML'e dönüştürme
-  // Not: Gerçek projede bir markdown parser kullanılmalıdır
+  // Convert markdown content to HTML
+  // Note: A markdown parser should be used in a real project
   const createContentFromMarkdown = (markdownContent: string) => {
-    // Bu basit bir örnek. Gerçek projede 'react-markdown' gibi bir kütüphane kullanın
+    // This is a simple example. Use a library like 'react-markdown' in a real project
     
-    // Önce kod bloklarını geçici belirteçlerle değiştir
+    // First replace code blocks with temporary markers
     let processedContent = markdownContent;
     const codeBlocks: string[] = [];
     const codeBlockRegex = /```([\s\S]*?)```/g;
@@ -200,23 +200,23 @@ const GuideDetail = ({ slug }: { slug: string }) => {
       return placeholder;
     });
     
-    // Şimdi başlıkları, alt başlıkları ve paragrafları işle
+    // Now process headings, subheadings, and paragraphs
     let contentWithHeadings = processedContent.replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">$1</h1>');
     let contentWithSubHeadings = contentWithHeadings.replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mt-6 mb-3 text-gray-800 dark:text-gray-200">$1</h2>');
     
-    // Başında # olmayan ve placeholder olmayan satırları paragraf olarak işle
+    // Process lines that don't start with # and aren't placeholders as paragraphs
     let contentWithParagraphs = contentWithSubHeadings.replace(/^(?!(#|__CODE_BLOCK_))(.+)/gm, '<p class="my-4 text-gray-700 dark:text-gray-300">$2</p>');
     
-    // Liste öğelerini ekle
+    // Add list items
     contentWithParagraphs = contentWithParagraphs.replace(/^- (.*$)/gm, '<li class="ml-6 mb-2 text-gray-700 dark:text-gray-300">• $1</li>');
     
-    // Bağlantıları işle
+    // Process links
     contentWithParagraphs = contentWithParagraphs.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-primary-600 dark:text-primary-400 hover:underline">$1</a>');
     
-    // Şimdi kod bloklarını işle ve placeholder'ları gerçek HTML ile değiştir
+    // Now process code blocks and replace placeholders with actual HTML
     let finalContent = contentWithParagraphs;
     
-    // Benzersiz ID'ler oluşturmak için
+    // For creating unique IDs
     let codeBlockCounter = 0;
     
     for (let i = 0; i < codeBlocks.length; i++) {
@@ -230,7 +230,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
         const actualCode = codeContent.split('\n').slice(1).join('\n');
         const blockId = `code-block-${codeBlockCounter++}`;
         
-        // Güvenli HTML ve sözdizimi renklendirme için gerekli hazırlık
+        // Prepare for safe HTML and syntax highlighting
         const escapedCode = actualCode
           .replace(/&/g, '&amp;')
           .replace(/</g, '&lt;')
@@ -238,7 +238,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
           .replace(/"/g, '&quot;')
           .replace(/'/g, '&#039;');
           
-        // Programlama dili sınıfları
+        // Programming language classes
         const languageClasses = {
           'JavaScript': 'text-yellow-500',
           'TypeScript': 'text-blue-500',
@@ -320,7 +320,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
         <meta name="description" content={guide.description} />
       </Head>
 
-      {/* Üst Gezinme Çubuğu */}
+      {/* Top Navigation Bar */}
       <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-10">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
@@ -348,7 +348,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             
-            {/* Rehber Başlığı */}
+            {/* Guide Title */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 mb-8">
               <div className="p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-4">
@@ -383,7 +383,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
               </div>
             </div>
             
-            {/* Rehber İçeriği */}
+            {/* Guide Content */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 mb-8">
               <div className="p-6 md:p-8">
                 <div 
@@ -393,7 +393,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
               </div>
             </div>
             
-            {/* İlgili Rehberler */}
+            {/* Related Guides */}
             {relatedGuideContent.length > 0 && (
               <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700">
                 <div className="p-6 md:p-8">
@@ -403,8 +403,8 @@ const GuideDetail = ({ slug }: { slug: string }) => {
                   
                   <div className="space-y-4">
                     {relatedGuideContent.map((relatedGuide, index) => {
-                      // İlgili rehberin slug'ını mevcut bağlantılı rehberlerden al
-                      // Eğer index sınırlar dışındaysa veya rehber bulunamazsa boş string dön
+                      // Get the slug of the related guide from the current linked guides
+                      // Return empty string if index is out of bounds or guide not found
                       const relatedSlug = index < guide.relatedGuides.length ? guide.relatedGuides[index] : '';
                       
                       return (
@@ -440,7 +440,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
   );
 };
 
-// Çoklu dil destekli rehber verileri
+// Multi-language guide data
 const guides: MultiLanguageGuides = {
   'getting-started': {
     'en': {
