@@ -1564,6 +1564,286 @@ Remember to handle error cases gracefully and provide proper loading states to e
 # Multi-language Support
 
 This guide will show you how to implement multi-language quote support in your application using the Echoes API.
+
+## Understanding Multi-language Support
+
+The Echoes API offers robust multi-language support, allowing you to retrieve quotes in various languages. This feature enables you to create applications that can serve users worldwide in their preferred languages, enriching your user experience and broadening your application's reach.
+
+## Key Benefits of Multi-language Support
+
+- <strong>Global Accessibility</strong>: Reach users from different linguistic backgrounds
+- <strong>Enhanced User Experience</strong>: Allow users to interact with content in their native language
+- <strong>Market Expansion</strong>: Make your application relevant to international markets
+- <strong>Cultural Inclusivity</strong>: Acknowledge and respect cultural diversity through language accommodation
+
+## How Language Support Works in Echoes API
+
+The Echoes API recognizes language through the \`language\` parameter, which accepts standard language codes (ISO 639-1). When you request quotes, you can specify which language you want the quotes to be in.
+
+### Supported Languages
+
+Echoes currently supports the following languages:
+
+| Language Code | Language Name |
+|---------------|---------------|
+| en            | English       |
+| tr            | Turkish       |
+| es            | Spanish       |
+| fr            | French        |
+| de            | German        |
+| it            | Italian       |
+| pt            | Portuguese    |
+| ru            | Russian       |
+| zh            | Chinese       |
+| ja            | Japanese      |
+| ar            | Arabic        |
+
+*More languages are being added regularly. Check the API documentation for the most up-to-date list.*
+
+## Retrieving Quotes in Different Languages
+
+### Basic Language Query
+
+To retrieve quotes in a specific language, simply add the \`lang\` parameter to your API request:
+
+\`\`\`JavaScript
+// Fetching a random quote in Turkish
+fetch('https://echoes.soferity.com/api/quotes/random?lang=tr')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data.quote); // Quote in Turkish
+    console.log(data.author); // Author name 
+  });
+\`\`\`
+
+## Implementing Multi-language Support in Your Application
+
+### Language Detection
+
+You can automatically detect a user's preferred language using browser settings:
+
+\`\`\`JavaScript
+// Get user's browser language
+const userLanguage = navigator.language || navigator.userLanguage;
+const languageCode = userLanguage.split('-')[0]; // Extract primary language code
+
+// Use this code in your API requests
+fetch(\`https://echoes.soferity.com/api/quotes/random?lang=\${languageCode}\`)
+  .then(response => response.json())
+  .then(data => {
+    // Display the quote in user's language
+    displayQuote(data);
+  });
+\`\`\`
+
+### Language Switcher Component
+
+Allow users to manually select their preferred language with a language switcher:
+
+\`\`\`JavaScript
+import React, { useState, useEffect } from 'react';
+
+const LanguageSwitcher = ({ onLanguageChange }) => {
+  const languages = [
+    { code: 'en', name: 'English' },
+    { code: 'tr', name: 'Türkçe' },
+    { code: 'es', name: 'Español' },
+    { code: 'fr', name: 'Français' },
+    // Add more languages as needed
+  ];
+  
+  const [currentLanguage, setCurrentLanguage] = useState('en');
+  
+  const handleLanguageChange = (e) => {
+    const newLanguage = e.target.value;
+    setCurrentLanguage(newLanguage);
+    onLanguageChange(newLanguage);
+    
+    // Optional: save preference to localStorage
+    localStorage.setItem('preferredLanguage', newLanguage);
+  };
+  
+  useEffect(() => {
+    // Load saved preference on component mount
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    if (savedLanguage) {
+      setCurrentLanguage(savedLanguage);
+      onLanguageChange(savedLanguage);
+    }
+  }, []);
+  
+  return (
+    <div className="language-switcher">
+      <select value={currentLanguage} onChange={handleLanguageChange}>
+        {languages.map(lang => (
+          <option key={lang.code} value={lang.code}>
+            {lang.name}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
+
+export default LanguageSwitcher;
+\`\`\`
+
+### Creating a Complete Multi-language Quote Application
+
+Here's a complete example of a React application with multi-language support:
+
+\`\`\`JavaScript
+import React, { useState, useEffect } from 'react';
+import LanguageSwitcher from './LanguageSwitcher';
+
+function MultiLanguageQuoteApp() {
+  const [quote, setQuote] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [language, setLanguage] = useState('en');
+  
+  const fetchQuote = async (lang) => {
+    setLoading(true);
+    try {
+      const response = await fetch(\`https://echoes.soferity.com/api/quotes/random?lang=\${lang}\`);
+      const data = await response.json();
+      setQuote(data);
+    } catch (error) {
+      console.error('Error fetching quote:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  // Fetch a new quote when language changes
+  useEffect(() => {
+    fetchQuote(language);
+  }, [language]);
+  
+  const handleLanguageChange = (newLanguage) => {
+    setLanguage(newLanguage);
+  };
+  
+  const handleNewQuote = () => {
+    fetchQuote(language);
+  };
+  
+  if (loading) {
+    return <div className="loading">Loading...</div>;
+  }
+  
+  return (
+    <div className="quote-app">
+      <header>
+        <h1>Inspirational Quotes</h1>
+        <LanguageSwitcher onLanguageChange={handleLanguageChange} />
+      </header>
+      
+      {quote && (
+        <div className="quote-container">
+          <blockquote>
+            <p className="quote-text">{quote.content}</p>
+            <footer className="quote-author">— {quote.author}</footer>
+          </blockquote>
+        </div>
+      )}
+      
+      <button onClick={handleNewQuote} className="new-quote-btn">
+        New Quote
+      </button>
+    </div>
+  );
+}
+
+export default MultiLanguageQuoteApp;
+\`\`\`
+
+## Dynamic Content Translation
+
+For applications that need to translate more than just quotes, consider implementing a complete translation solution using libraries like i18next:
+
+\`\`\`JavaScript
+// Install i18next
+// npm install i18next react-i18next i18next-http-backend
+
+// Create translation files in public/locales/[language]/translation.json
+// Then implement in your app:
+
+import React, { Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
+import './i18n'; // Your i18n configuration
+
+function App() {
+  const { t, i18n } = useTranslation();
+  
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    // Also update your Echoes API calls with the new language
+    fetchQuotesInLanguage(lng);
+  };
+  
+  return (
+    <div className="app">
+      <div className="language-buttons">
+        <button onClick={() => changeLanguage('en')}>English</button>
+        <button onClick={() => changeLanguage('tr')}>Türkçe</button>
+        <button onClick={() => changeLanguage('es')}>Español</button>
+      </div>
+      
+      <h1>{t('welcome')}</h1>
+      <p>{t('intro')}</p>
+      
+      {/* Your Echoes quote component */}
+      <QuoteComponent language={i18n.language} />
+    </div>
+  );
+}
+
+// Wrap your app with Suspense for translation loading
+export default function AppWithSuspense() {
+  return (
+    <Suspense fallback="Loading...">
+      <App />
+    </Suspense>
+  );
+}
+\`\`\`
+
+## Best Practices for Multi-language Applications
+
+1. <strong>Use Standard Language Codes</strong>: Always use ISO 639-1 language codes for consistency.
+2. <strong>Remember Text Direction</strong>: Some languages like Arabic and Hebrew are right-to-left (RTL).
+3. <strong>Consider Language-Specific Formatting</strong>: Dates, numbers, and currencies should be formatted according to locale.
+4. <strong>Test with Native Speakers</strong>: Ensure translations make sense contextually.
+5. <strong>Cache Language Preferences</strong>: Store user language preferences to provide a consistent experience.
+6. <strong>Allow Manual Override</strong>: Users should always be able to select their preferred language.
+
+## Testing Multi-language Support
+
+Make sure to test your application with different languages to ensure everything displays correctly:
+
+\`\`\`JavaScript
+// Test function to verify different languages work
+async function testLanguageSupport() {
+  const languages = ['en', 'tr', 'es', 'fr', 'de'];
+  
+  for (const lang of languages) {
+    console.log(\`Testing language: \${lang}\`);
+    try {
+      const response = await fetch(\`https://api.echoes.example/quotes/random?language=\${lang}\`);
+      const data = await response.json();
+      console.log(\`Quote in \${lang}:\`, data.content);
+    } catch (error) {
+      console.error(\`Error with \${lang}:\`, error);
+    }
+  }
+}
+\`\`\`
+
+## Conclusion
+
+Implementing multi-language support with the Echoes API allows you to create more inclusive, accessible applications that can reach a global audience. Whether you're building a simple quote widget or a comprehensive application, the ability to offer content in multiple languages significantly enhances the user experience.
+
+For more advanced integration techniques, check out our [Advanced API Usage](/guides/advanced-api-usage) guide, or learn how to contribute translations to the Echoes project in our [Community Contributions](/guides/community-contributions) guide.
       `,
       relatedGuides: ['getting-started', 'javascript-integration', 'advanced-api-usage']
     }
