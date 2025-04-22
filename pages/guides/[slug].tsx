@@ -88,6 +88,25 @@ const GuideDetail = ({ slug }: { slug: string }) => {
     return levelMap[level] || level;
   };
   
+  // Etiketleri çevirme
+  const getTranslatedTag = (tag: string) => {
+    // API tag haritalaması için örnek
+    const tagMap: Record<string, string> = {
+      'API': t('guides.tags.api'),
+      'Introduction': t('guides.tags.introduction'),
+      'Filtering': t('guides.tags.filtering'),
+      'JavaScript': t('guides.tags.javascript'),
+      'Integration': t('guides.tags.integration'),
+      'React': t('guides.tags.react'),
+      'Multi-language': t('guides.tags.multiLanguage'),
+      'Advanced': t('guides.tags.advanced'),
+      'Community': t('guides.tags.community'),
+      'Contribution': t('guides.tags.contribution')
+    };
+    
+    return tagMap[tag] || tag;
+  };
+  
   // İlgili rehberler
   const relatedGuideContent = guide.relatedGuides
     .map(relatedSlug => {
@@ -290,7 +309,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
                       key={tag}
                       className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-sm rounded-md"
                     >
-                      {tag}
+                      {getTranslatedTag(tag)}
                     </span>
                   ))}
                 </div>
