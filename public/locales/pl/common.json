@@ -194,6 +194,81 @@
     "contactUsText": "Jeśli masz jakiekolwiek pytania lub wątpliwości dotyczące tych warunków korzystania, skontaktuj się z nami pod adresem:",
     "contactEmail": "taiizor@vegalya.com"
   },
+  "guides": {
+    "pageTitle": "Przewodniki",
+    "pageDescription": "Przewodniki dotyczące API Echoes i integracji",
+    "title": "Przewodniki",
+    "subtitle": "Przewodniki krok po kroku, jak rozpocząć pracę z API Echoes i zintegrować je z aplikacją",
+    "searchPlaceholder": "Szukaj w przewodnikach...",
+    "allTags": "Wszystkie tagi",
+    "viewGuide": "Zobacz przewodnik",
+    "backToGuides": "Wszystkie przewodniki",
+    "relatedGuides": "Powiązane przewodniki",
+    "levels": {
+      "beginner": "Początkujący",
+      "intermediate": "Średniozaawansowany",
+      "advanced": "Zaawansowany"
+    },
+    "tags": {
+      "api": "API",
+      "introduction": "Wprowadzenie",
+      "filtering": "Filtrowanie",
+      "javascript": "JavaScript",
+      "integration": "Integracja",
+      "react": "React",
+      "multiLanguage": "Wielojęzyczność",
+      "advanced": "Zaawansowane",
+      "community": "Społeczność",
+      "contribution": "Wkład"
+    },
+    "apiIntro": {
+      "title": "Pierwsze kroki z API Echoes",
+      "description": "Poznaj podstawy korzystania i konfiguracji API Echoes."
+    },
+    "filtering": {
+      "title": "Filtrowanie cytatów",
+      "description": "Filtruj cytaty według autora i języka za pomocą API."
+    },
+    "jsIntegration": {
+      "title": "Integracja JavaScript",
+      "description": "Zintegruj API Echoes z projektami JavaScript."
+    },
+    "reactIntegration": {
+      "title": "Integracja React",
+      "description": "Dodaj komponenty cytatów do aplikacji React."
+    },
+    "multiLang": {
+      "title": "Obsługa wielu języków",
+      "description": "Zintegruj cytaty w różnych językach w swojej aplikacji."
+    },
+    "advancedApi": {
+      "title": "Zaawansowane użycie API",
+      "description": "Zaawansowane techniki zapytań i optymalizacji za pomocą API."
+    },
+    "community": {
+      "title": "Wkład społeczności",
+      "description": "Dowiedz się, jak możesz przyczynić się do projektu Echoes."
+    },
+    "noResults": {
+      "title": "Nie znaleziono przewodników",
+      "description": "Żaden przewodnik nie pasuje do kryteriów wyszukiwania. Spróbuj innego hasła lub wyczyść filtry.",
+      "clearFilters": "Wyczyść filtry"
+    },
+    "otherResources": {
+      "title": "Inne zasoby",
+      "apiDocs": {
+        "title": "Dokumentacja API",
+        "description": "Kompleksowa dokumentacja techniczna API Echoes"
+      },
+      "github": {
+        "title": "Repozytorium GitHub",
+        "description": "Przeglądaj kod źródłowy i przyczyń się do projektu"
+      }
+    },
+    "codeBlock": {
+      "copy": "Kopiuj"
+    }
+  },
   "language": {
     "select": "Wybierz język",
     "comingSoon": "Wkrótce",

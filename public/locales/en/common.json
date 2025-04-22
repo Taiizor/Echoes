@@ -194,6 +194,81 @@
     "contactUsText": "If you have any questions or concerns about these terms of service, please contact us at:",
     "contactEmail": "taiizor@vegalya.com"
   },
+  "guides": {
+    "pageTitle": "Guides",
+    "pageDescription": "Guides about Echoes API and integration",
+    "title": "Guides",
+    "subtitle": "Step by step guides to get started with Echoes API and integrate it into your application",
+    "searchPlaceholder": "Search guides...",
+    "allTags": "All Tags",
+    "viewGuide": "View Guide",
+    "backToGuides": "All Guides",
+    "relatedGuides": "Related Guides",
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "tags": {
+      "api": "API",
+      "introduction": "Introduction",
+      "filtering": "Filtering",
+      "javascript": "JavaScript",
+      "integration": "Integration",
+      "react": "React",
+      "multiLanguage": "Multi-language",
+      "advanced": "Advanced",
+      "community": "Community",
+      "contribution": "Contribution"
+    },
+    "apiIntro": {
+      "title": "Getting Started with Echoes API",
+      "description": "Learn the basic usage and setup of the Echoes API."
+    },
+    "filtering": {
+      "title": "Filtering Quotes",
+      "description": "Filter quotes by author and language using the API."
+    },
+    "jsIntegration": {
+      "title": "JavaScript Integration",
+      "description": "Integrate Echoes API into your JavaScript projects."
+    },
+    "reactIntegration": {
+      "title": "React Integration",
+      "description": "Add quote components to your React application."
+    },
+    "multiLang": {
+      "title": "Multi-language Support",
+      "description": "Integrate quotes in different languages into your application."
+    },
+    "advancedApi": {
+      "title": "Advanced API Usage",
+      "description": "Advanced querying and optimization techniques with the API."
+    },
+    "community": {
+      "title": "Community Contributions",
+      "description": "Learn how you can contribute to the Echoes project."
+    },
+    "noResults": {
+      "title": "No Guides Found",
+      "description": "No guides match your search criteria. Please try a different search term or clear the filters.",
+      "clearFilters": "Clear Filters"
+    },
+    "otherResources": {
+      "title": "Other Resources",
+      "apiDocs": {
+        "title": "API Documentation",
+        "description": "Comprehensive technical documentation of the Echoes API"
+      },
+      "github": {
+        "title": "GitHub Repository",
+        "description": "Explore the source code and contribute to the project"
+      }
+    },
+    "codeBlock": {
+      "copy": "Copy"
+    }
+  },
   "language": {
     "select": "Select language",
     "comingSoon": "Coming soon",

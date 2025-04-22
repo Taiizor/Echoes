@@ -194,6 +194,81 @@
     "contactUsText": "Bu kullanım şartları hakkında sorularınız veya endişeleriniz varsa, lütfen aşağıdaki adresten bize ulaşın:",
     "contactEmail": "taiizor@vegalya.com"
   },
+  "guides": {
+    "pageTitle": "Rehberler",
+    "pageDescription": "Echoes API ve entegrasyonu hakkında rehberler",
+    "title": "Rehberler",
+    "subtitle": "Echoes API'sini kullanmaya başlamak ve uygulamanıza entegre etmek için adım adım rehberler",
+    "searchPlaceholder": "Rehberlerde ara...",
+    "allTags": "Tüm Etiketler",
+    "viewGuide": "Rehberi Görüntüle",
+    "backToGuides": "Tüm Rehberler",
+    "relatedGuides": "İlgili Rehberler",
+    "levels": {
+      "beginner": "Başlangıç",
+      "intermediate": "Orta",
+      "advanced": "İleri"
+    },
+    "tags": {
+      "api": "API",
+      "introduction": "Giriş",
+      "filtering": "Filtreleme",
+      "javascript": "JavaScript",
+      "integration": "Entegrasyon",
+      "react": "React",
+      "multiLanguage": "Çoklu Dil",
+      "advanced": "Gelişmiş",
+      "community": "Topluluk",
+      "contribution": "Katkı"
+    },
+    "apiIntro": {
+      "title": "Echoes API'ye Başlangıç",
+      "description": "Echoes API'nin temel kullanımını ve kurulumunu öğrenin."
+    },
+    "filtering": {
+      "title": "Alıntıları Filtreleme",
+      "description": "API ile alıntıları yazara ve dile göre filtreleme."
+    },
+    "jsIntegration": {
+      "title": "JavaScript ile Entegrasyon",
+      "description": "JavaScript projelerinize Echoes API'yi entegre etme."
+    },
+    "reactIntegration": {
+      "title": "React Uygulamanıza Entegrasyon",
+      "description": "React uygulamanıza alıntı bileşenlerini ekleme."
+    },
+    "multiLang": {
+      "title": "Çoklu Dil Desteği",
+      "description": "Farklı dillerde alıntıları uygulamanıza entegre etme."
+    },
+    "advancedApi": {
+      "title": "Gelişmiş API Kullanımı",
+      "description": "API ile gelişmiş sorgulama ve optimizasyon teknikleri."
+    },
+    "community": {
+      "title": "Topluluk Katkıları",
+      "description": "Echoes projesine nasıl katkıda bulunabileceğinizi öğrenin."
+    },
+    "noResults": {
+      "title": "Rehber Bulunamadı",
+      "description": "Arama kriterlerinize uygun rehber bulunamadı. Lütfen farklı bir arama terimi deneyin veya filtreleri temizleyin.",
+      "clearFilters": "Filtreleri Temizle"
+    },
+    "otherResources": {
+      "title": "Diğer Kaynaklar",
+      "apiDocs": {
+        "title": "API Dokümantasyonu",
+        "description": "Echoes API'sinin kapsamlı teknik dokümantasyonu"
+      },
+      "github": {
+        "title": "GitHub Deposu",
+        "description": "Kaynak kodunu inceleyin ve projeye katkıda bulunun"
+      }
+    },
+    "codeBlock": {
+      "copy": "Kopyala"
+    }
+  },
   "language": {
     "select": "Dil seçin",
     "comingSoon": "Yakında",

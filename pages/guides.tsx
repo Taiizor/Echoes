@@ -25,7 +25,7 @@ interface GuideItem {
   title: string;
   description: string;
   icon: React.ElementType;
-  level: 'Başlangıç' | 'Orta' | 'İleri';
+  level: string;
   tags: string[];
   slug: string;
 }
@@ -55,65 +55,65 @@ const GuidesPage = () => {
   const guides: GuideItem[] = [
     {
       id: '1',
-      title: 'Echoes API\'ye Başlangıç',
-      description: 'Echoes API\'nin temel kullanımını ve kurulumunu öğrenin.',
+      title: t('guides.apiIntro.title'),
+      description: t('guides.apiIntro.description'),
       icon: FiServer,
-      level: 'Başlangıç',
-      tags: ['API', 'Giriş'],
+      level: t('guides.levels.beginner'),
+      tags: [t('guides.tags.api'), t('guides.tags.introduction')],
       slug: 'baslangic-rehberi'
     },
     {
       id: '2',
-      title: 'Alıntıları Filtreleme',
-      description: 'API ile alıntıları yazara ve dile göre filtreleme.',
+      title: t('guides.filtering.title'),
+      description: t('guides.filtering.description'),
       icon: FiFilter,
-      level: 'Başlangıç',
-      tags: ['API', 'Filtreleme'],
+      level: t('guides.levels.beginner'),
+      tags: [t('guides.tags.api'), t('guides.tags.filtering')],
       slug: 'alintilari-filtreleme'
     },
     {
       id: '3',
-      title: 'JavaScript ile Entegrasyon',
-      description: 'JavaScript projelerinize Echoes API\'yi entegre etme.',
+      title: t('guides.jsIntegration.title'),
+      description: t('guides.jsIntegration.description'),
       icon: FiCode,
-      level: 'Orta',
-      tags: ['JavaScript', 'Entegrasyon'],
+      level: t('guides.levels.intermediate'),
+      tags: [t('guides.tags.javascript'), t('guides.tags.integration')],
       slug: 'javascript-entegrasyonu'
     },
     {
       id: '4',
-      title: 'React Uygulamanıza Entegrasyon',
-      description: 'React uygulamanıza alıntı bileşenlerini ekleme.',
+      title: t('guides.reactIntegration.title'),
+      description: t('guides.reactIntegration.description'),
       icon: FiCodesandbox,
-      level: 'Orta',
-      tags: ['React', 'Entegrasyon'],
+      level: t('guides.levels.intermediate'),
+      tags: [t('guides.tags.react'), t('guides.tags.integration')],
       slug: 'react-entegrasyonu'
     },
     {
       id: '5',
-      title: 'Çoklu Dil Desteği',
-      description: 'Farklı dillerde alıntıları uygulamanıza entegre etme.',
+      title: t('guides.multiLang.title'),
+      description: t('guides.multiLang.description'),
       icon: FiGlobe,
-      level: 'Orta',
-      tags: ['Çoklu Dil', 'Entegrasyon'],
+      level: t('guides.levels.intermediate'),
+      tags: [t('guides.tags.multiLanguage'), t('guides.tags.integration')],
       slug: 'coklu-dil-destegi'
     },
     {
       id: '6',
-      title: 'Gelişmiş API Kullanımı',
-      description: 'API ile gelişmiş sorgulama ve optimizasyon teknikleri.',
+      title: t('guides.advancedApi.title'),
+      description: t('guides.advancedApi.description'),
       icon: FiCpu,
-      level: 'İleri',
-      tags: ['API', 'Gelişmiş'],
+      level: t('guides.levels.advanced'),
+      tags: [t('guides.tags.api'), t('guides.tags.advanced')],
       slug: 'gelismis-api-kullanimi'
     },
     {
       id: '7',
-      title: 'Topluluk Katkıları',
-      description: 'Echoes projesine nasıl katkıda bulunabileceğinizi öğrenin.',
+      title: t('guides.community.title'),
+      description: t('guides.community.description'),
       icon: FiUsers,
-      level: 'İleri',
-      tags: ['Topluluk', 'Katkı'],
+      level: t('guides.levels.advanced'),
+      tags: [t('guides.tags.community'), t('guides.tags.contribution')],
       slug: 'topluluk-katkilari'
     }
   ];
@@ -132,22 +132,22 @@ const GuidesPage = () => {
 
   // Seviye etiketi renk sınıfları
   const levelColorClasses = {
-    'Başlangıç': 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-400',
-    'Orta': 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-400',
-    'İleri': 'bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-400'
+    [t('guides.levels.beginner')]: 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-400',
+    [t('guides.levels.intermediate')]: 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-400',
+    [t('guides.levels.advanced')]: 'bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-400'
   };
 
   // Etiketlerin görüntü metni
   const getFilterLabel = (value: string) => {
-    if (value === 'all') return 'Tüm Etiketler';
+    if (value === 'all') return t('guides.allTags');
     return value;
   };
 
   return (
     <>
       <Head>
-        <title>Rehberler | {t('app.title')}</title>
-        <meta name="description" content="Echoes API ve entegrasyonu hakkında rehberler" />
+        <title>{t('guides.pageTitle')} | {t('app.title')}</title>
+        <meta name="description" content={t('guides.pageDescription')} />
       </Head>
 
       {/* Hero Bölümü */}
@@ -166,10 +166,10 @@ const GuidesPage = () => {
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              Rehberler
+              {t('guides.title')}
             </h1>
             <p className="text-xl md:text-2xl opacity-80">
-              Echoes API'sini kullanmaya başlamak ve uygulamanıza entegre etmek için adım adım rehberler
+              {t('guides.subtitle')}
             </p>
           </div>
         </div>
@@ -193,7 +193,7 @@ const GuidesPage = () => {
                     </div>
                     <input
                       type="text"
-                      placeholder="Rehberlerde ara..."
+                      placeholder={t('guides.searchPlaceholder')}
                       className="block w-full pl-10 pr-3 py-3 border border-gray-200 dark:border-gray-700 rounded-xl 
                       bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 
                       text-gray-900 dark:text-gray-100 transition duration-150"
@@ -228,7 +228,7 @@ const GuidesPage = () => {
                           }}
                           className={`w-full text-left px-4 py-2.5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 ${activeFilter === 'all' ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400' : 'text-gray-700 dark:text-gray-200'}`}
                         >
-                          <span>Tüm Etiketler</span>
+                          <span>{t('guides.allTags')}</span>
                           {activeFilter === 'all' && <FiCheck className="w-4 h-4 text-primary-600 dark:text-primary-400" />}
                         </button>
                         
@@ -297,7 +297,7 @@ const GuidesPage = () => {
                     
                     <div className="px-6 py-4 bg-gray-50 dark:bg-gray-800/80 flex items-center justify-between border-t border-gray-100 dark:border-gray-700 group-hover:border-primary-100 dark:group-hover:border-primary-900 transition-colors">
                       <span className="text-sm font-medium text-primary-600 dark:text-primary-400">
-                        Rehberi Görüntüle
+                        {t('guides.viewGuide')}
                       </span>
                       <FiArrowRight className="h-4 w-4 text-primary-600 dark:text-primary-400 transform group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
@@ -308,9 +308,9 @@ const GuidesPage = () => {
                   <div className="mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-full">
                     <FiSearch className="w-8 h-8 text-gray-400" />
                   </div>
-                  <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">Rehber Bulunamadı</h3>
+                  <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">{t('guides.noResults.title')}</h3>
                   <p className="text-gray-500 dark:text-gray-400 max-w-md">
-                    Arama kriterlerinize uygun rehber bulunamadı. Lütfen farklı bir arama terimi deneyin veya filtreleri temizleyin.
+                    {t('guides.noResults.description')}
                   </p>
                   <button
                     onClick={() => {
@@ -319,7 +319,7 @@ const GuidesPage = () => {
                     }}
                     className="mt-4 inline-flex items-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
                   >
-                    Filtreleri Temizle
+                    {t('guides.noResults.clearFilters')}
                   </button>
                 </div>
               )}
@@ -328,7 +328,7 @@ const GuidesPage = () => {
             {/* Diğer Kaynaklar */}
             <div className="mt-16 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100 dark:border-gray-700">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Diğer Kaynaklar
+                {t('guides.otherResources.title')}
               </h2>
               
               <div className="grid md:grid-cols-2 gap-6">
@@ -341,10 +341,10 @@ const GuidesPage = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      API Dokümantasyonu
+                      {t('guides.otherResources.apiDocs.title')}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300 mt-1">
-                      Echoes API'sinin kapsamlı teknik dokümantasyonu
+                      {t('guides.otherResources.apiDocs.description')}
                     </p>
                   </div>
                 </Link>
@@ -360,10 +360,10 @@ const GuidesPage = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                      GitHub Deposu
+                      {t('guides.otherResources.github.title')}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300 mt-1">
-                      Kaynak kodunu inceleyin ve projeye katkıda bulunun
+                      {t('guides.otherResources.github.description')}
                     </p>
                   </div>
                 </a>

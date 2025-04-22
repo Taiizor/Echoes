@@ -194,6 +194,81 @@
     "contactUsText": "Wenn Sie Fragen oder Bedenken zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte unter:",
     "contactEmail": "taiizor@vegalya.com"
   },
+  "guides": {
+    "pageTitle": "Anleitungen",
+    "pageDescription": "Anleitungen zur Echoes API und deren Integration",
+    "title": "Anleitungen",
+    "subtitle": "Schritt-für-Schritt Anleitungen für den Einstieg mit der Echoes API und deren Integration in Ihre Anwendung",
+    "searchPlaceholder": "Anleitungen durchsuchen...",
+    "allTags": "Alle Tags",
+    "viewGuide": "Anleitung anzeigen",
+    "backToGuides": "Alle Anleitungen",
+    "relatedGuides": "Verwandte Anleitungen",
+    "levels": {
+      "beginner": "Anfänger",
+      "intermediate": "Fortgeschritten",
+      "advanced": "Experte"
+    },
+    "tags": {
+      "api": "API",
+      "introduction": "Einführung",
+      "filtering": "Filterung",
+      "javascript": "JavaScript",
+      "integration": "Integration",
+      "react": "React",
+      "multiLanguage": "Mehrsprachigkeit",
+      "advanced": "Fortgeschritten",
+      "community": "Community",
+      "contribution": "Beitrag"
+    },
+    "apiIntro": {
+      "title": "Erste Schritte mit der Echoes API",
+      "description": "Lernen Sie die grundlegende Verwendung und Einrichtung der Echoes API."
+    },
+    "filtering": {
+      "title": "Zitate filtern",
+      "description": "Filtern Sie Zitate nach Autor und Sprache mit der API."
+    },
+    "jsIntegration": {
+      "title": "JavaScript Integration",
+      "description": "Integrieren Sie die Echoes API in Ihre JavaScript-Projekte."
+    },
+    "reactIntegration": {
+      "title": "React Integration",
+      "description": "Fügen Sie Zitat-Komponenten zu Ihrer React-Anwendung hinzu."
+    },
+    "multiLang": {
+      "title": "Mehrsprachige Unterstützung",
+      "description": "Integrieren Sie Zitate in verschiedenen Sprachen in Ihre Anwendung."
+    },
+    "advancedApi": {
+      "title": "Fortgeschrittene API-Nutzung",
+      "description": "Fortgeschrittene Abfrage- und Optimierungstechniken mit der API."
+    },
+    "community": {
+      "title": "Community-Beiträge",
+      "description": "Erfahren Sie, wie Sie zum Echoes-Projekt beitragen können."
+    },
+    "noResults": {
+      "title": "Keine Anleitungen gefunden",
+      "description": "Keine Anleitungen entsprechen Ihren Suchkriterien. Bitte versuchen Sie einen anderen Suchbegriff oder löschen Sie die Filter.",
+      "clearFilters": "Filter löschen"
+    },
+    "otherResources": {
+      "title": "Weitere Ressourcen",
+      "apiDocs": {
+        "title": "API-Dokumentation",
+        "description": "Umfassende technische Dokumentation der Echoes API"
+      },
+      "github": {
+        "title": "GitHub-Repository",
+        "description": "Erkunden Sie den Quellcode und tragen Sie zum Projekt bei"
+      }
+    },
+    "codeBlock": {
+      "copy": "Kopieren"
+    }
+  },
   "language": {
     "select": "Sprache auswählen",
     "comingSoon": "Demnächst verfügbar",

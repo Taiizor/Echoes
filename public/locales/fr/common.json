@@ -194,6 +194,81 @@
     "contactUsText": "Si vous avez des questions ou des préoccupations concernant ces conditions d'utilisation, veuillez nous contacter à :",
     "contactEmail": "taiizor@vegalya.com"
   },
+  "guides": {
+    "pageTitle": "Guides",
+    "pageDescription": "Guides sur l'API Echoes et son intégration",
+    "title": "Guides",
+    "subtitle": "Guides étape par étape pour démarrer avec l'API Echoes et l'intégrer dans votre application",
+    "searchPlaceholder": "Rechercher des guides...",
+    "allTags": "Tous les tags",
+    "viewGuide": "Voir le guide",
+    "backToGuides": "Tous les guides",
+    "relatedGuides": "Guides connexes",
+    "levels": {
+      "beginner": "Débutant",
+      "intermediate": "Intermédiaire",
+      "advanced": "Avancé"
+    },
+    "tags": {
+      "api": "API",
+      "introduction": "Introduction",
+      "filtering": "Filtrage",
+      "javascript": "JavaScript",
+      "integration": "Intégration",
+      "react": "React",
+      "multiLanguage": "Multilingue",
+      "advanced": "Avancé",
+      "community": "Communauté",
+      "contribution": "Contribution"
+    },
+    "apiIntro": {
+      "title": "Premiers pas avec l'API Echoes",
+      "description": "Apprenez l'utilisation de base et la configuration de l'API Echoes."
+    },
+    "filtering": {
+      "title": "Filtrage des citations",
+      "description": "Filtrez les citations par auteur et langue en utilisant l'API."
+    },
+    "jsIntegration": {
+      "title": "Intégration JavaScript",
+      "description": "Intégrez l'API Echoes dans vos projets JavaScript."
+    },
+    "reactIntegration": {
+      "title": "Intégration React",
+      "description": "Ajoutez des composants de citation à votre application React."
+    },
+    "multiLang": {
+      "title": "Support multilingue",
+      "description": "Intégrez des citations en différentes langues dans votre application."
+    },
+    "advancedApi": {
+      "title": "Utilisation avancée de l'API",
+      "description": "Techniques avancées de requête et d'optimisation avec l'API."
+    },
+    "community": {
+      "title": "Contributions de la communauté",
+      "description": "Apprenez comment vous pouvez contribuer au projet Echoes."
+    },
+    "noResults": {
+      "title": "Aucun guide trouvé",
+      "description": "Aucun guide ne correspond à vos critères de recherche. Veuillez essayer un terme de recherche différent ou effacer les filtres.",
+      "clearFilters": "Effacer les filtres"
+    },
+    "otherResources": {
+      "title": "Autres ressources",
+      "apiDocs": {
+        "title": "Documentation de l'API",
+        "description": "Documentation technique complète de l'API Echoes"
+      },
+      "github": {
+        "title": "Dépôt GitHub",
+        "description": "Explorez le code source et contribuez au projet"
+      }
+    },
+    "codeBlock": {
+      "copy": "Copier"
+    }
+  },
   "language": {
     "select": "Sélectionner la langue",
     "comingSoon": "Bientôt disponible",
