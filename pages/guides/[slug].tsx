@@ -1551,7 +1551,7 @@ Feel free to expand on these examples by adding features like:
 
 Remember to handle error cases gracefully and provide proper loading states to ensure a good user experience.
       `,
-      relatedGuides: ['getting-started', 'javascript-integration', 'react-integration']
+      relatedGuides: ['getting-started', 'javascript-integration', 'advanced-api-usage']
     }
   },
   'multi-language-support': {
