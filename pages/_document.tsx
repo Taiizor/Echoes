@@ -7,13 +7,10 @@ export default function Document() {
         <meta charSet="UTF-8" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
-        <title>Echoes - Quotes From Around The World</title>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         
         <meta name="author" content="Taiizor" />
-        <meta name="description" content="Echoes is a modern platform that allows you to easily discover inspiring quotes from around the world. It is designed for anyone seeking wisdom and insight." />
-        <meta name="keywords" content="alıntılar, özlü sözler, ilham verici sözler, bilgelik, düşünce, motivasyon, kişisel gelişim, ünlü sözler, dünya alıntıları, echoes, quotes, inspirational quotes, wisdom, thought, motivation, personal development, famous quotes, world quotes" />
 
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
@@ -22,20 +19,17 @@ export default function Document() {
         <meta property="og:image:height" content="512" />
         <meta property="og:site_name" content="Echoes by Taiizor" />
         <meta property="og:url" content="https://echoes.soferity.com/" />
-        <meta property="og:title" content="Echoes - Quotes From Around The World" />
-        <meta property="og:image:alt" content="Echoes - Quotes From Around The World" />
-        <meta property="og:description" content="Echoes is a modern platform that allows you to easily discover inspiring quotes from around the world. It is designed for anyone seeking wisdom and insight." />
+        <meta property="og:title" content="Quotes From Around The World - Echoes" />
+        <meta property="og:image:alt" content="Quotes From Around The World - Echoes" />
         
         <meta name="twitter:site" content="@Taiizor" />
         <meta name="twitter:image" content="/Logo.png" />
         <meta name="twitter:creator" content="@Taiizor" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://echoes.soferity.com/" />
-        <meta name="twitter:title" content="Echoes - Quotes From Around The World" />
-        <meta name="twitter:image:alt" content="Echoes - Quotes From Around The World" />
-        <meta name="twitter:description" content="Echoes is a modern platform that allows you to easily discover inspiring quotes from around the world. It is designed for anyone seeking wisdom and insight." />
+        <meta name="twitter:title" content="Quotes From Around The World - Echoes" />
+        <meta name="twitter:image:alt" content="Quotes From Around The World - Echoes" />
         
-        <meta name="language" content="English" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://echoes.soferity.com/" />
         
