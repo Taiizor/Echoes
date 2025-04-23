@@ -149,7 +149,11 @@ const GuidesPage = () => {
     <>
       <Head>
         <title>{t('guides.pageTitle')} | {t('app.title')}</title>
+        <meta name="keywords" content={t('guides.keywords')} />
+        <meta name="language" content={t(`language.${locale}`)} />
         <meta name="description" content={t('guides.pageDescription')} />
+        <meta name="og:description" content={t('guides.pageDescription')} />
+        <meta name="twitter:description" content={t('guides.pageDescription')} />
       </Head>
 
       {/* Hero Section */}

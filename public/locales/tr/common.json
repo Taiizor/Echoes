@@ -201,6 +201,7 @@
   "guides": {
     "pageTitle": "Rehberler",
     "pageDescription": "Echoes API ve entegrasyonu hakkında rehberler",
+    "keywords": "rehberler, öğreticiler, API entegrasyonu, echoes rehberleri, geliştirici kaynakları, API dokümantasyonu, kod örnekleri, uygulama rehberleri, entegrasyon öğreticileri, başlangıç rehberleri, ileri düzey rehberler, çoklu dil desteği, alıntı API'si, alıntı filtreleme, JavaScript entegrasyonu, React entegrasyonu, geliştirici rehberleri, teknik rehberler, API kullanımı, uygulama yardımı",
     "title": "Rehberler",
     "subtitle": "Echoes API'sini kullanmaya başlamak ve uygulamanıza entegre etmek için adım adım rehberler",
     "searchPlaceholder": "Rehberlerde ara...",

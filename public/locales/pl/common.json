@@ -201,6 +201,7 @@
   "guides": {
     "pageTitle": "Przewodniki",
     "pageDescription": "Przewodniki dotyczące API Echoes i integracji",
+    "keywords": "przewodniki, tutoriale, integracja API, przewodniki echoes, zasoby dla programistów, dokumentacja API, przykłady kodu, przewodniki implementacji, tutoriale integracji, przewodniki dla początkujących, przewodniki zaawansowane, obsługa wielu języków, API cytatów, filtrowanie cytatów, integracja JavaScript, integracja React, przewodniki dla programistów, przewodniki techniczne, użycie API, pomoc w implementacji",
     "title": "Przewodniki",
     "subtitle": "Przewodniki krok po kroku, jak rozpocząć pracę z API Echoes i zintegrować je z aplikacją",
     "searchPlaceholder": "Szukaj w przewodnikach...",

@@ -201,6 +201,7 @@
   "guides": {
     "pageTitle": "Guías",
     "pageDescription": "Guías sobre la API Echoes y su integración",
+    "keywords": "guías, tutoriales, integración de API, guías de echoes, recursos para desarrolladores, documentación de API, ejemplos de código, guías de implementación, tutoriales de integración, guías para principiantes, guías avanzadas, soporte multilingüe, API de citas, filtrado de citas, integración con JavaScript, integración con React, guías para desarrolladores, guías técnicas, uso de API, ayuda de implementación",
     "title": "Guías",
     "subtitle": "Guías paso a paso para comenzar con la API Echoes e integrarla en tu aplicación",
     "searchPlaceholder": "Buscar guías...",

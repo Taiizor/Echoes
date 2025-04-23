@@ -201,6 +201,7 @@
   "guides": {
     "pageTitle": "Guides",
     "pageDescription": "Guides about Echoes API and integration",
+    "keywords": "guides, tutorials, API integration, echoes guides, developer resources, API documentation, code examples, implementation guides, integration tutorials, beginner guides, advanced guides, multi-language support, quote API, filtering quotes, JavaScript integration, React integration, developer guides, technical guides, API usage, implementation help",
     "title": "Guides",
     "subtitle": "Step by step guides to get started with Echoes API and integrate it into your application",
     "searchPlaceholder": "Search guides...",
