@@ -1889,52 +1889,119 @@ async function testLanguageSupport() {
   'advanced-api-usage': {
     'en': {
       title: 'Advanced API Usage',
-      description: 'Advanced query techniques and optimizations with the API.',
+      description: 'Advanced techniques and optimizations with the Echoes API.',
       icon: FiCpu,
       level: 'Advanced',
       tags: ['API', 'Advanced'],
       content: `
 # Advanced API Usage
 
-This guide covers advanced techniques for using the Echoes API, including caching, rate limiting, and complex queries.
+This guide covers advanced techniques for using the Echoes API, including caching, rate limiting, and optimization strategies.
+
+## API Endpoints Overview
+
+The Echoes API provides three main endpoints:
+
+1. **GET /api/quotes** - Retrieve all quotes with pagination support
+2. **GET /api/quotes/:id** - Retrieve a specific quote by its ID
+3. **GET /api/quotes/random** - Retrieve a random quote, with optional filtering
 
 ## Advanced Query Techniques
 
-You can create more complex queries with the Echoes API:
+You can create more complex queries with the Echoes API by combining the available parameters:
 
 \`\`\`JavaScript
-// Filter quotes with multiple parameters
-fetch('https://echoes.soferity.com/api/quotes?language=tr&author=Atatürk&tags=leadership,philosophy&minLength=50&sort=length&order=desc')
+// Get a random quote in Turkish by a specific author
+fetch('https://echoes.soferity.com/api/quotes/random?lang=tr&author=Atatürk')
   .then(response => response.json())
   .then(data => console.log(data));
 \`\`\`
 
-### Composite Queries
+### Using URL Construction
 
-You can combine multiple criteria to get more precise results:
+For more dynamic queries, it's better to construct URLs programmatically:
 
 \`\`\`JavaScript
-// Get quotes from a specific author, with specific tags, of a specific length
-const url = new URL('https://echoes.soferity.com/api/quotes');
+// Dynamically build query parameters
+const url = new URL('https://echoes.soferity.com/api/quotes/random');
+url.searchParams.append('lang', 'en');
 url.searchParams.append('author', 'Einstein');
-url.searchParams.append('tags', 'science,philosophy');
-url.searchParams.append('minLength', '100');
-url.searchParams.append('maxLength', '500');
-url.searchParams.append('sort', 'popularity');
 
 fetch(url)
   .then(response => response.json())
   .then(data => console.log(data));
 \`\`\`
 
+## Pagination Strategies
+
+When working with the full quotes collection, you should implement effective pagination:
+
+\`\`\`JavaScript
+// Fetch quotes with pagination
+async function fetchQuotesPaginated(page = 1, perPage = 10) {
+  try {
+    const response = await fetch(
+      \`https://echoes.soferity.com/api/quotes?page=\${page}&perPage=\${perPage}\`
+    );
+    
+    if (!response.ok) {
+      throw new Error(\`HTTP error: \${response.status}\`);
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching quotes:', error);
+    throw error;
+  }
+}
+
+// Example usage with pagination controls
+let currentPage = 1;
+const itemsPerPage = 20;
+
+async function loadCurrentPage() {
+  try {
+    const data = await fetchQuotesPaginated(currentPage, itemsPerPage);
+    displayQuotes(data.data);
+    updatePaginationControls(data.pagination);
+  } catch (error) {
+    showErrorMessage('Failed to load quotes. Please try again.');
+  }
+}
+
+function updatePaginationControls(pagination) {
+  // Update UI pagination controls
+  document.getElementById('current-page').textContent = pagination.page;
+  document.getElementById('total-pages').textContent = pagination.totalPages;
+  
+  // Enable/disable previous/next buttons
+  document.getElementById('prev-button').disabled = pagination.page <= 1;
+  document.getElementById('next-button').disabled = pagination.page >= pagination.totalPages;
+}
+
+// Handle pagination button clicks
+document.getElementById('prev-button').addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    loadCurrentPage();
+  }
+});
+
+document.getElementById('next-button').addEventListener('click', () => {
+  currentPage++;
+  loadCurrentPage();
+});
+\`\`\`
+
 ## Caching Strategies
 
 By caching API requests, you can improve application performance and reduce server load:
 
-### Caching with Local Storage
+### Local Storage Caching
 
 \`\`\`JavaScript
-async function getQuoteWithCache(params) {
+async function getQuoteWithCache(params = {}) {
+  // Create a unique cache key based on request parameters
   const cacheKey = \`echoes_quotes_\${JSON.stringify(params)}\`;
   const cachedData = localStorage.getItem(cacheKey);
   
@@ -1953,8 +2020,10 @@ async function getQuoteWithCache(params) {
   console.log('Fetching quote from API');
   
   try {
-    // Build URL parameters
-    const url = new URL('https://echoes.soferity.com/api/quotes');
+    // Build the URL with parameters
+    const url = new URL('https://echoes.soferity.com/api/quotes/random');
+    
+    // Add parameters to URL
     Object.keys(params).forEach(key => 
       url.searchParams.append(key, params[key])
     );
@@ -1967,7 +2036,7 @@ async function getQuoteWithCache(params) {
     
     const data = await response.json();
     
-    // Cache the data (with timestamp)
+    // Cache the data with timestamp
     localStorage.setItem(cacheKey, JSON.stringify({
       data,
       timestamp: Date.now()
@@ -1979,9 +2048,20 @@ async function getQuoteWithCache(params) {
     throw error;
   }
 }
+
+// Usage examples
+getQuoteWithCache({ lang: 'en' })
+  .then(quote => console.log('English quote:', quote))
+  .catch(error => console.error('Error:', error));
+
+getQuoteWithCache({ author: 'Einstein' })
+  .then(quote => console.log('Einstein quote:', quote))
+  .catch(error => console.error('Error:', error));
 \`\`\`
 
-### Caching with Service Worker
+### Service Worker Caching
+
+For more advanced caching that works offline, you can implement a Service Worker:
 
 \`\`\`JavaScript
 // In service-worker.js
@@ -2031,9 +2111,9 @@ self.addEventListener('fetch', (event) => {
 });
 \`\`\`
 
-## Rate Limiting and Scaling
+## Rate Limiting and Queue Management
 
-Since the Echoes API may have rate limits, you should manage them for a good user experience:
+To ensure your application remains responsive even when making multiple API calls:
 
 \`\`\`JavaScript
 class EchoesClient {
@@ -2109,18 +2189,6 @@ class EchoesClient {
       if (response.ok) {
         const data = await response.json();
         resolve(data);
-      }
-      
-      // Handle different error scenarios
-      if (response.status === 429) {
-        // Rate limit error - wait and retry
-        this.requestQueue.unshift({ endpoint, params, resolve, reject });
-        const retryAfter = response.headers.get('Retry-After');
-        const waitTime = retryAfter ? parseInt(retryAfter) * 1000 : this.calculateBackoff();
-        
-        console.log(\`Rate limit exceeded. Waiting \${waitTime} seconds...\`);
-        await new Promise(r => setTimeout(r, waitTime));
-        this.processQueue();
       } else {
         throw new Error(\`HTTP error: \${response.status}\`);
       }
@@ -2129,29 +2197,16 @@ class EchoesClient {
     }
     
     // Process more requests if there are any in the queue
-    setImmediate(() => this.processQueue());
+    setTimeout(() => this.processQueue(), 0);
   }
   
-  // Calculate delay for retry (exponential backoff)
-  calculateBackoff() {
-    const delay = Math.min(
-      1000, // Maximum delay
-      Math.max(
-        1000, // Minimum delay
-        Math.floor(Math.random() * 1000) // Random jitter
-      )
-    );
-    
-    return delay;
-  }
-  
-  // Helper methods for usage
-  async getRandomQuote(params) {
+  // Helper methods for specific endpoints
+  async getRandomQuote(params = {}) {
     return this.request('/quotes/random', params);
   }
   
-  async getQuotes(params) {
-    return this.request('/quotes', params);
+  async getAllQuotes(page = 1, perPage = 10) {
+    return this.request('/quotes', { page, perPage });
   }
   
   async getQuoteById(id) {
@@ -2163,13 +2218,13 @@ class EchoesClient {
 const echoesClient = new EchoesClient();
 
 // Get a random quote
-echoesClient.getRandomQuote({ language: 'tr' })
+echoesClient.getRandomQuote({ lang: 'tr' })
   .then(quote => console.log('Random quote:', quote))
   .catch(err => console.error('Error:', err));
 
-// Get quotes from a specific author
-echoesClient.getQuotesByAuthor('Einstein')
-  .then(quotes => console.log('Einstein quotes:', quotes))
+// Get quotes with pagination
+echoesClient.getAllQuotes(2, 15)
+  .then(data => console.log('Page 2 quotes:', data))
   .catch(err => console.error('Error:', err));
 \`\`\`
 
@@ -2196,20 +2251,13 @@ async function fetchWithAdvancedErrorHandling(url, options = {}, maxRetries = 3)
         case 400: // Bad Request
           throw new Error('Invalid request parameters. Please check your request.');
           
-        case 401: // Unauthorized
-          throw new Error('Authentication required.');
-          
-        case 403: // Forbidden
-          throw new Error('You do not have access to this resource.');
-          
         case 404: // Not Found
-          throw new Error('The requested resource was not found.');
+          throw new Error('The requested quote or resource was not found.');
           
-        case 429: // Too Many Requests
-          const retryAfter = response.headers.get('Retry-After');
-          const waitTime = retryAfter ? parseInt(retryAfter) : this.calculateBackoff();
-          console.log(\`Rate limit exceeded. Waiting \${waitTime} seconds...\`);
-          await new Promise(r => setTimeout(r, waitTime * 1000));
+        case 429: // Too Many Requests (if API implements rate limiting)
+          const retryAfter = response.headers.get('Retry-After') || 2 ** retryCount;
+          console.log(\`Rate limit exceeded. Waiting \${retryAfter} seconds...\`);
+          await new Promise(r => setTimeout(r, retryAfter * 1000));
           retryCount++;
           continue;
           
@@ -2248,7 +2296,7 @@ async function fetchWithAdvancedErrorHandling(url, options = {}, maxRetries = 3)
 }
 
 // Usage example
-fetchWithAdvancedErrorHandling('https://echoes.soferity.com/api/quotes/random?language=tr')
+fetchWithAdvancedErrorHandling('https://echoes.soferity.com/api/quotes/random?lang=tr')
   .then(data => console.log('Quote:', data))
   .catch(error => {
     console.error('Error:', error.message);
@@ -2259,11 +2307,11 @@ fetchWithAdvancedErrorHandling('https://echoes.soferity.com/api/quotes/random?la
 function showUserFriendlyError(error) {
   // Different feedback for the user based on the error message
   if (error.message.includes('Invalid request')) {
-    alert('There is an issue with your request information. Please check your parameters.');
+    alert('There is an issue with your request parameters. Please check your request.');
   } else if (error.message.includes('rate limit')) {
     alert('You have sent too many requests. Please wait and try again.');
   } else if (error.message.includes('not found')) {
-    alert('The content you are looking for was not found. Please try a different search.');
+    alert('The quote you are looking for was not found. Please try a different request.');
   } else if (error.message.includes('Server error')) {
     alert('The server is not responding. Please try again later.');
   } else {
@@ -2274,350 +2322,248 @@ function showUserFriendlyError(error) {
 
 ## Performance Optimizations
 
-Advanced techniques to optimize your API usage:
+### Batch Processing Multiple Quotes
 
-### Batch Request Processing
+If you need to display multiple quotes at once, you can make parallel requests:
 
 \`\`\`JavaScript
-// Fetch multiple resources at once
-async function batchFetch(urls) {
+// Fetch multiple random quotes in parallel
+async function fetchMultipleRandomQuotes(count, params = {}) {
   try {
-    // Start all requests in parallel
-    const responses = await Promise.all(
-      urls.map(url => fetch(url))
-    );
+    // Create an array of promises for each request
+    const promises = Array(count).fill().map(() => {
+      // Build the URL with parameters
+      const url = new URL('https://echoes.soferity.com/api/quotes/random');
+      
+      // Add parameters to URL
+      Object.keys(params).forEach(key => 
+        url.searchParams.append(key, params[key])
+      );
+      
+      // Return the fetch promise
+      return fetch(url.toString())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(\`HTTP error: \${response.status}\`);
+          }
+          return response.json();
+        });
+    });
     
-    // Process all responses as JSON
-    const jsonData = await Promise.all(
-      responses.map(async (response) => {
-        if (!response.ok) {
-          throw new Error(\`HTTP error: \${response.status}\`);
-        }
-        return response.json();
-      })
-    );
-    
-    return jsonData;
+    // Wait for all promises to resolve
+    return await Promise.all(promises);
   } catch (error) {
-    console.error('Error in batch request:', error);
+    console.error('Error fetching multiple quotes:', error);
     throw error;
   }
 }
 
-// Usage example:
-// Get quotes from different authors at once
-const authors = ['Atatürk', 'Einstein', 'Tesla'];
-const urls = authors.map(author => 
-  \`https://echoes.soferity.com/api/quotes/random?author=\${encodeURIComponent(author)}\`
-);
-
-batchFetch(urls)
-  .then(results => {
-    console.log('Batch quote results:');
-    results.forEach((data, index) => {
-      console.log(\`\${authors[index]} quote:\`, data.quote);
+// Usage example: get 3 quotes by Einstein
+fetchMultipleRandomQuotes(3, { author: 'Einstein' })
+  .then(quotes => {
+    console.log('Multiple Einstein quotes:');
+    quotes.forEach((quote, index) => {
+      console.log(\`Quote \${index + 1}:\`, quote);
     });
   })
   .catch(error => console.error('Error:', error));
 \`\`\`
 
-### Data Pre-processing and Processing
+### Language-Based Data Processing
+
+When working with quotes in different languages, you might want to organize them:
 
 \`\`\`JavaScript
-// Transform quote data into a more useful format
-function processQuoteData(quotes) {
-  return quotes.map(quote => ({
-    id: quote.id,
-    text: quote.quote,
-    author: quote.author,
-    language: quote.lang,
-    tags: quote.tags || [],
-    // Calculate quote length
-    length: quote.quote.length,
-    // Create search-friendly versions for author and quote
-    searchableText: \`\${quote.author} \${quote.quote}\`.toLowerCase(),
-    // Convert language code to full language name
-    languageName: getLanguageName(quote.lang),
-    // Convert to Date object
-    createdAt: new Date(quote.createdAt || Date.now())
-  }));
+// Process quotes by language
+function organizeQuotesByLanguage(quotes) {
+  const quotesByLanguage = {};
+  
+  quotes.forEach(quote => {
+    const lang = quote.lang || 'unknown';
+    
+    // Initialize the language array if it doesn't exist
+    if (!quotesByLanguage[lang]) {
+      quotesByLanguage[lang] = [];
+    }
+    
+    // Add the quote to its language category
+    quotesByLanguage[lang].push({
+      id: quote.id,
+      text: quote.quote,
+      author: quote.author,
+      // Add a formatted display version
+      displayText: \`"\${quote.quote}" — \${quote.author}\`
+    });
+  });
+  
+  return quotesByLanguage;
 }
 
-// Convert language code to full language name
+// Usage example
+fetchMultipleRandomQuotes(10)
+  .then(quotes => {
+    const organizedQuotes = organizeQuotesByLanguage(quotes);
+    console.log('Quotes by language:', organizedQuotes);
+    
+    // Now you can easily display quotes by language
+    Object.keys(organizedQuotes).forEach(lang => {
+      console.log(\`\${getLanguageName(lang)} quotes: \${organizedQuotes[lang].length}\`);
+    });
+  })
+  .catch(error => console.error('Error:', error));
+
+// Helper function to get language name
 function getLanguageName(langCode) {
   const languages = {
     'en': 'English',
     'tr': 'Turkish',
     'es': 'Spanish',
     'fr': 'French',
-    'de': 'German',
-    'it': 'Italian',
-    'pt': 'Portuguese',
-    'ru': 'Russian',
-    'zh': 'Chinese',
-    'ja': 'Japanese',
-    'ar': 'Arabic'
+    'de': 'German'
+    // Add other languages as needed
   };
   
   return languages[langCode] || langCode;
 }
 \`\`\`
 
-## Server-Side API Usage
+## Building a Complete Quote Application
 
-Recommendations for API usage in Node.js environments:
-
-\`\`\`JavaScript
-// API requests in Node.js (using node-fetch)
-const fetch = require('node-fetch');
-
-// Node.js-Redis integration example for server-side caching
-const Redis = require('ioredis');
-const redis = new Redis(); // Connect to local Redis server
-
-async function fetchWithRedisCache(url, options = {}, cacheTime = 3600) {
-  const cacheKey = \`echoes_api:\${url}\`;
-  
-  try {
-    // First check for data in Redis
-    const cachedData = await redis.get(cacheKey);
-    
-    if (cachedData) {
-      console.log('Data retrieved from Redis cache');
-      return JSON.parse(cachedData);
-    }
-    
-    // If not in cache, fetch from API
-    console.log('Fetching data from API');
-    const response = await fetch(url, options);
-    
-    if (!response.ok) {
-      throw new Error(\`HTTP error: \${response.status}\`);
-    }
-    
-    const data = await response.json();
-    
-    // Save to Redis for the specified time (seconds)
-    await redis.set(cacheKey, JSON.stringify(data), 'EX', cacheTime);
-    
-    return data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    throw error;
-  }
-}
-
-// Usage example with Express API
-const express = require('express');
-const app = express();
-
-app.get('/api/quotes', async (req, res) => {
-  try {
-    const { language, author } = req.query;
-    
-    let url = 'https://echoes.soferity.com/api/quotes/random';
-    const params = new URLSearchParams();
-    
-    if (language) params.append('language', language);
-    if (author) params.append('author', author);
-    
-    if (params.toString()) {
-      url += \`?\${params.toString()}\`;
-    }
-    
-    // Fetch data with Redis cache
-    const data = await fetchWithRedisCache(url);
-    
-    // Return API response
-    res.json(data);
-  } catch (error) {
-    console.error('API error:', error);
-    res.status(500).json({ error: 'A server error occurred' });
-  }
-});
-
-app.listen(3000, () => {
-  console.log('Server running at: http://localhost:3000');
-});
-\`\`\`
-
-## Comprehensive Example: Advanced Quote API Client
+Here's a comprehensive example combining many of the techniques we've covered to create a complete quote application:
 
 \`\`\`JavaScript
-class EchoesApiClient {
+class QuoteManager {
   constructor(options = {}) {
     this.baseUrl = options.baseUrl || 'https://echoes.soferity.com/api';
-    this.language = options.language || 'en';
+    this.defaultLang = options.defaultLang || 'en';
     this.cacheEnabled = options.cacheEnabled !== false;
     this.cacheTime = options.cacheTime || 3600; // seconds
-    this.rateLimitPerMinute = options.rateLimitPerMinute || 60;
-    this.retryOptions = {
-      maxRetries: options.maxRetries || 3,
-      initialDelay: options.initialDelay || 1000,
-      maxDelay: options.maxDelay || 30000
-    };
     
-    // Track request times
-    this.requestTimes = [];
-    
-    // Initialize cache system
+    // Initialize cache
     this.cache = new Map();
     
-    // Periodically clean up cache
+    // Set up cache cleanup interval
     if (this.cacheEnabled) {
       this.cacheCleanupInterval = setInterval(() => {
         this.cleanCache();
-      }, 60000); // Every minute
+      }, 60000); // Clean every minute
     }
+    
+    // Keep track of favorite quotes
+    this.favorites = this.loadFavorites();
   }
   
-  // Make API request
-  async request(endpoint, params = {}, options = {}) {
-    // Check rate limit
-    await this.checkRateLimit();
-    
+  // Core API request method with caching
+  async fetchQuote(endpoint, params = {}) {
     // Create cache key
-    const cacheKey = this.getCacheKey(endpoint, params);
+    const cacheKey = \`\${endpoint}:\${JSON.stringify(params)}\`;
     
-    // Check cache (if enabled and not skipped for this request)
-    if (this.cacheEnabled && !options.skipCache) {
+    // Check cache first
+    if (this.cacheEnabled) {
       const cachedData = this.getFromCache(cacheKey);
       if (cachedData) {
         return cachedData;
       }
     }
     
-    // Build URL parameters
-    const url = new URL(\`\${this.baseUrl}\${endpoint}\`);
-    
-    // Add default language (if not specifically provided)
-    if (this.language && !params.language && !params.lang) {
-      params.language = this.language;
-    }
-    
-    // Add all parameters to URL
-    Object.keys(params).forEach(key => {
-      if (params[key] !== undefined && params[key] !== null) {
-        url.searchParams.append(key, params[key]);
-      }
-    });
-    
-    // Prepare request
-    const fetchOptions = {
-      method: options.method || 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'User-Agent': 'EchoesApiClient/1.0.0'
-      }
-    };
-    
-    // Add request body if present
-    if (options.body) {
-      fetchOptions.body = JSON.stringify(options.body);
-      fetchOptions.headers['Content-Type'] = 'application/json';
-    }
-    
-    // Make request with retry mechanism
-    return this.fetchWithRetry(url.toString(), fetchOptions, cacheKey);
-  }
-  
-  // Retry mechanism
-  async fetchWithRetry(url, options, cacheKey, retryCount = 0) {
     try {
-      // Record request time (for rate limiting)
-      this.requestTimes.push(Date.now());
-      
-      const response = await fetch(url, options);
-      
-      // Check HTTP status codes
-      if (response.ok) {
-        const data = await response.json();
-        
-        // Cache successful data
-        if (this.cacheEnabled) {
-          this.saveToCache(cacheKey, data);
+      // Build URL with parameters
+      const url = new URL(\`\${this.baseUrl}\${endpoint}\`);
+      Object.keys(params).forEach(key => {
+        if (params[key] !== undefined && params[key] !== null) {
+          url.searchParams.append(key, params[key]);
         }
-        
-        return data;
+      });
+      
+      // Make the request
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error(\`API error: \${response.status}\`);
       }
       
-      // Handle different error scenarios
-      if (response.status === 429) {
-        // Rate limit error - wait and retry
-        this.requestQueue.unshift({ endpoint, params, resolve, reject });
-        const retryAfter = response.headers.get('Retry-After');
-        const waitTime = retryAfter ? parseInt(retryAfter) : this.calculateBackoff();
-        
-        console.log(\`Rate limit exceeded. Waiting \${waitTime} seconds...\`);
-        await new Promise(r => setTimeout(r, waitTime * 1000));
-        this.processQueue();
-        return;
+      const data = await response.json();
+      
+      // Cache the result
+      if (this.cacheEnabled) {
+        this.saveToCache(cacheKey, data);
       }
       
-      // Retry server errors
-      if (response.status >= 500 && retryCount < this.retryOptions.maxRetries) {
-        const waitTime = this.calculateBackoff();
-        console.log(\`Server error (\${response.status}). Retrying in \${waitTime} seconds...\`);
-        await new Promise(r => setTimeout(r, waitTime * 1000));
-        retryCount++;
-        continue;
-      }
-      
-      // Other HTTP errors
-      const errorText = await response.text();
-      throw new Error(\`HTTP error \${response.status}: \${errorText}\`);
+      return data;
     } catch (error) {
-      // Retry network errors
-      if (error.name === 'TypeError' && error.message.includes('fetch') && retryCount < this.retryOptions.maxRetries) {
-        const waitTime = this.calculateBackoff();
-        console.log(\`Network error. Retrying in \${waitTime} seconds...\`);
-        await new Promise(r => setTimeout(r, waitTime * 1000));
-        retryCount++;
-      } else {
-        // When all retries fail
-        throw error;
-      }
+      console.error('Quote fetch error:', error);
+      throw error;
     }
   }
   
-  // Check rate limit
-  async checkRateLimit() {
-    // Filter requests in the last minute
-    const now = Date.now();
-    this.requestTimes = this.requestTimes.filter(time => now - time < 60000);
+  // Get a random quote
+  async getRandomQuote(params = {}) {
+    // Add default language if not specified
+    if (!params.lang) {
+      params.lang = this.defaultLang;
+    }
     
-    // If we've exceeded the rate limit, wait an appropriate amount of time
-    if (this.requestTimes.length >= this.rateLimitPerMinute) {
-      // Time of the oldest request
-      const oldestRequest = this.requestTimes[0];
-      const timeToWait = 60000 - (now - oldestRequest);
-      
-      if (timeToWait > 0) {
-        console.log(\`Rate limit reached. Waiting \${timeToWait}ms...\`);
-        await new Promise(resolve => setTimeout(resolve, timeToWait));
-      }
+    return this.fetchQuote('/quotes/random', params);
+  }
+  
+  // Get a specific quote by ID
+  async getQuoteById(id) {
+    return this.fetchQuote(\`/quotes/\${id}\`);
+  }
+  
+  // Get quotes with pagination
+  async getQuotes(page = 1, perPage = 10, params = {}) {
+    return this.fetchQuote('/quotes', {
+      page,
+      perPage,
+      ...params
+    });
+  }
+  
+  // Favorites management
+  addToFavorites(quote) {
+    if (!this.favorites.find(fav => fav.id === quote.id)) {
+      this.favorites.push(quote);
+      this.saveFavorites();
+      return true;
+    }
+    return false;
+  }
+  
+  removeFromFavorites(quoteId) {
+    const initialLength = this.favorites.length;
+    this.favorites = this.favorites.filter(quote => quote.id !== quoteId);
+    
+    if (initialLength !== this.favorites.length) {
+      this.saveFavorites();
+      return true;
+    }
+    return false;
+  }
+  
+  getFavorites() {
+    return [...this.favorites];
+  }
+  
+  loadFavorites() {
+    try {
+      const saved = localStorage.getItem('quote_favorites');
+      return saved ? JSON.parse(saved) : [];
+    } catch (error) {
+      console.error('Error loading favorites:', error);
+      return [];
     }
   }
   
-  // Calculate delay for retry (exponential backoff)
-  calculateBackoff() {
-    const delay = Math.min(
-      1000, // Maximum delay
-      Math.max(
-        1000, // Minimum delay
-        Math.floor(Math.random() * 1000) // Random jitter
-      )
-    );
-    
-    return delay;
+  saveFavorites() {
+    try {
+      localStorage.setItem('quote_favorites', JSON.stringify(this.favorites));
+    } catch (error) {
+      console.error('Error saving favorites:', error);
+    }
   }
   
-  // Create cache key
-  getCacheKey(endpoint, params) {
-    return \`\${endpoint}:\${JSON.stringify(params)}\`;
-  }
-  
-  // Get data from cache
+  // Cache management
   getFromCache(key) {
     if (!this.cache.has(key)) {
       return null;
@@ -2635,7 +2581,6 @@ class EchoesApiClient {
     return cacheEntry.data;
   }
   
-  // Save data to cache
   saveToCache(key, data) {
     this.cache.set(key, {
       data,
@@ -2643,7 +2588,6 @@ class EchoesApiClient {
     });
   }
   
-  // Clean up old cache entries
   cleanCache() {
     const now = Date.now();
     for (const [key, entry] of this.cache.entries()) {
@@ -2653,78 +2597,165 @@ class EchoesApiClient {
     }
   }
   
-  // Clean up resources when done using the class
+  // Clean up resources
   destroy() {
     if (this.cacheCleanupInterval) {
       clearInterval(this.cacheCleanupInterval);
     }
   }
-  
-  // Helper API methods
-  
-  // Get a random quote
-  async getRandomQuote(params = {}) {
-    return this.request('/quotes/random', params);
-  }
-  
-  // Get quote by ID
-  async getQuoteById(id) {
-    return this.request(\`/quotes/\${id}\`);
-  }
-  
-  // Get all quotes (with pagination)
-  async getQuotes(params = {}) {
-    return this.request('/quotes', params);
-  }
-  
-  // Get quotes by author
-  async getQuotesByAuthor(author, params = {}) {
-    return this.request('/quotes', { ...params, author });
-  }
-  
-  // Get quotes by language
-  async getQuotesByLanguage(language, params = {}) {
-    return this.request('/quotes', { ...params, language });
-  }
-  
-  // Get quotes by tags
-  async getQuotesByTags(tags, params = {}) {
-    // Convert singular tags to array
-    const tagList = Array.isArray(tags) ? tags : [tags];
-    return this.request('/quotes', { ...params, tags: tagList.join(',') });
-  }
-  
-  // List authors
-  async getAuthors() {
-    return this.request('/authors');
-  }
-  
-  // List languages
-  async getLanguages() {
-    return this.request('/languages');
-  }
 }
 
 // Usage example
-const echoesClient = new EchoesApiClient({
-  language: 'en',
+const quoteManager = new QuoteManager({
+  defaultLang: 'en',
   cacheEnabled: true,
   cacheTime: 1800 // 30 minutes
 });
 
-// Get a random English quote
-echoesClient.getRandomQuote()
-  .then(quote => console.log('Random quote:', quote))
-  .catch(err => console.error('Error:', err));
+// UI Integration Example
+async function initializeQuoteApp() {
+  const quoteContainer = document.getElementById('quote-container');
+  const nextButton = document.getElementById('next-quote');
+  const favButton = document.getElementById('favorite-quote');
+  const langSelector = document.getElementById('language-selector');
+  const authorInput = document.getElementById('author-input');
+  const searchButton = document.getElementById('search-button');
+  const favoritesList = document.getElementById('favorites-list');
+  
+  let currentQuote = null;
+  
+  // Display a quote in the container
+  function displayQuote(quote) {
+    currentQuote = quote;
+    
+    quoteContainer.innerHTML = \`
+      <blockquote class="quote-text">\${quote.quote}</blockquote>
+      <cite class="quote-author">— \${quote.author}</cite>
+      <div class="quote-meta">
+        <span class="quote-language">\${getLanguageName(quote.lang)}</span>
+        <span class="quote-id">ID: \${quote.id}</span>
+      </div>
+    \`;
+    
+    // Update favorite button state
+    const isFavorite = quoteManager.getFavorites().some(fav => fav.id === quote.id);
+    favButton.textContent = isFavorite ? '★ Remove from Favorites' : '☆ Add to Favorites';
+    favButton.className = isFavorite ? 'btn-favorite active' : 'btn-favorite';
+  }
+  
+  // Load and display a random quote
+  async function loadRandomQuote() {
+    try {
+      quoteContainer.innerHTML = '<div class="loading">Loading...</div>';
+      
+      const params = {
+        lang: langSelector.value || undefined,
+        author: authorInput.value || undefined
+      };
+      
+      const quote = await quoteManager.getRandomQuote(params);
+      displayQuote(quote);
+    } catch (error) {
+      quoteContainer.innerHTML = \`
+        <div class="error">
+          Failed to load quote. Please try again.
+          <p>\${error.message}</p>
+        </div>
+      \`;
+    }
+  }
+  
+  // Toggle favorite status of current quote
+  function toggleFavorite() {
+    if (!currentQuote) return;
+    
+    const isFavorite = quoteManager.getFavorites().some(fav => fav.id === currentQuote.id);
+    
+    if (isFavorite) {
+      quoteManager.removeFromFavorites(currentQuote.id);
+      favButton.textContent = '☆ Add to Favorites';
+      favButton.className = 'btn-favorite';
+    } else {
+      quoteManager.addToFavorites(currentQuote);
+      favButton.textContent = '★ Remove from Favorites';
+      favButton.className = 'btn-favorite active';
+    }
+    
+    // Update favorites list
+    updateFavoritesList();
+  }
+  
+  // Update the favorites list in the UI
+  function updateFavoritesList() {
+    const favorites = quoteManager.getFavorites();
+    
+    if (favorites.length === 0) {
+      favoritesList.innerHTML = '<p class="empty-list">No favorite quotes yet.</p>';
+      return;
+    }
+    
+    favoritesList.innerHTML = favorites.map(quote => \`
+      <div class="favorite-item" data-id="\${quote.id}">
+        <blockquote>\${quote.quote}</blockquote>
+        <cite>— \${quote.author}</cite>
+        <button class="remove-favorite" data-id="\${quote.id}">Remove</button>
+      </div>
+    \`).join('');
+    
+    // Add event listeners to remove buttons
+    document.querySelectorAll('.remove-favorite').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const id = parseInt(e.target.dataset.id);
+        quoteManager.removeFromFavorites(id);
+        updateFavoritesList();
+        
+        // Update current quote display if it's the same one
+        if (currentQuote && currentQuote.id === id) {
+          favButton.textContent = '☆ Add to Favorites';
+          favButton.className = 'btn-favorite';
+        }
+      });
+    });
+  }
+  
+  // Set up event listeners
+  nextButton.addEventListener('click', loadRandomQuote);
+  favButton.addEventListener('click', toggleFavorite);
+  searchButton.addEventListener('click', loadRandomQuote);
+  
+  // Initial setup
+  updateFavoritesList();
+  await loadRandomQuote();
+}
 
-// Get quotes from a specific author
-echoesClient.getQuotesByAuthor('Einstein')
-  .then(quotes => console.log('Einstein quotes:', quotes))
-  .catch(err => console.error('Error:', err));
+// Helper function to get language name from code
+function getLanguageName(langCode) {
+  const languages = {
+    'en': 'English',
+    'tr': 'Turkish',
+    'es': 'Spanish',
+    'fr': 'French',
+    'de': 'German'
+    // Add other languages as needed
+  };
+  
+  return languages[langCode] || langCode;
+}
 
-// Clean up resources (when application shuts down)
-// echoesClient.destroy();
+// Initialize the app when DOM is ready
+document.addEventListener('DOMContentLoaded', initializeQuoteApp);
 \`\`\`
+
+This comprehensive example demonstrates how to build a complete quote application with the Echoes API, featuring:
+
+- Efficient API requests with caching
+- Favorites management with local storage
+- Language filtering
+- Author filtering
+- Error handling
+- A responsive user interface
+
+By implementing these advanced techniques, you can create robust, efficient applications that make the most of the Echoes API's capabilities.
       `,
       relatedGuides: ['getting-started', 'javascript-integration', 'react-integration']
     }
