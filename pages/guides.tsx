@@ -148,8 +148,8 @@ const GuidesPage = () => {
   return (
     <>
       <Head>
-        <title>{t('guides.pageTitle')} | {t('app.title')}</title>
         <meta name="keywords" content={t('guides.keywords')} />
+        <title>{t('guides.pageTitle')} | {t('app.title')}</title>
         <meta name="language" content={t(`language.${locale}`)} />
         <meta name="description" content={t('guides.pageDescription')} />
         <meta name="og:description" content={t('guides.pageDescription')} />

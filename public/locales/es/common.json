@@ -38,6 +38,9 @@
     "sampleAuthor": "Mustafa Kemal Atatürk"
   },
   "docs": {
+    "pageTitle": "Documentación de la API",
+    "pageDescription": "Documentación completa de la API de Echoes. Aprenda cómo integrar citas en sus aplicaciones con nuestros endpoints fáciles de usar.",
+    "keywords": "documentación de api, api de echoes, api rest, api de citas, documentación para desarrolladores, endpoints de api, integración de api, referencia de api, guía de api, api json, peticiones http, api de base de datos de citas, api multilingüe, api de citas aleatorias, paginación, filtrado, filtro por autor, filtro por idioma, herramientas para desarrolladores, documentación técnica",
     "title": "Uso de la API",
     "subtitle": "Integra citas en tu aplicación con la API de Echoes",
     "copy": "Copiar",

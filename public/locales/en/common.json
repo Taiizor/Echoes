@@ -38,6 +38,9 @@
     "sampleAuthor": "Mustafa Kemal Atatürk"
   },
   "docs": {
+    "pageTitle": "API Documentation",
+    "pageDescription": "Comprehensive documentation for the Echoes API. Learn how to integrate quotes into your applications with our easy-to-use endpoints.",
+    "keywords": "api documentation, echoes api, rest api, quote api, developer documentation, api endpoints, api integration, api reference, api guide, json api, http requests, quote database api, multilingual api, random quotes api, pagination, filtering, author filter, language filter, developer tools, technical documentation",
     "title": "API Usage",
     "subtitle": "Integrate quotes into your application with the Echoes API",
     "copy": "Copy",

@@ -38,6 +38,9 @@
     "sampleAuthor": "Mustafa Kemal Atatürk"
   },
   "docs": {
+    "pageTitle": "API Dokümantasyonu",
+    "pageDescription": "Echoes API'sinin kapsamlı dokümantasyonu. Alıntıları uygulamanıza entegre etmek için kolay kullanılabilir endpoint'leri öğrenin.",
+    "keywords": "api dokümantasyonu, api echoes, api rest, api alıntılar, geliştirici dokümantasyonu, api endpoint'leri, api entegrasyonu, api referansı, api rehberi, json api, http istekleri, alıntı veritabanı api'si, çok dilli api, rastgele alıntı api'si, sayfalama, filtreleme, yazar filtreleme, dil filtreleme, geliştirici araçları, teknik dokümantasyon",
     "title": "API Kullanımı",
     "subtitle": "Echoes API ile alıntıları uygulamanıza entegre edin",
     "copy": "Kopyala",

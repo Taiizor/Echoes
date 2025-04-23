@@ -157,8 +157,8 @@ export default function Home() {
       <Head>
         <title>{t('home.title')} | {t('app.title')}</title>
         <meta name="keywords" content={t('home.keywords')} />
-        <meta name="language" content={t(`language.${locale}`)} />
         <meta name="description" content={t('app.description')} />
+        <meta name="language" content={t(`language.${locale}`)} />
         <meta name="og:description" content={t('app.description')} />
         <meta name="twitter:description" content={t('app.description')} />
       </Head>

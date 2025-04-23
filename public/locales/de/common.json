@@ -38,6 +38,9 @@
     "sampleAuthor": "Mustafa Kemal Atatürk"
   },
   "docs": {
+    "pageTitle": "API-Dokumentation",
+    "pageDescription": "Umfassende Dokumentation für die Echoes-API. Lernen Sie, wie Sie Zitate mit unseren benutzerfreundlichen Endpunkten in Ihre Anwendungen integrieren können.",
+    "keywords": "api-dokumentation, echoes-api, rest-api, zitate-api, entwicklerdokumentation, api-endpunkte, api-integration, api-referenz, api-leitfaden, json-api, http-anfragen, zitatedatenbank-api, mehrsprachige-api, zufallszitate-api, paginierung, filterung, autorenfilter, sprachfilter, entwicklertools, technische dokumentation",
     "title": "API-Nutzung",
     "subtitle": "Integrieren Sie Zitate in Ihre Anwendung mit der Echoes-API",
     "copy": "Kopieren",

@@ -193,8 +193,12 @@ ${ex.code}`).join('\n\n');
   return (
     <>
       <Head>
-        <title>{t('app.title')}</title>
-        <meta name="description" content={`API documentation for ${t('app.title')}`} />
+        <meta name="keywords" content={t('docs.keywords')} />
+        <title>{t('docs.pageTitle')} | {t('app.title')}</title>
+        <meta name="language" content={t(`language.${locale}`)} />
+        <meta name="description" content={t('docs.pageDescription')} />
+        <meta name="og:description" content={t('docs.pageDescription')} />
+        <meta name="twitter:description" content={t('docs.pageDescription')} />
       </Head>
 
       {/* Hero Section with Gradient Background */}
