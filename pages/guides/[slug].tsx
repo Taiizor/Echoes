@@ -1902,9 +1902,9 @@ This guide covers advanced techniques for using the Echoes API, including cachin
 
 The Echoes API provides three main endpoints:
 
-1. **GET /api/quotes** - Retrieve all quotes with pagination support
-2. **GET /api/quotes/:id** - Retrieve a specific quote by its ID
-3. **GET /api/quotes/random** - Retrieve a random quote, with optional filtering
+1. <strong>GET /api/quotes</strong> - Retrieve all quotes with pagination support
+2. <strong>GET /api/quotes/:id</strong> - Retrieve a specific quote by its ID
+3. <strong>GET /api/quotes/random</strong> - Retrieve a random quote, with optional filtering
 
 ## Advanced Query Techniques
 
