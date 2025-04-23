@@ -23,6 +23,8 @@
     "homeButton": "Aller à la Page d'Accueil"
   },
   "home": {
+    "title": "Accueil",
+    "keywords": "citations, citations inspirantes, sagesse, pensée, motivation, développement personnel, citations célèbres, citations du monde, echoes, citations quotidiennes, citations de vie, citations philosophiques, citations linguistiques, citations d'auteurs, citations en langues, collection de citations, base de données de citations, recherche de citations, api de citations",
     "newQuote": "Nouvelle Citation",
     "viewAll": "Voir Toutes les Citations",
     "whyEchoes": "Pourquoi Echoes?",

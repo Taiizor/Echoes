@@ -23,6 +23,8 @@
     "homeButton": "Przejdź do strony głównej"
   },
   "home": {
+    "title": "Strona Główna",
+    "keywords": "cytaty, inspirujące cytaty, mądrość, myśl, motywacja, rozwój osobisty, znane cytaty, cytaty świata, echoes, codzienne cytaty, cytaty życiowe, cytaty filozoficzne, cytaty językowe, cytaty autorów, cytaty w różnych językach, kolekcja cytatów, baza danych cytatów, wyszukiwanie cytatów, api cytatów",
     "newQuote": "Nowy cytat",
     "viewAll": "Zobacz wszystkie cytaty",
     "whyEchoes": "Dlaczego Echoes?",

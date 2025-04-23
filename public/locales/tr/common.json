@@ -23,6 +23,8 @@
     "homeButton": "Ana Sayfaya Git"
   },
   "home": {
+    "title": "Ana Sayfa",
+    "keywords": "alıntılar, ilham verici sözler, bilgelik, düşünce, motivasyon, kişisel gelişim, ünlü alıntılar, dünya alıntıları, echoes, günlük alıntılar, hayat alıntıları, felsefi alıntılar, dil alıntıları, yazar alıntıları, dil alıntıları, alıntı koleksiyonu, alıntı veritabanı, alıntı arama, alıntı api",
     "newQuote": "Yeni Alıntı",
     "viewAll": "Tüm Alıntıları Gör",
     "whyEchoes": "Neden Echoes?",

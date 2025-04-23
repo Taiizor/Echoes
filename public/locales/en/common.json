@@ -23,6 +23,8 @@
     "homeButton": "Go to Home Page"
   },
   "home": {
+    "title": "Home",
+    "keywords": "quotes, inspirational quotes, wisdom, thought, motivation, personal development, famous quotes, world quotes, echoes, daily quotes, life quotes, philosophical quotes, lang quotes, author quotes, language quotes, quote collection, quote database, quote search, quote api",
     "newQuote": "New Quote",
     "viewAll": "View All Quotes",
     "whyEchoes": "Why Echoes?",

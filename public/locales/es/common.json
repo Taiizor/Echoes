@@ -23,6 +23,8 @@
     "homeButton": "Ir a la página de inicio"
   },
   "home": {
+    "title": "Inicio",
+    "keywords": "citas, citas inspiradoras, sabiduría, pensamiento, motivación, desarrollo personal, citas famosas, citas del mundo, echoes, citas diarias, citas de vida, citas filosóficas, citas de idiomas, citas de autores, citas de lenguaje, colección de citas, base de datos de citas, búsqueda de citas, api de citas",
     "newQuote": "Nueva Cita",
     "viewAll": "Ver Todas las Citas",
     "whyEchoes": "¿Por qué Echoes?",

@@ -23,6 +23,8 @@
     "homeButton": "Zur Startseite"
   },
   "home": {
+    "title": "Startseite",
+    "keywords": "zitate, inspirierende zitate, weisheit, denken, motivation, persönliche entwicklung, berühmte zitate, weltzitate, echoes, tageszitate, lebenszitate, philosophische zitate, sprachzitate, autorenzitate, sprachliche zitate, zitatsammlung, zitatdatenbank, zitatsuche, zitat api",
     "newQuote": "Neues Zitat",
     "viewAll": "Alle Zitate anzeigen",
     "whyEchoes": "Warum Echoes?",
