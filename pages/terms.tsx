@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { FiFileText, FiInfo, FiUsers, FiUserCheck, FiActivity, FiSlash, FiCopy, FiUser, FiAlertCircle, FiAlertTriangle, FiXOctagon, FiGlobe, FiMail } from 'react-icons/fi';
@@ -51,12 +52,18 @@ const TermsListItem: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
 export default function TermsPage() {
   const { t } = useTranslation('common');
+  const router = useRouter();
+  const locale = router.locale || 'en';
 
   return (
     <>
       <Head>
-        <title>{t('terms.title')} - {t('app.title')}</title>
+        <title>{t('terms.title')} | {t('app.title')}</title>
+        <meta name="keywords" content={t('terms.keywords')} />
+        <meta name="language" content={t(`language.${locale}`)} />
         <meta name="description" content={t('terms.description')} />
+        <meta name="og:description" content={t('terms.description')} />
+        <meta name="twitter:description" content={t('terms.description')} />
       </Head>
 
       {/* Hero Section */}
