@@ -83,8 +83,12 @@ export default function AboutPage() {
   return (
     <>
       <Head>
-        <title>{t('app.title')}</title>
+        <title>{t('about.title')} | {t('app.title')}</title>
+        <meta name="keywords" content={t('about.keywords')} />
+        <meta name="language" content={t(`language.${locale}`)} />
         <meta name="description" content={t('about.description')} />
+        <meta name="og:description" content={t('about.description')} />
+        <meta name="twitter:description" content={t('about.description')} />
       </Head>
 
       {/* Hero Section */}

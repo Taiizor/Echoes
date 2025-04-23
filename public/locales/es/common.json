@@ -103,6 +103,7 @@
   "about": {
     "title": "Acerca de Echoes",
     "description": "Una colección de citas inspiradoras de todo el mundo",
+    "keywords": "acerca de echoes, información de la plataforma, plataforma de citas, sobre nosotros, proyecto echoes, colección de citas, citas multilingües, base de datos de citas, búsqueda de citas, api de citas, citas inspiradoras, plataforma de sabiduría, citas del mundo, recursos para desarrolladores, motor de búsqueda de citas, citas literarias, citas internacionales",
     "purpose": "Propósito",
     "purposeText": "Echoes es un proyecto construido para mostrar citas de varios autores de todo el mundo en diferentes idiomas. El proyecto tiene como objetivo proporcionar inspiración y sabiduría a los usuarios.",
     "features": "Características",

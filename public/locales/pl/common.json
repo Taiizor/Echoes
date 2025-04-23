@@ -103,6 +103,7 @@
   "about": {
     "title": "O Echoes",
     "description": "Kolekcja inspirujących cytatów z całego świata",
+    "keywords": "o echoes, informacje o platformie, platforma cytatów, o nas, projekt echoes, kolekcja cytatów, cytaty wielojęzyczne, baza danych cytatów, wyszukiwanie cytatów, api cytatów, cytaty inspirujące, platforma mądrości, cytaty z całego świata, zasoby dla programistów, motory badawcze cytatów, cytaty literackie, cytaty międzynarodowe",
     "purpose": "Cel",
     "purposeText": "Echoes to projekt stworzony, aby prezentować cytaty różnych autorów z całego świata w różnych językach. Projekt ma na celu dostarczanie inspiracji i mądrości użytkownikom.",
     "features": "Funkcje",
