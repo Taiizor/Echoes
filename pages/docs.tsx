@@ -239,11 +239,11 @@ ${ex.code}`).join('\n\n');
                   {t('docs.baseUrlDescription')}
                 </p>
                 
-                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:justify-between mt-3 p-4 bg-gray-50 dark:bg-gray-900/80 rounded-xl border border-gray-100 dark:border-gray-700">
+                <div className="flex items-center justify-between mt-3 p-4 bg-gray-50 dark:bg-gray-900/80 rounded-xl border border-gray-100 dark:border-gray-700">
                   <code className="text-primary-600 dark:text-primary-400 font-mono text-base sm:text-lg break-all overflow-x-auto">
                     https://echoes.soferity.com/api/quotes
                   </code>
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 ml-2">
                     <CopyButton text="https://echoes.soferity.com/api/quotes" />
                   </div>
                 </div>

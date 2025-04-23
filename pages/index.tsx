@@ -264,11 +264,11 @@ export default function Home() {
                       {feature.description}
                     </p>
                     <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 font-mono text-sm text-primary-700 dark:text-primary-400 overflow-x-auto relative">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
-                        <span className="sm:mr-2 overflow-x-auto break-all">
+                      <div className="flex items-center justify-between">
+                        <span className="mr-2 overflow-x-auto break-all">
                           {feature.endpoint}
                         </span>
-                        <div className="flex-shrink-0">
+                        <div className="flex-shrink-0 ml-2">
                           <CopyButton text={`https://echoes.soferity.com${feature.endpoint}`} />
                         </div>
                       </div>
