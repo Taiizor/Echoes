@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { FiRefreshCw, FiExternalLink, FiCode, FiArrowRight, FiCheckCircle, FiGithub, FiBookOpen } from 'react-icons/fi';
+import { FiRefreshCw, FiExternalLink, FiCode, FiArrowRight, FiCheckCircle, FiGithub, FiBookOpen, FiCopy, FiCheck } from 'react-icons/fi';
 import useQuotes, { Quote } from '@/hooks/useQuotes';
 
 // Client-side only component to avoid hydration errors
@@ -17,6 +17,30 @@ const ClientOnly = ({ children }: { children: React.ReactNode }) => {
 
   if (!mounted) return null;
   return <>{children}</>;
+};
+
+// Copy button component
+const CopyButton = ({ text }: { text: string }) => {
+  const [copied, setCopied] = useState(false);
+  const { t } = useTranslation('common');
+  
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  
+  return (
+    <button 
+      onClick={() => handleCopy(text)}
+      className="p-2 rounded-md transition-all duration-300 bg-gray-100/80 dark:bg-gray-800/80 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 hover:shadow-md"
+      aria-label={t('docs.copy')}
+    >
+      <ClientOnly>
+        {copied ? <FiCheck className="text-green-500" /> : <FiCopy />}
+      </ClientOnly>
+    </button>
+  );
 };
 
 // Button component
@@ -239,8 +263,15 @@ export default function Home() {
                     <p className="text-gray-600 dark:text-gray-400 text-center mb-5">
                       {feature.description}
                     </p>
-                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 font-mono text-sm text-primary-700 dark:text-primary-400 overflow-x-auto">
-                      {feature.endpoint}
+                    <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-3 font-mono text-sm text-primary-700 dark:text-primary-400 overflow-x-auto relative">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
+                        <span className="sm:mr-2 overflow-x-auto break-all">
+                          {feature.endpoint}
+                        </span>
+                        <div className="flex-shrink-0">
+                          <CopyButton text={`https://echoes.soferity.com${feature.endpoint}`} />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
