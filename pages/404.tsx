@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 
 export default function NotFound() {
   const router = useRouter();
+  const locale = router.locale || 'en';
   const { t } = useTranslation('common');
   const [isLoaded, setIsLoaded] = useState(false);
 

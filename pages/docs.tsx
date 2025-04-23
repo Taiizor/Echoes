@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { FiCopy, FiCode, FiArrowRight, FiCheck, FiBookOpen, FiLayers } from 'react-icons/fi';
@@ -53,6 +54,8 @@ const CopyButton = ({ text }: { text: string }) => {
 // API page content
 const DocsPageContent = () => {
   const { t } = useTranslation('common');
+  const router = useRouter();
+  const locale = router.locale || 'en';
 
   const apiEndpoints: ApiEndpoint[] = [
     {

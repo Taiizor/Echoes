@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { FiRefreshCw, FiExternalLink, FiCode, FiArrowRight, FiCheckCircle, FiGithub, FiBookOpen, FiCopy, FiCheck } from 'react-icons/fi';
 import useQuotes, { Quote } from '@/hooks/useQuotes';
@@ -95,6 +96,8 @@ const Button: React.FC<ButtonProps> = ({
 
 export default function Home() {
   const { t } = useTranslation('common');
+  const router = useRouter();
+  const locale = router.locale || 'en';
   const { getRandomQuote } = useQuotes();
   const [randomQuote, setRandomQuote] = useState<Quote | null>(null);
   const [isLoading, setIsLoading] = useState(false);

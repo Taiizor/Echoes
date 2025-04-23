@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { 
@@ -31,6 +32,8 @@ interface GuideItem {
 
 const GuidesPage = () => {
   const { t } = useTranslation('common');
+  const router = useRouter();
+  const locale = router.locale || 'en';
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);

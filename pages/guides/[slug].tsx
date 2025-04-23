@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -14,10 +13,7 @@ import {
   FiGlobe, 
   FiCpu, 
   FiUsers,
-  FiBook, 
   FiChevronRight,
-  FiCopy,
-  FiCheck
 } from 'react-icons/fi';
 
 // Guide content type
@@ -40,8 +36,8 @@ interface MultiLanguageGuides {
 
 const GuideDetail = ({ slug }: { slug: string }) => {
   const router = useRouter();
+  const locale = router.locale || 'en';
   const { t, i18n } = useTranslation('common');
-  const [copiedCode, setCopiedCode] = useState<string | null>(null);
   
   // Create guide data according to language
   const getGuideDataForLocale = () => {

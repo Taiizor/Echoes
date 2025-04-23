@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { FiShield, FiInfo, FiDatabase, FiLock, FiPieChart, FiExternalLink, FiUserCheck, FiMail, FiAlertTriangle } from 'react-icons/fi';
@@ -51,12 +52,18 @@ const PrivacyListItem: React.FC<{ children: React.ReactNode }> = ({ children }) 
 
 export default function PrivacyPage() {
   const { t } = useTranslation('common');
+  const router = useRouter();
+  const locale = router.locale || 'en';
 
   return (
     <>
       <Head>
-        <title>{t('privacy.title')} - {t('app.title')}</title>
+        <title>{t('privacy.title')} | {t('app.title')}</title>
+        <meta name="keywords" content={t('privacy.keywords')} />
+        <meta name="language" content={t(`language.${locale}`)} />
         <meta name="description" content={t('privacy.description')} />
+        <meta name="og:description" content={t('privacy.description')} />
+        <meta name="twitter:description" content={t('privacy.description')} />
       </Head>
 
       {/* Hero Section */}
