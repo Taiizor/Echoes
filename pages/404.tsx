@@ -20,7 +20,12 @@ export default function NotFound() {
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-50 via-blue-50 to-white dark:from-gray-900 dark:via-indigo-950 dark:to-gray-900 dark:text-gray-100 text-center">
       <Head>
-        <title>{t('404.title')}</title>
+        <title>{t('404.title')} | {t('app.title')}</title>
+        <meta name="keywords" content={t('404.keywords')} />
+        <meta name="language" content={t(`language.${locale}`)} />
+        <meta name="description" content={t('404.description')} />
+        <meta name="og:description" content={t('404.description')} />
+        <meta name="twitter:description" content={t('404.description')} />
       </Head>
       
       {/* Animated background shapes */}

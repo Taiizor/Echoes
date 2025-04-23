@@ -17,6 +17,7 @@
   },
   "404": {
     "title": "404 - Sayfa Bulunamadı",
+    "keywords": "sayfa bulunamadı, 404 hatası, kayıp sayfa, bozuk bağlantı, gezinme hatası, hata sayfası, kayıp sayfa, echoes 404, web sitesi hatası, silinmiş sayfa, taşınmış sayfa, var olmayan sayfa, kullanılamayan içerik",
     "heading": "Sayfa bulunamadı",
     "description": "Aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış olabilir.",
     "backButton": "Geri Dön",

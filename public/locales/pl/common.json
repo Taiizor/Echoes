@@ -1,7 +1,7 @@
 {
   "app": {
     "title": "Cytaty z Całego Świata - Echoes",
-    "description": "Echoes to nowoczesna platforma, która umożliwia łatwe odkrywanie inspirujących cytatów z całego świata. Jest przeznaczona dla każdego, kto poszukuje mądrości i wglądu."
+    "description": "Echoes to nowoczesna platforma, która pozwala łatwo odkrywać inspirujące cytaty z całego świata. Zaprojektowana dla każdego, kto szuka mądrości i wglądu."
   },
   "nav": {
     "home": "Strona główna",
@@ -12,11 +12,12 @@
   },
   "api": {
     "title": "Funkcje API",
-    "subtitle": "Łatwo zintegruj cytaty ze swoją aplikacją dzięki potężnemu API Echoes",
+    "subtitle": "Łatwo zintegruj cytaty z aplikacją dzięki potężnemu API Echoes",
     "viewDocs": "Zobacz dokumentację API"
   },
   "404": {
     "title": "404 - Nie znaleziono strony",
+    "keywords": "nie znaleziono strony, błąd 404, zgubiona strona, zepsuty link, błąd nawigacji, strona błędu, brakująca strona, echoes 404, błąd strony internetowej, usunięta strona, przeniesiona strona, nieistniejąca strona, niedostępna treść",
     "heading": "Nie znaleziono strony",
     "description": "Strona, której szukasz, mogła zostać przeniesiona, usunięta lub nigdy nie istniała.",
     "backButton": "Wróć",

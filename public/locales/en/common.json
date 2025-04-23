@@ -17,6 +17,7 @@
   },
   "404": {
     "title": "404 - Page Not Found",
+    "keywords": "page not found, 404 error, missing page, broken link, navigation error, error page, lost page, echoes 404, website error, deleted page, moved page, non-existent page, unavailable content",
     "heading": "Page not found",
     "description": "The page you're looking for may have been moved, deleted, or never existed.",
     "backButton": "Go Back",
