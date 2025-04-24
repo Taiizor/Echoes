@@ -91,6 +91,8 @@ export function middleware(request: NextRequest) {
 }
 
 // Define which paths the middleware should run on
+// Next.js middleware configuration - must be statically defined
 export const config = {
-  matcher: rateLimitConfig.MATCHER,
+  //matcher: rateLimitConfig.MATCHER
+  matcher: ['/api/:path*']
 }; 
