@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -101,6 +101,8 @@ export default function Home() {
   const { getRandomQuoteByLang } = useQuotes();
   const [randomQuote, setRandomQuote] = useState<Quote | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const isMounted = useRef(false);
+  const prevLocale = useRef(locale);
 
   const refreshRandomQuote = async () => {
     setIsLoading(true);
@@ -127,8 +129,14 @@ export default function Home() {
 
   // Load a quote automatically when the page loads
   useEffect(() => {
-    // Get a quote when the page first loads
-    refreshRandomQuote();
+    // Run when the page is loaded for the first time or when locale changes
+    if (!isMounted.current) {
+      isMounted.current = true;
+      refreshRandomQuote();
+    } else if (prevLocale.current !== locale) {
+      prevLocale.current = locale;
+      refreshRandomQuote();
+    }
   }, [locale]); // re-run when locale changes
 
   // API features
