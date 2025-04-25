@@ -3002,126 +3002,6 @@
   {
     "id": 501,
     "lang": "tr",
-    "author": "Cahit Sıtkı Tarancı",
-    "quote": "Yaş otuz beş! Yolun yarısı eder. Dante gibi ortasındayız ömrün."
-  },
-  {
-    "id": 502,
-    "lang": "tr",
-    "author": "Aşık Veysel",
-    "quote": "Uzun ince bir yoldayım, gidiyorum gündüz gece."
-  },
-  {
-    "id": 503,
-    "lang": "tr",
-    "author": "Orhan Veli Kanık",
-    "quote": "Her şey bitti sanma, yeniden başlamak var."
-  },
-  {
-    "id": 504,
-    "lang": "tr",
-    "author": "Turgut Uyar",
-    "quote": "İnsanları sevdikçe yalnızlığım azalır diye düşünürdüm, İnsanları tanıdıkça yalnızlığım çoğaldı."
-  },
-  {
-    "id": 505,
-    "lang": "tr",
-    "author": "Ahmet Arif",
-    "quote": "Hasret ki en çaresiz derdim, belki bir gün dönersin diyedir."
-  },
-  {
-    "id": 506,
-    "lang": "tr",
-    "author": "Cemal Süreya",
-    "quote": "Sevmek, bir insanı sevmekle başlar her şey."
-  },
-  {
-    "id": 507,
-    "lang": "tr",
-    "author": "Attila İlhan",
-    "quote": "Dünyayı güzellik kurtaracak, bir insanı sevmekle başlayacak her şey."
-  },
-  {
-    "id": 508,
-    "lang": "tr",
-    "author": "Sait Faik Abasıyanık",
-    "quote": "Haritada bir nokta, insanın gönlünde kocaman bir vatan olabilir."
-  },
-  {
-    "id": 509,
-    "lang": "tr",
-    "author": "Özdemir Asaf",
-    "quote": "Ben seni sevdiğimi, gizlemeye çalışırken, seninle bir ömür geçirmeyi hayal ediyordum."
-  },
-  {
-    "id": 510,
-    "lang": "tr",
-    "author": "Fazıl Hüsnü Dağlarca",
-    "quote": "Önce çocuklar doyurulsun, sonra alınsın öcümüz."
-  },
-  {
-    "id": 511,
-    "lang": "tr",
-    "author": "Edip Cansever",
-    "quote": "İnsan yaşadığı yere benzer, o yerin suyuna, o yerin toprağına benzer."
-  },
-  {
-    "id": 512,
-    "lang": "tr",
-    "author": "Ahmet Hamdi Tanpınar",
-    "quote": "Ne içindeyim zamanın, ne de büsbütün dışında."
-  },
-  {
-    "id": 513,
-    "lang": "tr",
-    "author": "Yaşar Kemal",
-    "quote": "Umut insanın ekmeğidir, susuzluğudur, her şeyidir."
-  },
-  {
-    "id": 514,
-    "lang": "tr",
-    "author": "Nazım Hikmet",
-    "quote": "Güzel günler göreceğiz çocuklar, güneşli günler göreceğiz."
-  },
-  {
-    "id": 515,
-    "lang": "tr",
-    "author": "Yunus Emre",
-    "quote": "Gelin tanış olalım, işi kolay kılalım, sevelim sevilelim, dünya kimseye kalmaz."
-  },
-  {
-    "id": 516,
-    "lang": "tr",
-    "author": "Fuzuli",
-    "quote": "Aşk derdiyle hoşem, el çek ilacımdan tabip, kılma derman kim helakim zehri dermanındadır."
-  },
-  {
-    "id": 517,
-    "lang": "tr",
-    "author": "Mevlana",
-    "quote": "Aşk, akıl ile değil, gönül ile anlaşılır."
-  },
-  {
-    "id": 518,
-    "lang": "tr",
-    "author": "Can Yücel",
-    "quote": "Ölüm mü? Basbayağı bir şey, gelir geçer. Yaşamın ta kendisi kadar doğal."
-  },
-  {
-    "id": 519,
-    "lang": "tr",
-    "author": "Oğuz Atay",
-    "quote": "Kelimelerle aramız çok iyi değil, birbirimizi tam anlamıyoruz."
-  },
-  {
-    "id": 520,
-    "lang": "tr",
-    "author": "Yahya Kemal Beyatlı",
-    "quote": "Sana dün bir tepeden baktım aziz İstanbul."
-  },
-  {
-    "id": 501,
-    "lang": "tr",
     "author": "Cemal Süreya",
     "quote": "Hayat kısa, kuşlar uçuyor."
   },
@@ -4798,5 +4678,125 @@
     "lang": "pt",
     "author": "José de Alencar",
     "quote": "O amor é a poesia dos sentidos."
+  },
+  {
+    "id": 781,
+    "lang": "tr",
+    "author": "Cahit Sıtkı Tarancı",
+    "quote": "Yaş otuz beş! Yolun yarısı eder. Dante gibi ortasındayız ömrün."
+  },
+  {
+    "id": 782,
+    "lang": "tr",
+    "author": "Aşık Veysel",
+    "quote": "Uzun ince bir yoldayım, gidiyorum gündüz gece."
+  },
+  {
+    "id": 783,
+    "lang": "tr",
+    "author": "Orhan Veli Kanık",
+    "quote": "Her şey bitti sanma, yeniden başlamak var."
+  },
+  {
+    "id": 784,
+    "lang": "tr",
+    "author": "Turgut Uyar",
+    "quote": "İnsanları sevdikçe yalnızlığım azalır diye düşünürdüm, İnsanları tanıdıkça yalnızlığım çoğaldı."
+  },
+  {
+    "id": 785,
+    "lang": "tr",
+    "author": "Ahmet Arif",
+    "quote": "Hasret ki en çaresiz derdim, belki bir gün dönersin diyedir."
+  },
+  {
+    "id": 786,
+    "lang": "tr",
+    "author": "Cemal Süreya",
+    "quote": "Sevmek, bir insanı sevmekle başlar her şey."
+  },
+  {
+    "id": 787,
+    "lang": "tr",
+    "author": "Attila İlhan",
+    "quote": "Dünyayı güzellik kurtaracak, bir insanı sevmekle başlayacak her şey."
+  },
+  {
+    "id": 788,
+    "lang": "tr",
+    "author": "Sait Faik Abasıyanık",
+    "quote": "Haritada bir nokta, insanın gönlünde kocaman bir vatan olabilir."
+  },
+  {
+    "id": 789,
+    "lang": "tr",
+    "author": "Özdemir Asaf",
+    "quote": "Ben seni sevdiğimi, gizlemeye çalışırken, seninle bir ömür geçirmeyi hayal ediyordum."
+  },
+  {
+    "id": 790,
+    "lang": "tr",
+    "author": "Fazıl Hüsnü Dağlarca",
+    "quote": "Önce çocuklar doyurulsun, sonra alınsın öcümüz."
+  },
+  {
+    "id": 791,
+    "lang": "tr",
+    "author": "Edip Cansever",
+    "quote": "İnsan yaşadığı yere benzer, o yerin suyuna, o yerin toprağına benzer."
+  },
+  {
+    "id": 792,
+    "lang": "tr",
+    "author": "Ahmet Hamdi Tanpınar",
+    "quote": "Ne içindeyim zamanın, ne de büsbütün dışında."
+  },
+  {
+    "id": 793,
+    "lang": "tr",
+    "author": "Yaşar Kemal",
+    "quote": "Umut insanın ekmeğidir, susuzluğudur, her şeyidir."
+  },
+  {
+    "id": 794,
+    "lang": "tr",
+    "author": "Nazım Hikmet",
+    "quote": "Güzel günler göreceğiz çocuklar, güneşli günler göreceğiz."
+  },
+  {
+    "id": 795,
+    "lang": "tr",
+    "author": "Yunus Emre",
+    "quote": "Gelin tanış olalım, işi kolay kılalım, sevelim sevilelim, dünya kimseye kalmaz."
+  },
+  {
+    "id": 796,
+    "lang": "tr",
+    "author": "Fuzuli",
+    "quote": "Aşk derdiyle hoşem, el çek ilacımdan tabip, kılma derman kim helakim zehri dermanındadır."
+  },
+  {
+    "id": 797,
+    "lang": "tr",
+    "author": "Mevlana",
+    "quote": "Aşk, akıl ile değil, gönül ile anlaşılır."
+  },
+  {
+    "id": 798,
+    "lang": "tr",
+    "author": "Can Yücel",
+    "quote": "Ölüm mü? Basbayağı bir şey, gelir geçer. Yaşamın ta kendisi kadar doğal."
+  },
+  {
+    "id": 799,
+    "lang": "tr",
+    "author": "Oğuz Atay",
+    "quote": "Kelimelerle aramız çok iyi değil, birbirimizi tam anlamıyoruz."
+  },
+  {
+    "id": 800,
+    "lang": "tr",
+    "author": "Yahya Kemal Beyatlı",
+    "quote": "Sana dün bir tepeden baktım aziz İstanbul."
   }
 ]
