@@ -98,7 +98,7 @@ export default function Home() {
   const { t } = useTranslation('common');
   const router = useRouter();
   const locale = router.locale || 'en';
-  const { getRandomQuote } = useQuotes();
+  const { getRandomQuoteByLang } = useQuotes();
   const [randomQuote, setRandomQuote] = useState<Quote | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -106,17 +106,30 @@ export default function Home() {
     setIsLoading(true);
     
     // Small delay effect
-    await new Promise(resolve => setTimeout(resolve, 300));
+    await new Promise(resolve => setTimeout(resolve, 500));
     
-    setRandomQuote(getRandomQuote());
-    setIsLoading(false);
+    try {
+      const response = await fetch(`/api/quotes/random?lang=${locale}`);
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch quote');
+      }
+      
+      const data = await response.json();
+      setRandomQuote(data);
+    } catch (error) {
+      console.error('Error fetching quote:', error);
+      setRandomQuote(getRandomQuoteByLang(locale));
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Load a quote automatically when the page loads
   useEffect(() => {
     // Get a quote when the page first loads
     refreshRandomQuote();
-  }, []); // Empty dependency array means it only runs once
+  }, [locale]); // re-run when locale changes
 
   // API features
   const apiFeatures = [
