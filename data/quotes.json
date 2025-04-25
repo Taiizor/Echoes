@@ -4318,5 +4318,485 @@
     "lang": "tr",
     "author": "Turgut Uyar",
     "quote": "Her yeni gün, yeni bir başlangıçtır."
+  },
+  {
+    "id": 701,
+    "lang": "en",
+    "author": "Mahatma Gandhi",
+    "quote": "Be the change that you wish to see in the world."
+  },
+  {
+    "id": 702,
+    "lang": "en",
+    "author": "Helen Keller",
+    "quote": "Alone we can do so little; together we can do so much."
+  },
+  {
+    "id": 703,
+    "lang": "fr",
+    "author": "Antoine de Saint-Exupéry",
+    "quote": "On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux."
+  },
+  {
+    "id": 704,
+    "lang": "es",
+    "author": "Gabriel García Márquez",
+    "quote": "La vida no es la que uno vivió, sino la que uno recuerda y cómo la recuerda para contarla."
+  },
+  {
+    "id": 705,
+    "lang": "de",
+    "author": "Johann Wolfgang von Goethe",
+    "quote": "Es ist nicht genug zu wissen, man muss auch anwenden; es ist nicht genug zu wollen, man muss auch tun."
+  },
+  {
+    "id": 706,
+    "lang": "it",
+    "author": "Leonardo da Vinci",
+    "quote": "Simplicity is the ultimate sophistication."
+  },
+  {
+    "id": 707,
+    "lang": "ru",
+    "author": "Lev Tolstoy",
+    "quote": "Все думают изменить мир, но никто не думает изменить себя."
+  },
+  {
+    "id": 708,
+    "lang": "zh",
+    "author": "Confucius",
+    "quote": "三人行，必有我师焉。"
+  },
+  {
+    "id": 709,
+    "lang": "ja",
+    "author": "Haruki Murakami",
+    "quote": "失うことを恐れていては、何も得られない。"
+  },
+  {
+    "id": 710,
+    "lang": "ar",
+    "author": "Naguib Mahfouz",
+    "quote": "الحياة لا تُقاس بعدد الأنفاس التي نأخذها، بل باللحظات التي تأخذ أنفاسنا."
+  },
+  {
+    "id": 711,
+    "lang": "pt",
+    "author": "Fernando Pessoa",
+    "quote": "Tudo vale a pena quando a alma não é pequena."
+  },
+  {
+    "id": 712,
+    "lang": "en",
+    "author": "Martin Luther King Jr.",
+    "quote": "Faith is taking the first step even when you don't see the whole staircase."
+  },
+  {
+    "id": 713,
+    "lang": "fr",
+    "author": "Victor Hugo",
+    "quote": "Il n’y a rien de plus puissant qu’une idée dont l’heure est venue."
+  },
+  {
+    "id": 714,
+    "lang": "es",
+    "author": "Pablo Neruda",
+    "quote": "Podrán cortar todas las flores, pero no podrán detener la primavera."
+  },
+  {
+    "id": 715,
+    "lang": "de",
+    "author": "Albert Schweitzer",
+    "quote": "Glück ist das einzige, das sich verdoppelt, wenn man es teilt."
+  },
+  {
+    "id": 716,
+    "lang": "it",
+    "author": "Dante Alighieri",
+    "quote": "Fatti non foste a viver come bruti, ma per seguir virtute e canoscenza."
+  },
+  {
+    "id": 717,
+    "lang": "ru",
+    "author": "Fyodor Dostoevsky",
+    "quote": "Красота спасет мир."
+  },
+  {
+    "id": 718,
+    "lang": "zh",
+    "author": "Laozi",
+    "quote": "千里之行，始于足下。"
+  },
+  {
+    "id": 719,
+    "lang": "ja",
+    "author": "Yukio Mishima",
+    "quote": "人間は、愛することによってのみ完全になる。"
+  },
+  {
+    "id": 720,
+    "lang": "ar",
+    "author": "Jalaluddin Rumi",
+    "quote": "أنت لست قطرة في المحيط، أنت المحيط كله في قطرة."
+  },
+  {
+    "id": 721,
+    "lang": "pt",
+    "author": "Clarice Lispector",
+    "quote": "Liberdade é pouco. O que eu desejo ainda não tem nome."
+  },
+  {
+    "id": 722,
+    "lang": "en",
+    "author": "Nelson Mandela",
+    "quote": "It always seems impossible until it's done."
+  },
+  {
+    "id": 723,
+    "lang": "fr",
+    "author": "Simone de Beauvoir",
+    "quote": "On ne naît pas femme: on le devient."
+  },
+  {
+    "id": 724,
+    "lang": "es",
+    "author": "Octavio Paz",
+    "quote": "La vida es una aventura hacia lo desconocido."
+  },
+  {
+    "id": 725,
+    "lang": "de",
+    "author": "Hermann Hesse",
+    "quote": "Jedem Anfang wohnt ein Zauber inne."
+  },
+  {
+    "id": 726,
+    "lang": "it",
+    "author": "Italo Calvino",
+    "quote": "Prendi la vita con leggerezza, che leggerezza non è superficialità."
+  },
+  {
+    "id": 727,
+    "lang": "ru",
+    "author": "Anton Chekhov",
+    "quote": "Человек — это то, во что он верит."
+  },
+  {
+    "id": 728,
+    "lang": "zh",
+    "author": "Sun Tzu",
+    "quote": "知彼知己，百战不殆。"
+  },
+  {
+    "id": 729,
+    "lang": "ja",
+    "author": "Kenzaburō Ōe",
+    "quote": "人生は一度きり。"
+  },
+  {
+    "id": 730,
+    "lang": "ar",
+    "author": "Gibran Khalil Gibran",
+    "quote": "من لا يعمل لا يخطئ."
+  },
+  {
+    "id": 731,
+    "lang": "pt",
+    "author": "José Saramago",
+    "quote": "O caos é uma ordem por decifrar."
+  },
+  {
+    "id": 732,
+    "lang": "en",
+    "author": "Winston Churchill",
+    "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts."
+  },
+  {
+    "id": 733,
+    "lang": "fr",
+    "author": "Albert Camus",
+    "quote": "Au milieu de l'hiver, j'ai découvert en moi un invincible été."
+  },
+  {
+    "id": 734,
+    "lang": "es",
+    "author": "Federico García Lorca",
+    "quote": "El más terrible de los sentimientos es el sentimiento de tener la esperanza perdida."
+  },
+  {
+    "id": 735,
+    "lang": "de",
+    "author": "Friedrich Nietzsche",
+    "quote": "Ohne Musik wäre das Leben ein Irrtum."
+  },
+  {
+    "id": 736,
+    "lang": "it",
+    "author": "Umberto Eco",
+    "quote": "Chi non legge, a settant’anni avrà vissuto una sola vita."
+  },
+  {
+    "id": 737,
+    "lang": "ru",
+    "author": "Boris Pasternak",
+    "quote": "Человек рожден для счастья, как птица для полета."
+  },
+  {
+    "id": 738,
+    "lang": "zh",
+    "author": "Mao Zedong",
+    "quote": "世上无难事，只怕有心人。"
+  },
+  {
+    "id": 739,
+    "lang": "ja",
+    "author": "Banana Yoshimoto",
+    "quote": "幸せは自分の心が決める。"
+  },
+  {
+    "id": 740,
+    "lang": "ar",
+    "author": "Nizar Qabbani",
+    "quote": "الحب هو أن أكتفي بك ولا أكتفي منك أبدًا."
+  },
+  {
+    "id": 741,
+    "lang": "pt",
+    "author": "Machado de Assis",
+    "quote": "A vida sem luta é um mar morto no centro do organismo universal."
+  },
+  {
+    "id": 742,
+    "lang": "en",
+    "author": "Jane Austen",
+    "quote": "There is no charm equal to tenderness of heart."
+  },
+  {
+    "id": 743,
+    "lang": "fr",
+    "author": "Jean-Paul Sartre",
+    "quote": "L’enfer, c’est les autres."
+  },
+  {
+    "id": 744,
+    "lang": "es",
+    "author": "Isabel Allende",
+    "quote": "La vida es corta, pero ancha."
+  },
+  {
+    "id": 745,
+    "lang": "de",
+    "author": "Bertolt Brecht",
+    "quote": "Wer kämpft, kann verlieren. Wer nicht kämpft, hat schon verloren."
+  },
+  {
+    "id": 746,
+    "lang": "it",
+    "author": "Primo Levi",
+    "quote": "Se comprendere è impossibile, conoscere è necessario."
+  },
+  {
+    "id": 747,
+    "lang": "ru",
+    "author": "Vladimir Nabokov",
+    "quote": "Чтение — это одиночество."
+  },
+  {
+    "id": 748,
+    "lang": "zh",
+    "author": "Mo Yan",
+    "quote": "生活中没有什么比梦想更重要。"
+  },
+  {
+    "id": 749,
+    "lang": "ja",
+    "author": "Kōbō Abe",
+    "quote": "人間は砂のように流れる。"
+  },
+  {
+    "id": 750,
+    "lang": "ar",
+    "author": "Tawfiq al-Hakim",
+    "quote": "العقل كالمظلة لا يعمل إلا إذا فتح."
+  },
+  {
+    "id": 751,
+    "lang": "en",
+    "author": "Eleanor Roosevelt",
+    "quote": "The future belongs to those who believe in the beauty of their dreams."
+  },
+  {
+    "id": 752,
+    "lang": "fr",
+    "author": "Marcel Proust",
+    "quote": "Le véritable voyage de découverte ne consiste pas à chercher de nouveaux paysages, mais à avoir de nouveaux yeux."
+  },
+  {
+    "id": 753,
+    "lang": "es",
+    "author": "Miguel de Cervantes",
+    "quote": "El que lee mucho y anda mucho, ve mucho y sabe mucho."
+  },
+  {
+    "id": 754,
+    "lang": "de",
+    "author": "Immanuel Kant",
+    "quote": "Habe Mut, dich deines eigenen Verstandes zu bedienen!"
+  },
+  {
+    "id": 755,
+    "lang": "it",
+    "author": "Giacomo Leopardi",
+    "quote": "La felicità è sempre uguale, la sventura ha mille forme."
+  },
+  {
+    "id": 756,
+    "lang": "ru",
+    "author": "Sergei Yesenin",
+    "quote": "Если крикнет рать святая: 'Кинь ты Русь, живи в раю!' Я скажу: 'Не надо рая, дайте родину мою.'"
+  },
+  {
+    "id": 757,
+    "lang": "zh",
+    "author": "Lu Xun",
+    "quote": "希望是附丽在存在上的，有存在，便有希望，有希望，便是光明。"
+  },
+  {
+    "id": 758,
+    "lang": "ja",
+    "author": "Soseki Natsume",
+    "quote": "人は人、吾は吾。"
+  },
+  {
+    "id": 759,
+    "lang": "ar",
+    "author": "Al-Mutanabbi",
+    "quote": "إذا غامَرْتَ في شَرَفٍ مَرُومِ فلا تَقنَعْ بما دونَ النّجومِ."
+  },
+  {
+    "id": 760,
+    "lang": "pt",
+    "author": "Paulo Coelho",
+    "quote": "Quando você quer alguma coisa, todo o universo conspira para que você realize o seu desejo."
+  },
+  {
+    "id": 761,
+    "lang": "en",
+    "author": "Stephen Hawking",
+    "quote": "Intelligence is the ability to adapt to change."
+  },
+  {
+    "id": 762,
+    "lang": "fr",
+    "author": "Charles de Gaulle",
+    "quote": "La difficulté attire l'homme de caractère, car c'est en l'étreignant qu'il se réalise lui-même."
+  },
+  {
+    "id": 763,
+    "lang": "es",
+    "author": "Jorge Luis Borges",
+    "quote": "Siempre imaginé que el Paraíso sería algún tipo de biblioteca."
+  },
+  {
+    "id": 764,
+    "lang": "de",
+    "author": "Rainer Maria Rilke",
+    "quote": "Die Zukunft betritt man nicht, man erschafft sie."
+  },
+  {
+    "id": 765,
+    "lang": "it",
+    "author": "Cesare Pavese",
+    "quote": "Verrà la morte e avrà i tuoi occhi."
+  },
+  {
+    "id": 766,
+    "lang": "ru",
+    "author": "Anna Akhmatova",
+    "quote": "Мне голос был. Он звал утешно."
+  },
+  {
+    "id": 767,
+    "lang": "zh",
+    "author": "Ba Jin",
+    "quote": "人活着是为了爱。"
+  },
+  {
+    "id": 768,
+    "lang": "ja",
+    "author": "Yasunari Kawabata",
+    "quote": "美しいものを美しいと思えるあなたの心が美しい。"
+  },
+  {
+    "id": 769,
+    "lang": "ar",
+    "author": "Nawal El Saadawi",
+    "quote": "الحرية أن تقول لا."
+  },
+  {
+    "id": 770,
+    "lang": "pt",
+    "author": "Chico Buarque",
+    "quote": "A saudade é o revés de um parto."
+  },
+  {
+    "id": 771,
+    "lang": "en",
+    "author": "Carl Sagan",
+    "quote": "Somewhere, something incredible is waiting to be known."
+  },
+  {
+    "id": 772,
+    "lang": "fr",
+    "author": "Paul Valéry",
+    "quote": "Le vent se lève!… il faut tenter de vivre!"
+  },
+  {
+    "id": 773,
+    "lang": "es",
+    "author": "Mario Vargas Llosa",
+    "quote": "La literatura es la mejor forma de la vida."
+  },
+  {
+    "id": 774,
+    "lang": "de",
+    "author": "Thomas Mann",
+    "quote": "Zeit ist ein Geschenk – vielleicht das größte."
+  },
+  {
+    "id": 775,
+    "lang": "it",
+    "author": "Alessandro Manzoni",
+    "quote": "Adelante con juicio."
+  },
+  {
+    "id": 776,
+    "lang": "ru",
+    "author": "Maxim Gorky",
+    "quote": "В человеке всё должно быть прекрасно."
+  },
+  {
+    "id": 777,
+    "lang": "zh",
+    "author": "Cao Xueqin",
+    "quote": "假作真时真亦假，无为有处有还无。"
+  },
+  {
+    "id": 778,
+    "lang": "ja",
+    "author": "Osamu Dazai",
+    "quote": "人間失格。"
+  },
+  {
+    "id": 779,
+    "lang": "ar",
+    "author": "Ghassan Kanafani",
+    "quote": "إن الإنسان قضية."
+  },
+  {
+    "id": 780,
+    "lang": "pt",
+    "author": "José de Alencar",
+    "quote": "O amor é a poesia dos sentidos."
   }
 ]
