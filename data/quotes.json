@@ -5398,5 +5398,605 @@
     "lang": "en",
     "author": "A. P. J. Abdul Kalam",
     "quote": "If you want to shine like a sun, first burn like a sun."
+  },
+  {
+    "id": 901,
+    "lang": "tr",
+    "author": "Mustafa Kemal Atatürk",
+    "quote": "Yurtta sulh, cihanda sulh."
+  },
+  {
+    "id": 902,
+    "lang": "fr",
+    "author": "Victor Hugo",
+    "quote": "La liberté commence où l’ignorance finit."
+  },
+  {
+    "id": 903,
+    "lang": "es",
+    "author": "Gabriel García Márquez",
+    "quote": "No llores porque se terminó, sonríe porque sucedió."
+  },
+  {
+    "id": 904,
+    "lang": "de",
+    "author": "Johann Wolfgang von Goethe",
+    "quote": "Es ist nicht genug zu wissen, man muss auch anwenden."
+  },
+  {
+    "id": 905,
+    "lang": "it",
+    "author": "Dante Alighieri",
+    "quote": "Fatti non foste a viver come bruti, ma per seguir virtute e canoscenza."
+  },
+  {
+    "id": 906,
+    "lang": "ru",
+    "author": "Lev Tolstoy",
+    "quote": "Vse dumayut izmenit' mir, no nikto ne dumayet izmenit' sebya."
+  },
+  {
+    "id": 907,
+    "lang": "zh",
+    "author": "Confucius",
+    "quote": "Xué ér bù sī zé wǎng, sī ér bù xué zé dài."
+  },
+  {
+    "id": 908,
+    "lang": "ar",
+    "author": "Jalaluddin Rumi",
+    "quote": "Ma tabhathu anhu yabhath anka."
+  },
+  {
+    "id": 909,
+    "lang": "pt",
+    "author": "Fernando Pessoa",
+    "quote": "Tudo vale a pena quando a alma não é pequena."
+  },
+  {
+    "id": 910,
+    "lang": "ja",
+    "author": "Haruki Murakami",
+    "quote": "Ushinau koto o osorete ite wa, nani mo erarenai."
+  },
+  {
+    "id": 911,
+    "lang": "tr",
+    "author": "Nazım Hikmet",
+    "quote": "Yaşamak bir ağaç gibi tek ve hür ve bir orman gibi kardeşçesine."
+  },
+  {
+    "id": 912,
+    "lang": "fr",
+    "author": "Simone de Beauvoir",
+    "quote": "On ne naît pas femme: on le devient."
+  },
+  {
+    "id": 913,
+    "lang": "es",
+    "author": "Pablo Neruda",
+    "quote": "Podrán cortar todas las flores, pero no podrán detener la primavera."
+  },
+  {
+    "id": 914,
+    "lang": "de",
+    "author": "Friedrich Nietzsche",
+    "quote": "Was mich nicht umbringt, macht mich stärker."
+  },
+  {
+    "id": 915,
+    "lang": "it",
+    "author": "Leonardo da Vinci",
+    "quote": "La sapienza è figliola dell'esperienza."
+  },
+  {
+    "id": 916,
+    "lang": "ru",
+    "author": "Fyodor Dostoevsky",
+    "quote": "Krasota spaset mir."
+  },
+  {
+    "id": 917,
+    "lang": "zh",
+    "author": "Laozi",
+    "quote": "Qiān lǐ zhī xíng, shǐ yú zú xià."
+  },
+  {
+    "id": 918,
+    "lang": "ar",
+    "author": "Naguib Mahfouz",
+    "quote": "Al-hayat la tuqas bi adad al-anfās allati na'khudhuhā, bal bil-lahazāt allati takhudh anfāsanā."
+  },
+  {
+    "id": 919,
+    "lang": "pt",
+    "author": "Clarice Lispector",
+    "quote": "Liberdade é pouco. O que eu desejo ainda não tem nome."
+  },
+  {
+    "id": 920,
+    "lang": "ja",
+    "author": "Yukio Mishima",
+    "quote": "Ningen wa, aisuru koto ni yotte nomi kanzen ni naru."
+  },
+  {
+    "id": 921,
+    "lang": "tr",
+    "author": "Yunus Emre",
+    "quote": "Sevelim, sevilelim; dünya kimseye kalmaz."
+  },
+  {
+    "id": 922,
+    "lang": "fr",
+    "author": "Albert Camus",
+    "quote": "Au milieu de l'hiver, j'ai découvert en moi un invincible été."
+  },
+  {
+    "id": 923,
+    "lang": "es",
+    "author": "Miguel de Cervantes",
+    "quote": "La libertad, Sancho, es uno de los más preciosos dones que a los hombres dieron los cielos."
+  },
+  {
+    "id": 924,
+    "lang": "de",
+    "author": "Bertolt Brecht",
+    "quote": "Wer kämpft, kann verlieren. Wer nicht kämpft, hat schon verloren."
+  },
+  {
+    "id": 925,
+    "lang": "it",
+    "author": "Umberto Eco",
+    "quote": "Chi non legge, a settant’anni avrà vissuto una sola vita."
+  },
+  {
+    "id": 926,
+    "lang": "ru",
+    "author": "Anton Chekhov",
+    "quote": "Kratkost' — sestra talanta."
+  },
+  {
+    "id": 927,
+    "lang": "zh",
+    "author": "Sunzi",
+    "quote": "Zhī jǐ zhī bǐ, bǎi zhàn bù dài."
+  },
+  {
+    "id": 928,
+    "lang": "ar",
+    "author": "Nizar Qabbani",
+    "quote": "Al-hubb huwa an aktafi bika wa la aktafi minka abadan."
+  },
+  {
+    "id": 929,
+    "lang": "pt",
+    "author": "Machado de Assis",
+    "quote": "A vida sem luta é um mar morto no centro do organismo universal."
+  },
+  {
+    "id": 930,
+    "lang": "ja",
+    "author": "Kenzaburō Ōe",
+    "quote": "Jinsei wa ichido kiri."
+  },
+  {
+    "id": 931,
+    "lang": "tr",
+    "author": "Mevlana",
+    "quote": "Ya olduğun gibi görün, ya göründüğün gibi ol."
+  },
+  {
+    "id": 932,
+    "lang": "fr",
+    "author": "Paul Valéry",
+    "quote": "Le vent se lève!… il faut tenter de vivre!"
+  },
+  {
+    "id": 933,
+    "lang": "es",
+    "author": "Isabel Allende",
+    "quote": "La vida es corta, pero ancha."
+  },
+  {
+    "id": 934,
+    "lang": "de",
+    "author": "Albert Schweitzer",
+    "quote": "Glück ist das einzige, das sich verdoppelt, wenn man es teilt."
+  },
+  {
+    "id": 935,
+    "lang": "it",
+    "author": "Primo Levi",
+    "quote": "Se comprendere è impossibile, conoscere è necessario."
+  },
+  {
+    "id": 936,
+    "lang": "ru",
+    "author": "Boris Pasternak",
+    "quote": "Chelovek rozhden dlya schast'ya, kak ptitsa dlya poleta."
+  },
+  {
+    "id": 937,
+    "lang": "zh",
+    "author": "Mao Zedong",
+    "quote": "Shì shàng wú nán shì, zhǐ pà yǒu xīn rén."
+  },
+  {
+    "id": 938,
+    "lang": "ar",
+    "author": "Ghassan Kanafani",
+    "quote": "Inna al-insan qadiyya."
+  },
+  {
+    "id": 939,
+    "lang": "pt",
+    "author": "José Saramago",
+    "quote": "O caos é uma ordem por decifrar."
+  },
+  {
+    "id": 940,
+    "lang": "ja",
+    "author": "Banana Yoshimoto",
+    "quote": "Shiawase wa jibun no kokoro ga kimeru."
+  },
+  {
+    "id": 941,
+    "lang": "tr",
+    "author": "Orhan Pamuk",
+    "quote": "Umut, insanı ayakta tutar."
+  },
+  {
+    "id": 942,
+    "lang": "fr",
+    "author": "Marcel Proust",
+    "quote": "Le véritable voyage de découverte ne consiste pas à chercher de nouveaux paysages, mais à avoir de nouveaux yeux."
+  },
+  {
+    "id": 943,
+    "lang": "es",
+    "author": "Octavio Paz",
+    "quote": "La vida es una aventura hacia lo desconocido."
+  },
+  {
+    "id": 944,
+    "lang": "de",
+    "author": "Thomas Mann",
+    "quote": "Zeit ist ein Geschenk – vielleicht das größte."
+  },
+  {
+    "id": 945,
+    "lang": "it",
+    "author": "Alessandro Manzoni",
+    "quote": "Adelante con juicio."
+  },
+  {
+    "id": 946,
+    "lang": "ru",
+    "author": "Anna Akhmatova",
+    "quote": "Mne golos byl. On zval uteshno."
+  },
+  {
+    "id": 947,
+    "lang": "zh",
+    "author": "Mo Yan",
+    "quote": "Shēnghuó zhōng méiyǒu shénme bǐ mèngxiǎng gèng zhòngyào."
+  },
+  {
+    "id": 948,
+    "lang": "ar",
+    "author": "Nawal El Saadawi",
+    "quote": "Al-hurriya an taqul la."
+  },
+  {
+    "id": 949,
+    "lang": "pt",
+    "author": "Chico Buarque",
+    "quote": "A saudade é o revés de um parto."
+  },
+  {
+    "id": 950,
+    "lang": "ja",
+    "author": "Osamu Dazai",
+    "quote": "Ningen shikkaku."
+  },
+  {
+    "id": 951,
+    "lang": "tr",
+    "author": "Cahit Sıtkı Tarancı",
+    "quote": "Memleket isterim, gök mavi, dal yeşil, tarla sarı olsun."
+  },
+  {
+    "id": 952,
+    "lang": "fr",
+    "author": "Jean-Paul Sartre",
+    "quote": "L’enfer, c’est les autres."
+  },
+  {
+    "id": 953,
+    "lang": "es",
+    "author": "Federico García Lorca",
+    "quote": "El más terrible de los sentimientos es el sentimiento de tener la esperanza perdida."
+  },
+  {
+    "id": 954,
+    "lang": "de",
+    "author": "Heinrich Heine",
+    "quote": "Wo man Bücher verbrennt, verbrennt man am Ende auch Menschen."
+  },
+  {
+    "id": 955,
+    "lang": "it",
+    "author": "Italo Calvino",
+    "quote": "Prendi la vita con leggerezza, che leggerezza non è superficialità."
+  },
+  {
+    "id": 956,
+    "lang": "ru",
+    "author": "Vladimir Nabokov",
+    "quote": "Chtenie — eto odinochestvo."
+  },
+  {
+    "id": 957,
+    "lang": "zh",
+    "author": "Lu Xun",
+    "quote": "Xīwàng shì fùlì zài cúnzài shàng de, yǒu cúnzài, biàn yǒu xīwàng, yǒu xīwàng, biàn shì guāngmíng."
+  },
+  {
+    "id": 958,
+    "lang": "ar",
+    "author": "Al-Mutanabbi",
+    "quote": "Iza ghamarta fi sharafin marumi fala taqna' bima doona al-nujumi."
+  },
+  {
+    "id": 959,
+    "lang": "pt",
+    "author": "Paulo Coelho",
+    "quote": "Quando você quer alguma coisa, todo o universo conspira para que você realize o seu desejo."
+  },
+  {
+    "id": 960,
+    "lang": "ja",
+    "author": "Soseki Natsume",
+    "quote": "Hito wa hito, ware wa ware."
+  },
+  {
+    "id": 961,
+    "lang": "tr",
+    "author": "Elif Şafak",
+    "quote": "İyilik, en çok kendine iyi gelir."
+  },
+  {
+    "id": 962,
+    "lang": "fr",
+    "author": "Charles de Gaulle",
+    "quote": "La difficulté attire l'homme de caractère, car c'est en l'étreignant qu'il se réalise lui-même."
+  },
+  {
+    "id": 963,
+    "lang": "es",
+    "author": "Mario Vargas Llosa",
+    "quote": "La literatura es la mejor forma de la vida."
+  },
+  {
+    "id": 964,
+    "lang": "de",
+    "author": "Immanuel Kant",
+    "quote": "Habe Mut, dich deines eigenen Verstandes zu bedienen!"
+  },
+  {
+    "id": 965,
+    "lang": "it",
+    "author": "Giacomo Leopardi",
+    "quote": "La felicità è sempre uguale, la sventura ha mille forme."
+  },
+  {
+    "id": 966,
+    "lang": "ru",
+    "author": "Sergei Yesenin",
+    "quote": "Esli kriknet rat' svyataya: 'Kin' ty Rus', zhivi v rayu!' Ya skazhu: 'Ne nado raya, dayte rodinu moyu.'"
+  },
+  {
+    "id": 967,
+    "lang": "zh",
+    "author": "Ba Jin",
+    "quote": "Rén huózhe shì wèile ài."
+  },
+  {
+    "id": 968,
+    "lang": "ar",
+    "author": "Tawfiq al-Hakim",
+    "quote": "Al-'aql kal-mizalla la ya'mal illa idha futiha."
+  },
+  {
+    "id": 969,
+    "lang": "pt",
+    "author": "José de Alencar",
+    "quote": "O amor é a poesia dos sentidos."
+  },
+  {
+    "id": 970,
+    "lang": "ja",
+    "author": "Yasunari Kawabata",
+    "quote": "Utsukushii mono o utsukushii to omoeru anata no kokoro ga utsukushii."
+  },
+  {
+    "id": 971,
+    "lang": "tr",
+    "author": "Can Yücel",
+    "quote": "Bir çiçeği büyütmek, bir insanı sevmekle başlar."
+  },
+  {
+    "id": 972,
+    "lang": "fr",
+    "author": "Édith Piaf",
+    "quote": "Je ne regrette rien."
+  },
+  {
+    "id": 973,
+    "lang": "es",
+    "author": "Antonio Machado",
+    "quote": "Caminante, no hay camino, se hace camino al andar."
+  },
+  {
+    "id": 974,
+    "lang": "de",
+    "author": "Rainer Maria Rilke",
+    "quote": "Die Zukunft betritt man nicht, man erschafft sie."
+  },
+  {
+    "id": 975,
+    "lang": "it",
+    "author": "Cesare Pavese",
+    "quote": "Verrà la morte e avrà i tuoi occhi."
+  },
+  {
+    "id": 976,
+    "lang": "ru",
+    "author": "Maxim Gorky",
+    "quote": "V cheloveke vsyo dolzhno byt' prekrasno."
+  },
+  {
+    "id": 977,
+    "lang": "zh",
+    "author": "Cao Xueqin",
+    "quote": "Jiǎ zuò zhēn shí zhēn yì jiǎ, wú wéi yǒu chù yǒu hái wú."
+  },
+  {
+    "id": 978,
+    "lang": "ar",
+    "author": "Ghibran Khalil Ghibran",
+    "quote": "Al-hayat bila hubb kashajara bila azhar."
+  },
+  {
+    "id": 979,
+    "lang": "pt",
+    "author": "Machado de Assis",
+    "quote": "A vida não é mais que um sonho que se desfaz."
+  },
+  {
+    "id": 980,
+    "lang": "ja",
+    "author": "Kōbō Abe",
+    "quote": "Ningen wa suna no yō ni nagareru."
+  },
+  {
+    "id": 981,
+    "lang": "tr",
+    "author": "Aşık Veysel",
+    "quote": "Dostlar beni hatırlasın."
+  },
+  {
+    "id": 982,
+    "lang": "fr",
+    "author": "Antoine de Saint-Exupéry",
+    "quote": "On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux."
+  },
+  {
+    "id": 983,
+    "lang": "es",
+    "author": "Jorge Luis Borges",
+    "quote": "Siempre imaginé que el Paraíso sería algún tipo de biblioteca."
+  },
+  {
+    "id": 984,
+    "lang": "de",
+    "author": "Albert Einstein",
+    "quote": "Phantasie ist wichtiger als Wissen, denn Wissen ist begrenzt."
+  },
+  {
+    "id": 985,
+    "lang": "it",
+    "author": "Andrea Camilleri",
+    "quote": "La vita non è una corsa, è un viaggio da assaporare passo dopo passo."
+  },
+  {
+    "id": 986,
+    "lang": "ru",
+    "author": "Boris Pasternak",
+    "quote": "Vremya ne zhdyot."
+  },
+  {
+    "id": 987,
+    "lang": "zh",
+    "author": "Wang Wei",
+    "quote": "Xíng dào shuǐ qióng chù, zuò kàn yún qǐ shí."
+  },
+  {
+    "id": 988,
+    "lang": "ar",
+    "author": "Jalaluddin Rumi",
+    "quote": "Anta lasta qatra fi al-muhit, anta al-muhit kulluhu fi qatra."
+  },
+  {
+    "id": 989,
+    "lang": "pt",
+    "author": "Fernando Pessoa",
+    "quote": "Põe quanto és no mínimo que fazes."
+  },
+  {
+    "id": 990,
+    "lang": "ja",
+    "author": "Miyazawa Kenji",
+    "quote": "Sekai ga zentai kōfuku ni naranai uchi wa kojin no kōfuku wa ari enai."
+  },
+  {
+    "id": 991,
+    "lang": "tr",
+    "author": "Orhan Veli Kanık",
+    "quote": "Bütün renkler aynı hızla kirleniyordu, birinciliği beyaza verdiler."
+  },
+  {
+    "id": 992,
+    "lang": "fr",
+    "author": "Victor Hugo",
+    "quote": "La musique exprime ce qui ne peut être dit et sur quoi il est impossible de rester silencieux."
+  },
+  {
+    "id": 993,
+    "lang": "es",
+    "author": "Gabriel García Márquez",
+    "quote": "La memoria del corazón elimina los malos recuerdos y magnifica los buenos."
+  },
+  {
+    "id": 994,
+    "lang": "de",
+    "author": "Johann Wolfgang von Goethe",
+    "quote": "Man weiss erst, was man hat, wenn man es verloren hat."
+  },
+  {
+    "id": 995,
+    "lang": "it",
+    "author": "Primo Levi",
+    "quote": "Se comprendere è impossibile, conoscere è necessario."
+  },
+  {
+    "id": 996,
+    "lang": "ru",
+    "author": "Lev Tolstoy",
+    "quote": "Vse schastlivye sem'i pokhozhi drug na druga, kazhdaya neschastlivaya sem'ya neschastliva po-svoyemu."
+  },
+  {
+    "id": 997,
+    "lang": "zh",
+    "author": "Zhuangzi",
+    "quote": "Zhì rén wú jǐ, shén rén wú gōng, shèng rén wú míng."
+  },
+  {
+    "id": 998,
+    "lang": "ar",
+    "author": "Mustafa Lutfi al-Manfaluti",
+    "quote": "Al-sa'ada laysat fi al-māl, innama hiya fi al-qalb."
+  },
+  {
+    "id": 999,
+    "lang": "pt",
+    "author": "Machado de Assis",
+    "quote": "A vida é uma peça de teatro que não permite ensaios."
+  },
+  {
+    "id": 1000,
+    "lang": "ja",
+    "author": "Natsume Soseki",
+    "quote": "Ware wa neko de aru. Namae wa mada nai."
   }
 ]
