@@ -26,8 +26,8 @@
     "@types/node": "^22.15.2",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
-    "eslint": "^9.26.0",
-    "eslint-config-next": "15.3.1",
-    "typescript": "^5.2.2"
+    "eslint": "^9.32.0",
+    "eslint-config-next": "15.4.5",
+    "typescript": "^5.9.2"
   }
 }
