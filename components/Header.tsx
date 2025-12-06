@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = () => {
   const [scrolled, setScrolled] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
   const [showLanguageError, setShowLanguageError] = useState(false);
-  
+
   // Check for saved language preference on initial load
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language');
@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = () => {
       }
     }
   }, []);
-  
+
   // For style changes in navbar when page is scrolled
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = () => {
         setScrolled(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -72,13 +72,13 @@ const Header: React.FC<HeaderProps> = () => {
       return () => clearTimeout(timer);
     }
   }, [showLanguageError]);
-  
+
   // Helper function to determine the actual theme value
   const getActualTheme = () => {
     // resolvedTheme is priority, then theme, if neither exists use 'dark'
     return resolvedTheme || theme || 'dark';
   };
-  
+
   const toggleTheme = () => {
     const actualTheme = getActualTheme();
     setTheme(actualTheme === 'dark' ? 'light' : 'dark');
@@ -87,7 +87,7 @@ const Header: React.FC<HeaderProps> = () => {
   const changeLanguage = (locale: string) => {
     // Check if the selected language is enabled
     const selectedLang = supportedLanguages.find(lang => lang.code === locale);
-    
+
     if (selectedLang && selectedLang.enabled) {
       try {
         localStorage.setItem('language', locale);
@@ -118,13 +118,13 @@ const Header: React.FC<HeaderProps> = () => {
 
   // Animation variants
   const mobileMenuVariants = {
-    closed: { opacity: 0, height: 0, transition: { duration: 0.3, ease: "easeInOut" } },
-    open: { opacity: 1, height: "auto", transition: { duration: 0.3, ease: "easeInOut" } }
+    closed: { opacity: 0, height: 0, transition: { duration: 0.3, ease: "easeInOut" as const } },
+    open: { opacity: 1, height: "auto", transition: { duration: 0.3, ease: "easeInOut" as const } }
   };
 
   const dropdownVariants = {
     hidden: { opacity: 0, y: -5, scale: 0.95 },
-    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.2, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.2, ease: "easeOut" as const } }
   };
 
   const notificationVariants = {
@@ -134,12 +134,11 @@ const Header: React.FC<HeaderProps> = () => {
   };
 
   return (
-    <header 
-      className={`sticky top-0 z-20 w-full transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/90 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg shadow-gray-200/20 dark:shadow-black/10' 
+    <header
+      className={`sticky top-0 z-20 w-full transition-all duration-300 ${scrolled
+          ? 'bg-white/90 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg shadow-gray-200/20 dark:shadow-black/10'
           : 'bg-white/60 dark:bg-gray-900/80 backdrop-blur-md'
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
@@ -150,32 +149,30 @@ const Header: React.FC<HeaderProps> = () => {
             </span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-primary-400 group-hover:w-full transition-all duration-500"></span>
           </Link>
-          
+
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-2">
             {navLinks.map((link) => (
-              <Link 
+              <Link
                 key={link.href}
-                href={link.href} 
-                className={`px-4 py-2 rounded-lg transition-all duration-200 text-lg relative group overflow-hidden ${
-                  router.pathname === link.href
+                href={link.href}
+                className={`px-4 py-2 rounded-lg transition-all duration-200 text-lg relative group overflow-hidden ${router.pathname === link.href
                     ? 'text-primary-600 dark:text-primary-400 font-medium'
                     : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
-                }`}
+                  }`}
               >
                 {link.label}
-                <span className={`absolute bottom-0 left-0 w-full h-0.5 transform scale-x-0 transition-transform duration-300 origin-left ${
-                  router.pathname === link.href 
+                <span className={`absolute bottom-0 left-0 w-full h-0.5 transform scale-x-0 transition-transform duration-300 origin-left ${router.pathname === link.href
                     ? 'bg-primary-500 dark:bg-primary-400 scale-x-100'
                     : 'bg-primary-500/70 dark:bg-primary-400/70 group-hover:scale-x-100'
-                }`}></span>
+                  }`}></span>
               </Link>
             ))}
-            
+
             {/* Language Selector Dropdown */}
             <div className="relative ml-2" data-language-menu>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="inline-flex items-center justify-center px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 rounded-lg hover:bg-gray-100/80 dark:hover:bg-gray-800/60 transition-all duration-200"
                 onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
                 aria-expanded={languageMenuOpen}
@@ -191,7 +188,7 @@ const Header: React.FC<HeaderProps> = () => {
               {/* Language Selection Menu */}
               <AnimatePresence>
                 {languageMenuOpen && (
-                  <motion.div 
+                  <motion.div
                     initial="hidden"
                     animate="visible"
                     exit="hidden"
@@ -203,13 +200,12 @@ const Header: React.FC<HeaderProps> = () => {
                         <button
                           key={language.code}
                           onClick={() => changeLanguage(language.code)}
-                          className={`w-full text-left px-4 py-2.5 text-sm flex items-center justify-between transition-colors duration-200 ${
-                            router.locale === language.code 
+                          className={`w-full text-left px-4 py-2.5 text-sm flex items-center justify-between transition-colors duration-200 ${router.locale === language.code
                               ? 'bg-primary-50/80 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400'
-                              : language.enabled 
+                              : language.enabled
                                 ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50'
                                 : 'text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                          }`}
+                            }`}
                           role="menuitem"
                           disabled={!language.enabled}
                         >
@@ -235,7 +231,7 @@ const Header: React.FC<HeaderProps> = () => {
               {/* Language error notification */}
               <AnimatePresence>
                 {showLanguageError && (
-                  <motion.div 
+                  <motion.div
                     initial="hidden"
                     animate="visible"
                     exit="exit"
@@ -248,10 +244,10 @@ const Header: React.FC<HeaderProps> = () => {
                 )}
               </AnimatePresence>
             </div>
-            
+
             {/* Theme Switcher */}
-            <button 
-              onClick={toggleTheme} 
+            <button
+              onClick={toggleTheme}
               className="ml-1 p-2.5 rounded-full text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/80 dark:hover:bg-gray-800/60 transition-all duration-300"
               aria-label="Toggle theme"
             >
@@ -275,12 +271,12 @@ const Header: React.FC<HeaderProps> = () => {
                 )}
               </ClientOnly>
             </button>
-            
+
             {/* GitHub Link */}
-            <a 
-              href="https://github.com/Taiizor/Echoes" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://github.com/Taiizor/Echoes"
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-1 p-2.5 rounded-full text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/80 dark:hover:bg-gray-800/60 transition-all duration-200 group"
               aria-label="GitHub"
             >
@@ -289,7 +285,7 @@ const Header: React.FC<HeaderProps> = () => {
               </ClientOnly>
             </a>
           </nav>
-          
+
           {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2.5 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-gray-800/60 transition-colors"
@@ -324,7 +320,7 @@ const Header: React.FC<HeaderProps> = () => {
           </button>
         </div>
       </div>
-      
+
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
@@ -343,21 +339,20 @@ const Header: React.FC<HeaderProps> = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, delay: index * 0.05 }}
                 >
-                  <Link 
-                    href={link.href} 
-                    className={`block px-4 py-3 rounded-xl transition-colors ${
-                      router.pathname === link.href
+                  <Link
+                    href={link.href}
+                    className={`block px-4 py-3 rounded-xl transition-colors ${router.pathname === link.href
                         ? 'bg-primary-50/80 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 font-medium shadow-sm'
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50/80 dark:hover:bg-gray-800/50'
-                    }`}
+                      }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2, delay: navLinks.length * 0.05 }}
@@ -383,13 +378,12 @@ const Header: React.FC<HeaderProps> = () => {
                               setShowLanguageError(true);
                             }
                           }}
-                          className={`flex items-center justify-between w-full px-4 py-3 rounded-xl transition-colors ${
-                            router.locale === language.code 
+                          className={`flex items-center justify-between w-full px-4 py-3 rounded-xl transition-colors ${router.locale === language.code
                               ? 'bg-primary-50/80 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 font-medium shadow-sm'
                               : language.enabled
                                 ? 'bg-gray-50/80 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 hover:bg-gray-100/60 dark:hover:bg-gray-700/40'
                                 : 'bg-gray-50/50 dark:bg-gray-800/30 text-gray-400 dark:text-gray-500 opacity-70'
-                          }`}
+                            }`}
                           disabled={!language.enabled}
                         >
                           <span className="flex items-center">
@@ -412,7 +406,7 @@ const Header: React.FC<HeaderProps> = () => {
                   {/* Mobile language error notification */}
                   <AnimatePresence>
                     {showLanguageError && (
-                      <motion.div 
+                      <motion.div
                         initial="hidden"
                         animate="visible"
                         exit="exit"
@@ -425,18 +419,18 @@ const Header: React.FC<HeaderProps> = () => {
                     )}
                   </AnimatePresence>
                 </div>
-                
+
                 {/* Theme Switcher */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, delay: (navLinks.length + supportedLanguages.length) * 0.05 }}
                 >
-                  <button 
+                  <button
                     onClick={() => {
                       toggleTheme();
                       setMobileMenuOpen(false);
-                    }} 
+                    }}
                     className="w-full px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-50/80 dark:hover:bg-gray-800/50 flex items-center justify-between bg-gray-50/80 dark:bg-gray-800/50 transition-all"
                   >
                     <ClientOnly>
@@ -466,10 +460,10 @@ const Header: React.FC<HeaderProps> = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, delay: (navLinks.length + supportedLanguages.length + 1) * 0.05 }}
                 >
-                  <a 
-                    href="https://github.com/Taiizor/Echoes" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href="https://github.com/Taiizor/Echoes"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-50/80 dark:hover:bg-gray-800/50 flex items-center bg-gray-50/80 dark:bg-gray-800/50 group transition-all"
                     onClick={() => setMobileMenuOpen(false)}
                   >

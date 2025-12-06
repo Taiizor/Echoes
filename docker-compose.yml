@@ -14,7 +14,7 @@ services:
       - "4578:4578"
     environment:
       - NODE_ENV=development
-    command: npm run dev
+    command: bun run dev
 
   # Production environment
   prod:
@@ -26,4 +26,4 @@ services:
       - "4578:4578"
     environment:
       - NODE_ENV=production
-    command: npm run start 
+    command: bun run start

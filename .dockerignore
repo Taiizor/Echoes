@@ -1,0 +1,50 @@
+# Dependencies
+node_modules
+
+# Build output
+.next
+out
+dist
+
+# Lock files (we generate fresh ones in Docker)
+bun.lock
+bun.lockb
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation & assets (optional - remove if needed in build)
+.images
+.screenshots
+README.md
+CODE_OF_CONDUCT.md
+LICENSE
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local

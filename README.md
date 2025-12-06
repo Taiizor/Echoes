@@ -36,8 +36,7 @@ The application is built with modern web technologies:
 
 ### Prerequisites
 
-- Node.js 14.x or higher
-- npm or yarn
+- [Bun](https://bun.sh/) 1.0 or higher
 
 ### Installation
 
@@ -49,14 +48,10 @@ git clone https://github.com/Taiizor/Echoes.git
 cd Echoes
 
 # Install dependencies
-npm install
-# or
-yarn install
+bun install
 
 # Start the development server
-npm run dev
-# or
-yarn dev
+bun run dev
 ```
 
 You can access the application at `http://localhost:3000`.
@@ -126,6 +121,7 @@ Contributions are welcome and appreciated! Here's how you can contribute:
 6. Open a Pull Request
 
 Types of contributions:
+
 - Improving or adding translations
 - Adding new quotes to the database
 - Fixing bugs or improving performance

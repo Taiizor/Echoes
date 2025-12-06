@@ -9,6 +9,7 @@ dist
 # Node dependencies
 node_modules
 bun.lock
+pnpm-lock.yaml
 package-lock.json
 
 # Logs
