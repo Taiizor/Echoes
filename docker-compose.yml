@@ -1,29 +1,49 @@
 version: '3.8'
 
 services:
-  # Development environment
-  dev:
+  # Production Service
+  app:
+    container_name: echoes
     build:
       context: .
-      target: development
-    volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
-    ports:
-      - "4578:4578"
-    environment:
-      - NODE_ENV=development
-    command: bun run dev
-
-  # Production environment
-  prod:
-    build:
-      context: .
-      target: production
-    restart: always
+      dockerfile: Dockerfile
     ports:
       - "4578:4578"
     environment:
       - NODE_ENV=production
-    command: bun run start
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: unless-stopped
+    networks:
+      - echoes-network
+    healthcheck:
+      test: [ "CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4578/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Nginx Reverse Proxy (optional - for production with SSL)
+  nginx:
+    image: nginx:alpine
+    container_name: echoes-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - app
+    networks:
+      - echoes-network
+    profiles:
+      - with-nginx
+    restart: unless-stopped
+
+networks:
+  echoes-network:
+    driver: bridge
+
+volumes:
+  node_modules:
+  next_cache:

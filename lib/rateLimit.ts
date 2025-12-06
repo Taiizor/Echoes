@@ -1,7 +1,7 @@
 /**
  * Redis-based rate limiting solution
  * Note: To use this solution, you need to install the following packages first:
- * npm install @upstash/redis @upstash/ratelimit
+ * bun add @upstash/redis @upstash/ratelimit
  */
 
 // Packages to import:
@@ -58,7 +58,7 @@ export function getIP(request: NextRequest): string {
  */
 export async function rateLimitCheck(request: NextRequest) {
   const ip = getIP(request)
-  
+
   // Description for in-memory solution - Reference for Redis solution
   /*
   // Check whitelist IPs
@@ -87,7 +87,7 @@ export async function rateLimitCheck(request: NextRequest) {
     )
   }
   */
-  
+
   return undefined // Currently using in-memory solution
 }
 
@@ -95,7 +95,7 @@ export async function rateLimitCheck(request: NextRequest) {
  * How to implement rate limiting with Redis?
  * 
  * 1. Install @upstash/redis and @upstash/ratelimit packages:
- *    npm install @upstash/redis @upstash/ratelimit
+ *    bun add @upstash/redis @upstash/ratelimit
  * 
  * 2. Add your Upstash Redis information to your environment variables:
  *    UPSTASH_REDIS_REST_URL=https://xxx.upstash.io

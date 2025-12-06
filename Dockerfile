@@ -1,35 +1,49 @@
-FROM oven/bun:1-alpine AS base
-
-# Set working directory
+# Stage 1: Dependencies
+FROM oven/bun:1-alpine AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Install dependencies
-FROM base AS deps
-COPY package.json bun.lock* ./
-RUN bun install
+# Copy package files
+COPY package.json bun.lockb* ./
+RUN bun install --frozen-lockfile
 
-# Development environment
-FROM base AS development
+# Stage 2: Builder
+FROM oven/bun:1-alpine AS builder
+WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-EXPOSE 4578
-CMD ["bun", "run", "dev"]
+
+# Set environment variables for build
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
 
 # Build the application
-FROM base AS builder
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
 RUN bun run build
 
-# Production environment
-FROM base AS production
+# Stage 3: Runner
+FROM node:20-alpine AS runner
+WORKDIR /app
+
 ENV NODE_ENV=production
-COPY --from=deps /app/node_modules ./node_modules
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Create non-root user
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copy built application
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY package.json next.config.js next-i18next.config.js ./
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 
+# Set user
+USER nextjs
+
+# Expose port
 EXPOSE 4578
-ENV PORT=4578
 
-CMD ["bun", "run", "start"]
+ENV PORT=4578
+ENV HOSTNAME="0.0.0.0"
+
+# Start the server
+CMD ["node", "server.js"]

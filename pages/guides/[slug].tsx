@@ -4,14 +4,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { 
-  FiArrowLeft, 
-  FiServer, 
-  FiFilter, 
-  FiCode, 
-  FiCodesandbox, 
-  FiGlobe, 
-  FiCpu, 
+import {
+  FiArrowLeft,
+  FiServer,
+  FiFilter,
+  FiCode,
+  FiCodesandbox,
+  FiGlobe,
+  FiCpu,
   FiUsers,
   FiChevronRight,
 } from 'react-icons/fi';
@@ -38,17 +38,17 @@ const GuideDetail = ({ slug }: { slug: string }) => {
   const router = useRouter();
   const locale = router.locale || 'en';
   const { t, i18n } = useTranslation('common');
-  
+
   // Create guide data according to language
   const getGuideDataForLocale = () => {
     const currentLocale = i18n.language;
     const guideData = guides[slug][currentLocale] || guides[slug]['en']; // Fallback to English if language not available
-    
+
     // If content is in a language other than the current one, try to translate title and description
     if (!guides[slug][currentLocale] && guides[slug]['en']) {
       // If there are translation keys for this guide, use them
       const translationKeys = getTranslationKeysForGuide(slug);
-      
+
       if (translationKeys) {
         return {
           ...guideData,
@@ -57,10 +57,10 @@ const GuideDetail = ({ slug }: { slug: string }) => {
         };
       }
     }
-    
+
     return guideData;
   };
-  
+
   // Get translation keys for guide
   const getTranslationKeysForGuide = (slug: string) => {
     const translationMap: Record<string, { title: string, description: string }> = {
@@ -93,10 +93,10 @@ const GuideDetail = ({ slug }: { slug: string }) => {
         description: 'guides.community.description'
       }
     };
-    
+
     return translationMap[slug] || null;
   };
-  
+
   // If not ready yet or guide not found
   if (router.isFallback || !guides[slug]) {
     return (
@@ -115,16 +115,16 @@ const GuideDetail = ({ slug }: { slug: string }) => {
       </div>
     );
   }
-  
+
   const guide = getGuideDataForLocale();
-  
+
   // Level tag color classes
   const levelColorClasses = {
     [t('guides.levels.beginner')]: 'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-400',
     [t('guides.levels.intermediate')]: 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-400',
     [t('guides.levels.advanced')]: 'bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-400'
   };
-  
+
   // Translate level names
   const getTranslatedLevel = (level: string) => {
     const levelMap: Record<string, string> = {
@@ -132,10 +132,10 @@ const GuideDetail = ({ slug }: { slug: string }) => {
       'Intermediate': t('guides.levels.intermediate'),
       'Advanced': t('guides.levels.advanced')
     };
-    
+
     return levelMap[level] || level;
   };
-  
+
   // Translate tags
   const getTranslatedTag = (tag: string) => {
     // Example API tag mapping
@@ -151,20 +151,20 @@ const GuideDetail = ({ slug }: { slug: string }) => {
       'Community': t('guides.tags.community'),
       'Contribution': t('guides.tags.contribution')
     };
-    
+
     return tagMap[tag] || tag;
   };
-  
+
   // Related guides
   const relatedGuideContent = guide.relatedGuides
     .map(relatedSlug => {
       if (guides[relatedSlug]) {
         const relatedGuideData = guides[relatedSlug][i18n.language] || guides[relatedSlug]['en'];
-        
+
         // If content is in a language other than the current one, try to translate title and description
         if (!guides[relatedSlug][i18n.language] && guides[relatedSlug]['en']) {
           const translationKeys = getTranslationKeysForGuide(relatedSlug);
-          
+
           if (translationKeys) {
             return {
               ...relatedGuideData,
@@ -173,60 +173,60 @@ const GuideDetail = ({ slug }: { slug: string }) => {
             };
           }
         }
-        
+
         return relatedGuideData;
       }
       return null;
     })
     .filter((guide): guide is GuideContent => Boolean(guide)); // Type guard to inform TypeScript it's not null
-  
+
   // Convert markdown content to HTML
   // Note: A markdown parser should be used in a real project
   const createContentFromMarkdown = (markdownContent: string) => {
     // This is a simple example. Use a library like 'react-markdown' in a real project
-    
+
     // First replace code blocks with temporary markers
     let processedContent = markdownContent;
     const codeBlocks: string[] = [];
     const codeBlockRegex = /```([\s\S]*?)```/g;
-    
+
     processedContent = processedContent.replace(codeBlockRegex, (match) => {
       const placeholder = `__CODE_BLOCK_${codeBlocks.length}__`;
       codeBlocks.push(match);
       return placeholder;
     });
-    
+
     // Now process headings, subheadings, and paragraphs
     let contentWithHeadings = processedContent.replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">$1</h1>');
     let contentWithSubHeadings = contentWithHeadings.replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mt-6 mb-3 text-gray-800 dark:text-gray-200">$1</h2>');
     contentWithSubHeadings = contentWithSubHeadings.replace(/^### (.*$)/gm, '<h3 class="text-xl font-bold mt-4 mb-2 text-gray-800 dark:text-gray-200">$1</h3>');
-    
+
     // Process lines that don't start with # and aren't placeholders as paragraphs
     let contentWithParagraphs = contentWithSubHeadings.replace(/^(?!(#|__CODE_BLOCK_))(.+)/gm, '<p class="my-4 text-gray-700 dark:text-gray-300">$2</p>');
-    
+
     // Add list items
     contentWithParagraphs = contentWithParagraphs.replace(/^- (.*$)/gm, '<li class="ml-6 mb-2 text-gray-700 dark:text-gray-300">• $1</li>');
-    
+
     // Process links
     contentWithParagraphs = contentWithParagraphs.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-primary-600 dark:text-primary-400 hover:underline">$1</a>');
-    
+
     // Now process code blocks and replace placeholders with actual HTML
     let finalContent = contentWithParagraphs;
-    
+
     // For creating unique IDs
     let codeBlockCounter = 0;
-    
+
     for (let i = 0; i < codeBlocks.length; i++) {
       const placeholder = `__CODE_BLOCK_${i}__`;
       const codeBlock = codeBlocks[i];
       const match = codeBlock.match(/```([\s\S]*?)```/);
-      
+
       if (match) {
         const codeContent = match[1];
         const languageLine = codeContent.split('\n')[0].trim();
         const actualCode = codeContent.split('\n').slice(1).join('\n');
         const blockId = `code-block-${codeBlockCounter++}`;
-        
+
         // Prepare for safe HTML and syntax highlighting
         const escapedCode = actualCode
           .replace(/&/g, '&amp;')
@@ -234,7 +234,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
           .replace(/>/g, '&gt;')
           .replace(/"/g, '&quot;')
           .replace(/'/g, '&#039;');
-          
+
         // Programming language classes
         const languageClasses = {
           'JavaScript': 'text-yellow-500',
@@ -245,9 +245,9 @@ const GuideDetail = ({ slug }: { slug: string }) => {
           'Bash': 'text-gray-200',
           'SH': 'text-gray-200'
         };
-        
+
         const languageClass = languageClasses[languageLine as keyof typeof languageClasses] || 'text-gray-300';
-        
+
         const htmlCodeBlock = `
           <div class="my-8 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/90 shadow-sm">
             <div class="flex items-center justify-between px-4 py-2 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
@@ -302,14 +302,14 @@ const GuideDetail = ({ slug }: { slug: string }) => {
             </div>
           </div>
         `;
-        
+
         finalContent = finalContent.replace(placeholder, htmlCodeBlock);
       }
     }
-    
+
     return finalContent;
   };
-  
+
   return (
     <>
       <Head>
@@ -326,14 +326,14 @@ const GuideDetail = ({ slug }: { slug: string }) => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <Link 
-                href="/guides" 
+              <Link
+                href="/guides"
                 className="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 <FiArrowLeft className="mr-2" />
                 <span>{t('guides.backToGuides')}</span>
               </Link>
-              
+
               <div className="hidden md:flex items-center text-sm">
                 <span className="px-2 text-gray-500 dark:text-gray-400">/</span>
                 <span className="text-gray-900 dark:text-white font-medium truncate max-w-[200px]">
@@ -344,11 +344,11 @@ const GuideDetail = ({ slug }: { slug: string }) => {
           </div>
         </div>
       </div>
-      
+
       <div className="bg-gray-50 dark:bg-gray-900 py-8">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            
+
             {/* Guide Title */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 mb-8">
               <div className="p-6 md:p-8">
@@ -362,18 +362,18 @@ const GuideDetail = ({ slug }: { slug: string }) => {
                     </span>
                   </div>
                 </div>
-                
+
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                   {guide.title}
                 </h1>
-                
+
                 <p className="text-lg text-gray-600 dark:text-gray-300">
                   {guide.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2 mt-4">
                   {guide.tags.map(tag => (
-                    <span 
+                    <span
                       key={tag}
                       className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-sm rounded-md"
                     >
@@ -383,17 +383,17 @@ const GuideDetail = ({ slug }: { slug: string }) => {
                 </div>
               </div>
             </div>
-            
+
             {/* Guide Content */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 mb-8">
               <div className="p-6 md:p-8">
-                <div 
-                  className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-primary-600 dark:prose-a:text-primary-400" 
+                <div
+                  className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-primary-600 dark:prose-a:text-primary-400"
                   dangerouslySetInnerHTML={{ __html: createContentFromMarkdown(guide.content) }}
                 />
               </div>
             </div>
-            
+
             {/* Related Guides */}
             {relatedGuideContent.length > 0 && (
               <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700">
@@ -401,13 +401,13 @@ const GuideDetail = ({ slug }: { slug: string }) => {
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                     {t('guides.relatedGuides')}
                   </h2>
-                  
+
                   <div className="space-y-4">
                     {relatedGuideContent.map((relatedGuide, index) => {
                       // Get the slug of the related guide from the current linked guides
                       // Return empty string if index is out of bounds or guide not found
                       const relatedSlug = index < guide.relatedGuides.length ? guide.relatedGuides[index] : '';
-                      
+
                       return (
                         <Link
                           key={index}
@@ -1145,7 +1145,7 @@ export default QuotesContainer;
 To support displaying quotes in multiple languages with proper translations for UI elements, you can use libraries like <strong>react-i18next</strong>. Here's a basic setup:
 
 \`\`\`Bash
-npm install react-i18next i18next
+bun add react-i18next i18next
 \`\`\`
 
 \`\`\`JavaScript
@@ -1807,7 +1807,7 @@ For applications that need to translate more than just quotes, consider implemen
 
 \`\`\`JavaScript
 // Install i18next
-// npm install i18next react-i18next i18next-http-backend
+// bun add i18next react-i18next i18next-http-backend
 
 // Create translation files in public/locales/[language]/translation.json
 // Then implement in your app:
@@ -2832,10 +2832,10 @@ git clone https://github.com/Taiizor/Echoes
 cd Echoes
 
 # Install dependencies
-npm install
+bun install
 
 # Start the development server
-npm run dev
+bun run dev
 \`\`\`
 
 ### Pull Request Process
@@ -2895,21 +2895,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
   const slug = params?.slug as string;
-  
+
   // If guide is not found, redirect to 404 page
   if (!guides[slug]) {
     return {
       notFound: true
     };
   }
-  
+
   // By default, we only offer guides in English
   if (!guides[slug]['en']) {
     return {
       notFound: true
     };
   }
-  
+
   return {
     props: {
       ...(await serverSideTranslations(locale || 'en', ['common'])),
