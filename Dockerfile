@@ -35,6 +35,8 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/next-i18next.config.js ./
+COPY --from=builder /app/next.config.js ./
 
 # Set user
 USER nextjs
