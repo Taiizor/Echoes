@@ -21,7 +21,7 @@ ENV NODE_ENV=production
 RUN bun run build
 
 # Stage 3: Runner
-FROM node:25-alpine AS runner
+FROM node:26-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
