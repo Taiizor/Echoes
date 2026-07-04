@@ -318,7 +318,7 @@ const GuideDetail = ({ slug }: { slug: string }) => {
         <meta name="language" content={t(`language.${locale}`)} />
         <meta name="og:description" content={guide.description} />
         <meta name="twitter:description" content={guide.description} />
-        <title>{guide.title} - {t('guides.title')} | {t('app.title')}</title>
+        <title>{`${guide.title} - ${t('guides.title')} | ${t('app.title')}`}</title>
       </Head>
 
       {/* Top Navigation Bar */}

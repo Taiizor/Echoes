@@ -83,7 +83,7 @@ export default function AboutPage() {
   return (
     <>
       <Head>
-        <title>{t('about.title')} | {t('app.title')}</title>
+        <title>{`${t('about.title')} | ${t('app.title')}`}</title>
         <meta name="keywords" content={t('about.keywords')} />
         <meta name="language" content={t(`language.${locale}`)} />
         <meta name="description" content={t('about.description')} />

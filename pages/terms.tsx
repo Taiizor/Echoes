@@ -58,7 +58,7 @@ export default function TermsPage() {
   return (
     <>
       <Head>
-        <title>{t('terms.title')} | {t('app.title')}</title>
+        <title>{`${t('terms.title')} | ${t('app.title')}`}</title>
         <meta name="keywords" content={t('terms.keywords')} />
         <meta name="language" content={t(`language.${locale}`)} />
         <meta name="description" content={t('terms.description')} />

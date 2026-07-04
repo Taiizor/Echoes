@@ -194,7 +194,7 @@ ${ex.code}`).join('\n\n');
     <>
       <Head>
         <meta name="keywords" content={t('docs.keywords')} />
-        <title>{t('docs.pageTitle')} | {t('app.title')}</title>
+        <title>{`${t('docs.pageTitle')} | ${t('app.title')}`}</title>
         <meta name="language" content={t(`language.${locale}`)} />
         <meta name="description" content={t('docs.pageDescription')} />
         <meta name="og:description" content={t('docs.pageDescription')} />

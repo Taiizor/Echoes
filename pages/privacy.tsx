@@ -58,7 +58,7 @@ export default function PrivacyPage() {
   return (
     <>
       <Head>
-        <title>{t('privacy.title')} | {t('app.title')}</title>
+        <title>{`${t('privacy.title')} | ${t('app.title')}`}</title>
         <meta name="keywords" content={t('privacy.keywords')} />
         <meta name="language" content={t(`language.${locale}`)} />
         <meta name="description" content={t('privacy.description')} />
