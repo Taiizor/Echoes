@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'next-i18next/pages';
 import { FiGithub, FiHeart, FiTwitter, FiLinkedin } from 'react-icons/fi';
 import ClientOnly from './ui/ClientOnly';
 

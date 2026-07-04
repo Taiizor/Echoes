@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/pages/serverSideTranslations';
+import { useTranslation } from 'next-i18next/pages';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { FiRefreshCw, FiExternalLink, FiCode, FiArrowRight, FiCheckCircle, FiGithub, FiBookOpen, FiCopy, FiCheck } from 'react-icons/fi';

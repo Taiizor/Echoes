@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app';
 import Layout from '@/components/Layout';
 import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { appWithTranslation } from 'next-i18next';
+import { appWithTranslation } from 'next-i18next/pages';
 
 // We will render ThemeProvider on the client side
 function ThemeProviderClient({ children }: { children: React.ReactNode }) {

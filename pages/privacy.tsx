@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/pages/serverSideTranslations';
+import { useTranslation } from 'next-i18next/pages';
 import { FiShield, FiInfo, FiDatabase, FiLock, FiPieChart, FiExternalLink, FiUserCheck, FiMail, FiAlertTriangle } from 'react-icons/fi';
 
 // Client-only component to avoid hydration errors

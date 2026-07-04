@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
+import { useTranslation } from 'next-i18next/pages';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon, FiChevronDown, FiGithub, FiMenu, FiX, FiCheck, FiAlertTriangle } from 'react-icons/fi';
 import ClientOnly from './ui/ClientOnly';
